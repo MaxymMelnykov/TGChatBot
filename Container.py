@@ -31,14 +31,19 @@ class Container:
 
     @staticmethod
     def get_price_by_type(container_type):
-        price = 0
         for container in Container.containers:
-            if container.container.type == container_type:
-                price = container.price
-        return price
+            if container.container_type == container_type:
+                return container.price
+        return 0
 
+    @staticmethod
+    def get_all_types():
+        types = []
+        for container in Container.containers:
+            types.append(container.container_type)
+        return types
 
-
+# Приклад додавання контейнерів
 Container('Підземний', 'Збільшена', 100)
 Container('Підземний', 'Стандартна', 100)
 Container('Напівпідземний', 'Профіль настил кольоровий', 150)

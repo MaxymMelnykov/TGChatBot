@@ -5,7 +5,7 @@ from Container import Container
 
 TOKEN = '7367025283:AAFahZ2L7v-YugDOLAedTkxOqQ02MbHW8jg'
 bot = telebot.TeleBot(TOKEN)
-
+ADMIN_ID = 516166196
 # Повідомлення
 START_MESSAGE = 'Привіт! \n Я бот....'
 HELP_MESSAGE = 'Питання'
@@ -70,6 +70,9 @@ CONTACTS_MESSAGE = ('<strong>Адреса компанії:</strong>\n'
                     '<strong>Пишіть, ми на зв`язку:</strong>\n'
                     'sf_els@ukr.net , elsinfo@ukr.net')
 
+# Словник для зберігання даних користувачів
+user_data = defaultdict(dict)
+
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -91,18 +94,45 @@ def callback_function(callback):
         _, response = QUESTIONS[data]
         bot.send_message(message_id, response, parse_mode='html')
     elif data in Container.get_names_containers():
-        bot.send_message(message_id, f'Виберіть тип {data.lower()} контейнера:',
-                         reply_markup=create_type_markup(data))
+        user_data[message_id]['container_name'] = data
+        bot.send_message(message_id, f'Виберіть тип {data.lower()} контейнера:', reply_markup=create_type_markup(data))
+    elif data in Container.get_all_types():
+        user_data[message_id]['container_type'] = data
+        bot.send_message(message_id, 'Введіть кількість контейнерів:')
+        bot.register_next_step_handler(callback.message, get_quantity)
 
-@bot.callback_query_handlers(callback_function = Container.containers.container_type)
-def callback_function(callback):
-    message_id = callback.message.chat.id
-    bot.send_message(message_id, 'Введіть, кількість конейнерів')
-    bot.register_next_step_handler(callback, calc)
 
-def calc(callback):
-    quant = 0
-    quant = callback.text
+def get_quantity(message):
+    message_id = message.chat.id
+    quantity = message.text
+
+    # Перевірка, що користувач ввів число
+    if not quantity.isdigit():
+        bot.send_message(message_id, 'Будь ласка, введіть числове значення.')
+        return
+
+    quantity = int(quantity)
+    user_data[message_id]['quantity'] = quantity
+
+    container_type = user_data[message_id].get('container_type')
+    price_per_unit = Container.get_price_by_type(container_type)
+
+    total_price = quantity * price_per_unit
+
+
+    notify_admin(message_id, quantity, container_type, total_price)
+
+    bot.send_message(message_id, f'Загальна вартість: {total_price} грн')
+
+def notify_admin(user_id, quantity, container_type, total_price):
+    user_info = f"Користувач ID: {user_id}"
+    details = (f"{user_info}\n"
+               f"Тип контейнера: {container_type}\n"
+               f"Кількість: {quantity}\n"
+               f"Загальна вартість: {total_price} грн")
+
+    bot.send_message(ADMIN_ID, details)
+
 def create_help_markup():
     markup = types.InlineKeyboardMarkup(row_width=1)
     for key, (text, _) in QUESTIONS.items():
@@ -122,13 +152,12 @@ def create_config_markup():
 
 
 def create_type_markup(container_name):
-    markup = types.InlineKeyboardMarkup()
+    markup = types.InlineKeyboardMarkup(row_width=1)
     container_types = Container.get_types_by_name(container_name)
     for container_type in container_types:
         markup.add(types.InlineKeyboardButton(container_type, callback_data=container_type))
     return markup
 
-def
 
 # Запуск бота
 bot.polling(none_stop=True, interval=0)
