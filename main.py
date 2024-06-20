@@ -1,3 +1,5 @@
+from math import ceil
+
 import telebot
 import os
 from telebot import types
@@ -12,12 +14,15 @@ bot = telebot.TeleBot(TOKEN)
 ADMIN_ID = 516166196
 
 # Повідомлення
-START_MESSAGE = 'Привіт! \n Я бот для конфігурації контейнерів.'
+START_MESSAGE = 'Привіт! \n Я бот.....'
 HELP_MESSAGE = 'Ось відповіді на часті запитання:'
 CONFIG_MESSAGE = 'Оберіть, чи ви звичайний покупець, чи представник ЖК.'
 
 CONFIG_CUSTOMER_MESSAGE = 'Конфігуратор контейнерів для звичайних покупців. Оберіть необхідний контейнер:'
 CONTACT_MESSAGE = 'Все ще потрібна допомога? Зв’яжіться з нами!'
+
+AR_CONFIG_SQUARE = 'Введіть площу'
+AR_CONFIG_APARTMENTS = 'Введіть кількість квартир'
 
 # Контакти
 CONTACTS = ('<strong>Адреса компанії:</strong>\n'
@@ -70,7 +75,16 @@ CONTACTS_MESSAGE = ('<strong>Адреса компанії:</strong>\n'
                     'sf_els@ukr.net , elsinfo@ukr.net')
 
 # Словник для зберігання даних користувачів
-user_data = defaultdict(lambda: {'orders': [], 'total_sum': 0})
+user_data = defaultdict(
+    lambda: {'user_type': None,
+             'area': None,
+             'apartments': None,
+             'container_name': None,
+             'container_type': None,
+             'container_material': None,
+             'container_quantity': 0,
+             'orders': [],
+             'total_sum': 0})
 
 
 @bot.message_handler(commands=['start'])
@@ -93,17 +107,128 @@ def callback_function(callback):
     elif data == 'config':
         bot.send_message(message_id, CONFIG_MESSAGE, reply_markup=create_config_markup())
     elif data == 'customer':
+        user_data[message_id]['user_type'] = data
         send_photos_with_message(message_id, Container.get_photoes_containers(), CONFIG_CUSTOMER_MESSAGE,
                                  reply_markup=create_config_customer_markup())
     elif data in Container.get_names_containers():
         user_data[message_id]['container_name'] = data
-        bot.send_message(message_id, f'Виберіть тип {data.lower()} контейнера:', reply_markup=create_type_markup(data))
+        if user_data[message_id]['user_type'] == 'customer':
+            bot.send_message(message_id, f'Виберіть тип {data.lower()} контейнера:',
+                             reply_markup=create_type_markup(data))
+
+        if user_data[message_id]['user_type'] == 'ra':
+            if data == 'Підземний':
+                calc_res = calculate_ra_count(message_id)
+                bot.send_message(message_id, f'Вам потрібно :{calc_res} контейнерів {data}, виберіть їх тип',
+                                 reply_markup=create_type_markup(data))
+
+                # Вот тут доделать после Підземного
+            elif data == 'Напівпідземний':
+                user_id = callback.message.chat.id
+                container_name = 'Напівпідземний'
+                user_data[user_id]['container_name'] = container_name
+                bot.send_message(user_id, 'Виберіть тип контейнера:',
+                                 reply_markup=create_type_markup(container_name))
     elif data in Container.get_all_types():
         user_data[message_id]['container_type'] = data
+        if user_data[message_id]['user_type'] == 'customer': # TODO: Может убрать?
+            #bot.send_message(message_id, 'Введіть кількість контейнерів:')
+            #bot.register_next_step_handler(callback.message, get_quantity)
+            photo = open(Container.get_material_photo(), 'rb')
+            bot.send_photo(message_id, photo, caption='Виберіть матеріал контейнера ',
+                           reply_markup=create_material_markup(data))
+        if user_data[message_id]['user_type'] == 'ra':
+            if user_data[message_id]['container_name'] == 'Підземний':
+                photo = open(Container.get_material_photo(), 'rb')
+                bot.send_photo(message_id, photo, caption='Виберіть матеріал контейнера ',
+                               reply_markup=create_material_markup(data))
+    elif data in Container.get_all_materials():
+        user_data[message_id]['container_material'] = data
         bot.send_message(message_id, 'Введіть кількість контейнерів:')
         bot.register_next_step_handler(callback.message, get_quantity)
+
     elif data == 'customer_end':
         get_all_purchares(callback)
+    elif data == 'ra':
+        user_id = callback.message.chat.id
+        user_data[user_id]['user_type'] = data
+        bot.send_message(user_id, "Введіть площу:")
+        bot.register_next_step_handler(callback.message, get_ra_area)
+
+
+def create_material_markup(container_type):
+    markup = types.InlineKeyboardMarkup(row_width=1)
+    materials = Container.get_materials_by_type(container_type)
+    for material in materials:
+        markup.add(types.InlineKeyboardButton(material, callback_data=material))
+    return markup
+
+
+def calculate_ra_count(user_id):
+    area = user_data[user_id]['area']
+    apartments = user_data[user_id]['apartments']
+    container_type = user_data[user_id]['container_type']
+
+    average_apartment_square = area / apartments  # Середня кількість людей в 1ій квартирі
+
+    one_apartment_people = (average_apartment_square - 10.5) / 21  # Скільки людей в одній квартирі
+    people_in_ra = ceil(one_apartment_people) * apartments  # Кількість жителів в ЖК
+
+    q = 0.0059  # Добовий  об'єм  утворення  кожного виду ПВ на одного
+    k = 1.4  # Добовий  коефіцієнт  нерівномірності  утворення  кожного
+    t = 5  # Кількість неробочих днів на рік
+    # Максимальний добовий об'єм утворення ТПВ
+    qdmax = (q * people_in_ra * 365 / (365 - t)) * k
+
+    period = 1  # Періодичність перевезення кожного виду ПВ, діб,
+    repair = 1.05  # Коефіцієнт,  який  враховує  кількість контейнерів, що враховує кількість контейнеів у ремонті
+    if user_data[user_id]['container_type'] is None:
+        C = 5
+    else:
+        C = Container.get_volume_by_type(container_type)  # Місткість одного контейнера, куб.м.
+
+    full = 0.9  # коефіцієнт заповнення контейнера.
+
+    # Кількість контейнерів рекомендується визначати за формулою:
+    # N = (Qдmax * t * 1, 4 * 1, 05) / (5 * 0, 9)
+    N = (qdmax * period * k * repair) / (C * full)
+    return ceil(N)
+
+
+def get_ra_area(message):
+    user_id = message.chat.id
+    try:
+        area = float(message.text)
+        user_data[user_id]['area'] = area
+        bot.send_message(user_id, "Введіть кількість квартир:")
+        bot.register_next_step_handler(message, get_ra_apartments)
+    except ValueError:
+        bot.send_message(user_id, "Будь, ласка введіть числове значення.")
+        bot.register_next_step_handler(message, get_ra_area)
+
+
+def get_ra_apartments(message):
+    user_id = message.chat.id
+    try:
+        apartments = int(message.text)
+        user_data[user_id]['apartments'] = apartments
+        send_photos_with_message(user_id, [Container.get_photo_by_name('Підземний'),
+                                           Container.get_photo_by_name('Напівпідземний')],
+                                 caption='Виберіть назву контейнера', reply_markup=create_get_ra_name_markup())
+    except ValueError:
+        bot.send_message(user_id, "Будь, ласка, введіть числове значення.")
+        bot.register_next_step_handler(message, get_ra_apartments)
+
+
+# def get_ar_name(message):
+# user_id = message.chat.id
+
+
+def create_get_ra_name_markup():
+    markup = types.InlineKeyboardMarkup(row_width=1)
+    markup.add(types.InlineKeyboardButton('Підземний', callback_data='Підземний'))
+    markup.add(types.InlineKeyboardButton('Напівпідземний', callback_data='Напівпідземний'))
+    return markup
 
 
 def get_quantity(message):
@@ -112,18 +237,19 @@ def get_quantity(message):
 
     try:
         quantity = int(quantity_text)
-        user_data[message_id]['quantity'] = quantity
+        user_data[message_id]['container_quantity'] = quantity
 
-        container_name = user_data[message_id].get('container_name')
-        container_photo_path = Container.get_photo_by_name(container_name)
+        container_name = user_data[message_id]['container_name']
+        container_type = user_data[message_id]['container_type']
+        container_material = user_data[message_id]['container_material']
+        container_photo_path = Container.get_photo_by_name(container_name) # TODO: переписать
 
         if not container_photo_path:
             raise FileNotFoundError("No photo path found for container.")
 
         with open(container_photo_path, 'rb') as container_photo:
-            container_type = user_data[message_id].get('container_type')
-            price_per_unit = Container.get_price_by_type(container_type)
-
+            price_per_unit = Container.get_price_of_container_by_all_data(container_name, container_type, container_material)
+            bot.send_message(message_id, f'ВИ обрали {container_name}, {container_type}, {container_material}, : {price_per_unit}')
             total_price = quantity * price_per_unit
             user_data[message_id]['total_sum'] += total_price
             user_data[message_id]['orders'].append({
@@ -150,7 +276,7 @@ def get_all_purchares(callback):
     orders = user_data[message_id].get('orders', [])
 
     if not isinstance(orders, list):
-        bot.send_message(message_id, "Invalid order data.")
+        bot.send_message(message_id, "Немає даних про замовлення.")
         return
 
     container_names = []
@@ -177,6 +303,7 @@ def get_all_purchares(callback):
 
     clear_user_data(message_id)
 
+
 # Відправлення менеджеру повідомлення про нове замовлення.
 def notify_admin(user_id, user_username, user_name, container_names, container_quantities, container_types,
                  total_price):
@@ -192,9 +319,11 @@ def notify_admin(user_id, user_username, user_name, container_names, container_q
 
     bot.send_message(ADMIN_ID, details)
 
+
 def clear_user_data(user_id):
     if user_id in user_data:
         del user_data[user_id]
+
 
 # Відправлення повідомлення із зображеннями
 def send_photos_with_message(chat_id, photo_paths, caption, reply_markup=None):
@@ -261,7 +390,6 @@ def create_order_navigation_markup():
     markup.add(types.InlineKeyboardButton('Доповнити замовлення', callback_data='customer'))
     markup.add(types.InlineKeyboardButton('Завершити замовлення', callback_data='customer_end'))
     return markup
-
 
 
 # Запуск бота
