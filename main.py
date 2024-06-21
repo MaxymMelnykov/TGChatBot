@@ -77,12 +77,15 @@ CONTACTS_MESSAGE = ('<strong>Адреса компанії:</strong>\n'
 # Словник для зберігання даних користувачів
 user_data = defaultdict(
     lambda: {'user_type': None,
+             'container_calc_res_ra': 0,
+             'container_quantity_of_all_orders' : 0,
              'area': None,
              'apartments': None,
              'container_name': None,
              'container_type': None,
              'container_material': None,
              'container_quantity': 0,
+             'container_underground_sensor': False,
              'orders': [],
              'total_sum': 0})
 
@@ -119,33 +122,42 @@ def callback_function(callback):
         if user_data[message_id]['user_type'] == 'ra':
             if data == 'Підземний':
                 calc_res = calculate_ra_count(message_id)
-                bot.send_message(message_id, f'Вам потрібно :{calc_res} контейнерів {data}, виберіть їх тип',
+                all_quantity = user_data[message_id]['container_quantity_of_all_orders']
+                container_need_more = calc_res - all_quantity
+                bot.send_message(message_id, f'Вам потрібно :{container_need_more} контейнерів {data}, виберіть їх тип',
                                  reply_markup=create_type_markup(data))
 
-                # Вот тут доделать после Підземного
             elif data == 'Напівпідземний':
-                user_id = callback.message.chat.id
                 container_name = 'Напівпідземний'
-                user_data[user_id]['container_name'] = container_name
-                bot.send_message(user_id, 'Виберіть тип контейнера:',
+                user_data[message_id]['container_name'] = container_name
+                bot.send_message(message_id, 'Виберіть тип контейнера:',
                                  reply_markup=create_type_markup(container_name))
+
     elif data in Container.get_all_types():
         user_data[message_id]['container_type'] = data
-        if user_data[message_id]['user_type'] == 'customer': # TODO: Может убрать?
-            #bot.send_message(message_id, 'Введіть кількість контейнерів:')
-            #bot.register_next_step_handler(callback.message, get_quantity)
+        if user_data[message_id]['container_name'] == 'Підземний':
             photo = open(Container.get_material_photo(), 'rb')
             bot.send_photo(message_id, photo, caption='Виберіть матеріал контейнера ',
                            reply_markup=create_material_markup(data))
-        if user_data[message_id]['user_type'] == 'ra':
-            if user_data[message_id]['container_name'] == 'Підземний':
-                photo = open(Container.get_material_photo(), 'rb')
-                bot.send_photo(message_id, photo, caption='Виберіть матеріал контейнера ',
-                               reply_markup=create_material_markup(data))
+        elif user_data[message_id]['user_type'] == 'ra' and user_data[message_id]['container_name'] == 'Напівпідземний':
+            calc_res = calculate_ra_count(message_id)
+            all_quantity = user_data[message_id]['container_quantity_of_all_orders']
+            container_need_more = calc_res - all_quantity
+            photo = open(Container.get_material_photo(), 'rb')
+            bot.send_photo(message_id,photo, caption=f'Вам потрібно {container_need_more} контейнерів, виберіть їх матеріал', reply_markup=create_material_markup(data))
+        else:
+            bot.send_message(message_id, 'Введіть кількість контейнерів:')
+            bot.register_next_step_handler(callback.message, get_quantity)
+
     elif data in Container.get_all_materials():
         user_data[message_id]['container_material'] = data
-        bot.send_message(message_id, 'Введіть кількість контейнерів:')
-        bot.register_next_step_handler(callback.message, get_quantity)
+        if user_data[message_id]['container_name'] != 'Підземний':
+            bot.send_message(message_id, 'Введіть кількість контейнерів:')
+            bot.register_next_step_handler(callback.message, get_quantity)
+        else:
+            bot.send_message(message_id,
+                             'У підземних контейнерів є опція датчику наповнення, виберіть, чи потрібна вона Вам',
+                             reply_markup=create_sensor_markup())
 
     elif data == 'customer_end':
         get_all_purchares(callback)
@@ -154,6 +166,13 @@ def callback_function(callback):
         user_data[user_id]['user_type'] = data
         bot.send_message(user_id, "Введіть площу:")
         bot.register_next_step_handler(callback.message, get_ra_area)
+    elif data == 'true' or data == 'false':
+        if data == 'true':
+            user_data[message_id]['container_underground_sensor'] = True
+        if data == 'false':
+            user_data[message_id]['container_underground_sensor'] = False
+        bot.send_message(message_id, 'Введіть кількість контейнерів:')
+        bot.register_next_step_handler(callback.message, get_quantity)
 
 
 def create_material_markup(container_type):
@@ -172,7 +191,9 @@ def calculate_ra_count(user_id):
     average_apartment_square = area / apartments  # Середня кількість людей в 1ій квартирі
 
     one_apartment_people = (average_apartment_square - 10.5) / 21  # Скільки людей в одній квартирі
-    people_in_ra = ceil(one_apartment_people) * apartments  # Кількість жителів в ЖК
+
+    people_in_ra = ceil(one_apartment_people * apartments)  # Кількість жителів в ЖК
+
 
     q = 0.0059  # Добовий  об'єм  утворення  кожного виду ПВ на одного
     k = 1.4  # Добовий  коефіцієнт  нерівномірності  утворення  кожного
@@ -192,6 +213,7 @@ def calculate_ra_count(user_id):
     # Кількість контейнерів рекомендується визначати за формулою:
     # N = (Qдmax * t * 1, 4 * 1, 05) / (5 * 0, 9)
     N = (qdmax * period * k * repair) / (C * full)
+    user_data[user_id]['container_calc_res_ra'] = ceil(N)
     return ceil(N)
 
 
@@ -231,6 +253,13 @@ def create_get_ra_name_markup():
     return markup
 
 
+def create_sensor_markup():
+    markup = types.InlineKeyboardMarkup(row_width=1)
+    markup.add(types.InlineKeyboardButton('З датчиком', callback_data='true'))
+    markup.add(types.InlineKeyboardButton('Без датчику', callback_data='false'))
+    return markup
+
+
 def get_quantity(message):
     message_id = message.chat.id
     quantity_text = message.text
@@ -239,18 +268,76 @@ def get_quantity(message):
         quantity = int(quantity_text)
         user_data[message_id]['container_quantity'] = quantity
 
+        user_data[message_id]['container_quantity_of_all_orders'] += quantity
+        container_quantity_of_all_orders = user_data[message_id]['container_quantity_of_all_orders']
+        container_needed_for_ra = user_data[message_id]['container_calc_res_ra']
+        user_type = user_data[message_id]['user_type']
         container_name = user_data[message_id]['container_name']
         container_type = user_data[message_id]['container_type']
         container_material = user_data[message_id]['container_material']
-        container_photo_path = Container.get_photo_by_name(container_name) # TODO: переписать
+        container_photo_path = Container.get_photo_by_name(container_name)  # TODO: переписать
+        container_underground_sensor = user_data[message_id]['container_underground_sensor']
 
         if not container_photo_path:
             raise FileNotFoundError("No photo path found for container.")
 
         with open(container_photo_path, 'rb') as container_photo:
-            price_per_unit = Container.get_price_of_container_by_all_data(container_name, container_type, container_material)
-            bot.send_message(message_id, f'ВИ обрали {container_name}, {container_type}, {container_material}, : {price_per_unit}')
+            if container_name == 'Підземний' or container_name == 'Напівпідземний':
+                price_per_unit = Container.get_price_of_container_by_all_data(container_name, container_type,
+                                                                              container_material)
+            else:
+                price_per_unit = Container.get_price_by_type(container_type)
+
+            sesor_cost = 200
+            if container_underground_sensor:
+                price_per_unit += sesor_cost
+            sensor_message = 'без датчику'
+            if container_underground_sensor:
+                sensor_message = 'з датчиком'
+
             total_price = quantity * price_per_unit
+            if user_type == 'customer':
+                if container_name == 'Підземний':
+                    bot.send_photo(message_id, container_photo,
+                                   caption=f'Ваше замовлення: \n Контейнер виду {container_name} типу {container_type}, матеріал {container_material}, {sensor_message} в кількості {quantity}.\n'
+                                           f'Сума замовлення: {total_price} грн\n',
+                                   reply_markup=create_order_navigation_markup(message_id))
+                elif container_name == 'Напівпідземний':
+                    bot.send_photo(message_id, container_photo,
+                                   caption=f'Ваше замовлення: \n Контейнер виду {container_name} типу {container_type}, матеріал {container_material} в кількості {quantity}.\n'
+                                           f'Сума замовлення: {total_price} грн\n',
+                                   reply_markup=create_order_navigation_markup(message_id))
+                else:
+                    bot.send_photo(message_id, container_photo,
+                                   caption=f'Ваше замовлення: \n Контейнер виду {container_name} типу {container_type} в кількості {quantity}.\n'
+                                           f'Сума замовлення: {total_price} грн\n',
+                                   reply_markup=create_order_navigation_markup(message_id))
+            elif user_type == 'ra':
+                container_need_more = container_needed_for_ra - container_quantity_of_all_orders
+                if container_name == 'Підземний':
+                    if container_need_more != 0:
+                        bot.send_photo(message_id, container_photo,
+                                       caption=f'Для вашого ЖК потрібно ще {container_need_more} контейнерів, чи бажаєте дозамовити?\n'
+                                               f'Ваше замовлення: \n Контейнер виду {container_name} типу {container_type}, матеріал {container_material}, {sensor_message} в кількості {quantity}.\n'
+                                               f'Сума замовлення: {total_price} грн\n',
+                                       reply_markup=create_order_navigation_markup(message_id))
+                    else:
+                        bot.send_photo(message_id, container_photo,
+                                       caption=f'Ваше замовлення: \n Контейнер виду {container_name} типу {container_type}, матеріал {container_material}, {sensor_message} в кількості {quantity}.\n'
+                                               f'Сума замовлення: {total_price} грн\n',
+                                       reply_markup=create_order_navigation_markup(message_id))
+                elif container_name == 'Напівпідземний':
+                    if container_need_more != 0:
+                        bot.send_photo(message_id, container_photo,
+                                       caption=f'Для вашого ЖК потрібно ще {container_need_more} контейнерів, чи бажаєте дозамовити?\n'
+                                               f'Ваше замовлення: \n Контейнер виду {container_name} типу {container_type}, матеріал {container_material} в кількості {quantity}.\n'
+                                               f'Сума замовлення: {total_price} грн\n',
+                                       reply_markup=create_order_navigation_markup(message_id))
+                    else:
+                        bot.send_photo(message_id, container_photo,
+                                   caption=f'Ваше замовлення: \n Контейнер виду {container_name} типу {container_type}, матеріал {container_material} в кількості {quantity}.\n'
+                                           f'Сума замовлення: {total_price} грн\n',
+                                   reply_markup=create_order_navigation_markup(message_id))
             user_data[message_id]['total_sum'] += total_price
             user_data[message_id]['orders'].append({
                 'container_name': container_name,
@@ -260,10 +347,7 @@ def get_quantity(message):
                 'photo': container_photo_path,
             })
 
-            bot.send_photo(message_id, container_photo,
-                           caption=f'Ваше замовлення: {container_name} типу {container_type} в кількості {quantity}.\n'
-                                   f'Сума замовлення: {total_price} грн\n',
-                           reply_markup=create_order_navigation_markup())
+
     except FileNotFoundError as e:
         bot.send_message(message_id, str(e))
     except ValueError:
@@ -385,10 +469,15 @@ def create_type_markup(container_name):
     return markup
 
 
-def create_order_navigation_markup():
+def create_order_navigation_markup(message_id):
     markup = types.InlineKeyboardMarkup(row_width=1)
-    markup.add(types.InlineKeyboardButton('Доповнити замовлення', callback_data='customer'))
-    markup.add(types.InlineKeyboardButton('Завершити замовлення', callback_data='customer_end'))
+    if user_data[message_id]['user_type'] == 'customer':
+        markup.add(types.InlineKeyboardButton('Доповнити замовлення', callback_data='customer'))
+        markup.add(types.InlineKeyboardButton('Завершити замовлення', callback_data='customer_end'))
+    else:
+        container_name = user_data[message_id]['container_name']
+        markup.add(types.InlineKeyboardButton('Доповнити замовлення', callback_data=container_name))
+        markup.add(types.InlineKeyboardButton('Завершити замовлення', callback_data='customer_end'))
     return markup
 
 
