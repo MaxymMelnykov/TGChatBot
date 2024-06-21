@@ -1,12 +1,13 @@
 class Container:
     containers = []
 
-    def __init__(self, container_name, name_photo, container_material, container_type, volume, price):
+    def __init__(self, container_name, name_photo, container_material, container_type,container_type_photo, volume, price):
         self.container_name = container_name
         self.name_photo = name_photo
         self.container_material = container_material
         #self.material_photo = './resources/materials.jpg' # Потом возможно поменять если будут фото других материалов
         self.container_type = container_type
+        self.container_type_photo = container_type_photo
         self.volume = volume
         self.price = price
         Container.containers.append(self)
@@ -57,12 +58,6 @@ class Container:
             materials.append(container.container_material)
         return materials
 
-    @staticmethod
-    def get_all_types():
-        types = []
-        for container in Container.containers:
-            types.append(container.container_type)
-        return types
 
     @staticmethod
     def get_photoes_containers():
@@ -106,34 +101,48 @@ class Container:
             if container.container_type == container_type:
                 volume = container.volume
         return volume
+    @staticmethod
+    def get_photo_by_type(container_type):
+        photo = ''
+        for container in Container.containers:
+            if container.container_type == container_type:
+                photo = container.container_type_photo
+        return photo
+    @staticmethod
+    def get_all_type_photos_by_name(container_name):
+        photoes = []
+        types = Container.get_types_by_name(container_name)
+        for type in types:
+            photoes.append(Container.get_photo_by_type(type))
+        return photoes
 
 
 # Приклад додавання контейнерів
-Container('Підземний', './resources/pidzemniy.png', 'Профіль настил кольоровий', 'Збільшена (120л)', 5, 100)
-Container('Підземний', './resources/pidzemniy.png', 'Сталь нержавіюча перфорована', 'Збільшена (120л)', 5, 100)
-Container('Підземний', './resources/pidzemniy.png', 'Деревина різних порід', 'Збільшена (120л)', 5, 100)
-Container('Підземний', './resources/pidzemniy.png', 'Профіль настил кольоровий', 'Звичайна (50л)', 5, 100)
-Container('Підземний', './resources/pidzemniy.png', 'Сталь нержавіюча перфорована', 'Звичайна (50л)', 5, 100)
-Container('Підземний', './resources/pidzemniy.png', 'Деревина різних порід', 'Звичайна (50л)', 5, 100)
-Container('Напівпідземний', './resources/pivpidzemniy.png', 'Профіль настил кольоровий', 'Об`єм 2,5 м^3', 2.5, 150)
-Container('Напівпідземний', './resources/pivpidzemniy.png', 'Профіль настил кольоровий', 'Об`єм 3,8 м^3', 3.8, 200)
-Container('Напівпідземний', './resources/pivpidzemniy.png', 'Профіль настил кольоровий', 'Об`єм 5.0 м^3', 5.0, 300)
-Container('Напівпідземний', './resources/pivpidzemniy.png', 'Сталь нержавіюча перфорована', 'Об`єм 2,5 м^3', 2.5, 200)
-Container('Напівпідземний', './resources/pivpidzemniy.png', 'Сталь нержавіюча перфорована', 'Об`єм 3,8 м^3', 3.8, 250)
-Container('Напівпідземний', './resources/pivpidzemniy.png', 'Сталь нержавіюча перфорована', 'Об`єм 5.0 м^3', 5.0, 350)
-Container('Напівпідземний', './resources/pivpidzemniy.png', 'Деревина різних порід', 'Об`єм 2,5 м^3', 2.5, 150)
-Container('Напівпідземний', './resources/pivpidzemniy.png', 'Деревина різних порід', 'Об`єм 3,8 м^3', 3.8, 250)
-Container('Напівпідземний', './resources/pivpidzemniy.png', 'Деревина різних порід', 'Об`єм 5.0 м^3', 5.0, 350)
-Container('Сортувальний', './resources/sortyvalniy.png', 'Матеріал', '3в1 330 літрів', 0, 120)
-Container('Сортувальний', './resources/sortyvalniy.png', 'Матеріал', '3в1 540 літрів', 0, 120)
-Container('Сортувальний', './resources/sortyvalniy.png', 'Матеріал', 'Дзвін', 0, 120)
-Container('Сортувальний', './resources/sortyvalniy.png', 'Матеріал', 'Трапеція', 0, 120)
-Container('Для небезпечних відходів', './resources/kontainer for nebezpech.png', 'Матеріал', 0, 'Звичайний', 120)
-Container('Для небезпечних відходів', './resources/kontainer for nebezpech.png', 'Матеріал', 0, 'Сіті-Лайт', 120)
-Container('Вулична урна', './resources/vylurna.png', 'Матеріал', 'Для сміття різних фракцій', 0, 120)
-Container('Вулична урна', './resources/vylurna.png', 'Матеріал', 'Для сміття з попільничкою', 0, 120)
-Container('Вулична урна', './resources/vylurna.png', 'Матеріал', 'З дерев`яними вставками', 0, 120)
-Container('Вулична урна', './resources/vylurna.png', 'Матеріал', 'Для використаних стаканчиків', 0, 120)
+Container('Підземний', './resources/pidzemniy.jpg', 'Профіль настил кольоровий', 'Збільшена (120л)','./resources/pidzemniy_type_big.jpg', 5, 100)
+Container('Підземний', './resources/pidzemniy.jpg', 'Сталь нержавіюча перфорована', 'Збільшена (120л)','./resources/pidzemniy_type_big.jpg', 5, 100)
+Container('Підземний', './resources/pidzemniy.jpg', 'Деревина різних порід', 'Збільшена (120л)','./resources/pidzemniy_type_big.jpg', 5, 100)
+Container('Підземний', './resources/pidzemniy.jpg', 'Профіль настил кольоровий', 'Звичайна (50л)','./resources/pidzemniy_type_normal.jpg', 5, 100)
+Container('Підземний', './resources/pidzemniy.jpg', 'Сталь нержавіюча перфорована', 'Звичайна (50л)','./resources/pidzemniy_type_normal.jpg', 5, 100)
+Container('Підземний', './resources/pidzemniy.jpg', 'Деревина різних порід', 'Звичайна (50л)','./resources/pidzemniy_type_normal.jpg', 5, 100)
+Container('Напівпідземний', './resources/napivpidzemniy.jpg', 'Профіль настил кольоровий', 'Об`єм 2,5 м^3','./resources/napivpidzemniy_type_25.jpg', 2.5, 150)
+Container('Напівпідземний', './resources/napivpidzemniy.jpg', 'Профіль настил кольоровий', 'Об`єм 3,8 м^3','./resources/napivpidzemniy_type_38.png', 3.8, 200)
+Container('Напівпідземний', './resources/napivpidzemniy.jpg', 'Профіль настил кольоровий', 'Об`єм 5.0 м^3','./resources/napivpidzemniy_type_50.jpg', 5.0, 300)
+Container('Напівпідземний', './resources/napivpidzemniy.jpg', 'Сталь нержавіюча перфорована', 'Об`єм 2,5 м^3','./resources/napivpidzemniy_type_25.jpg', 2.5, 200)
+Container('Напівпідземний', './resources/napivpidzemniy.jpg', 'Сталь нержавіюча перфорована', 'Об`єм 3,8 м^3','./resources/napivpidzemniy_type_38.png', 3.8, 250)
+Container('Напівпідземний', './resources/napivpidzemniy.jpg', 'Сталь нержавіюча перфорована', 'Об`єм 5.0 м^3','./resources/napivpidzemniy_type_50.jpg', 5.0, 350)
+Container('Напівпідземний', './resources/napivpidzemniy.jpg', 'Деревина різних порід', 'Об`єм 2,5 м^3','./resources/napivpidzemniy_type_25.jpg', 2.5, 150)
+Container('Напівпідземний', './resources/napivpidzemniy.jpg', 'Деревина різних порід', 'Об`єм 3,8 м^3','./resources/napivpidzemniy_type_38.png', 3.8, 250)
+Container('Напівпідземний', './resources/napivpidzemniy.jpg', 'Деревина різних порід', 'Об`єм 5.0 м^3','./resources/napivpidzemniy_type_50.jpg', 5.0, 350)
+Container('Сортувальний', './resources/sortyvalniy.png', 'Матеріал', '3в1 330 літрів','./resources/sortyvalniy_3v1_330.png', 0, 120)
+Container('Сортувальний', './resources/sortyvalniy.png', 'Матеріал', '3в1 540 літрів','./resources/sortyvalniy_3v1_540.png', 0, 120)
+Container('Сортувальний', './resources/sortyvalniy.png', 'Матеріал', 'Дзвін','./resources/sortyvalniy_dzvin.png', 0, 120)
+Container('Сортувальний', './resources/sortyvalniy.png', 'Матеріал', 'Трапеція','./resources/sortyvalniy_trap.png', 0, 120)
+Container('Для небезпечних відходів', './resources/dlya_nebezpech.png', 'Матеріал',  'Звичайний','./resources/dlya_nebezpech_standart.png',0, 120)
+Container('Для небезпечних відходів', './resources/dlya_nebezpech.png', 'Матеріал',  'Сіті-Лайт','./resources/dlya_nebezpech_city_light.png',0, 120)
+Container('Вулична урна', './resources/vylurna.png', 'Матеріал', 'Для сміття різних фракцій','.resources/vylurn_rizn_frac.png', 0, 120)
+Container('Вулична урна', './resources/vylurna.png', 'Матеріал', 'Для сміття з попільничкою','./resources/vylurn_with_popil.png', 0, 120)
+Container('Вулична урна', './resources/vylurna.png', 'Матеріал', 'З дерев`яними вставками','./resources/vylurn_with_der.png', 0, 120)
+Container('Вулична урна', './resources/vylurna.png', 'Матеріал', 'Для використаних стаканчиків','./resources/vylurn_rizn_frac.png', 0, 120)
 
 print(Container.get_photo_by_name('Сортувальний'))
 
