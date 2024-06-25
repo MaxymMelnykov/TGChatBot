@@ -445,7 +445,7 @@ def notify_admin(callback, orders):
         f"<b>🚨 Нове замовлення від клієнта 🚨</b>\n"
         f"<b>🆔ID користувача: </b> {user_id}\n"
         f"<b>👤Ім'я користувача: </b> {user_name}\n"
-        f"<b>📧Username користувача: </b> {user_username}\n",
+        f"<b>📧Username користувача: </b> @{user_username}\n",
         f"<b>💵Загальна сума:</b> {total_sum} грн",
         "-----------------------------------------------"
     ]
@@ -458,34 +458,34 @@ def notify_admin(callback, orders):
                 sensor_message = '❌'
             message_lines.append(
                 f"№{idx}:\n"
-                f"🗑Контейнер:  {order['container_name']}\n"
-                f"🏷Тип:  {order['container_type']}\n"
-                f"🧱Матеріал:  {order['container_material']}\n"
-                f"📡Сенсор:  {sensor_message}\n"
+                f"🗑Контейнер: {order['container_name']}\n"
+                f"🏷Тип: {order['container_type']}\n"
+                f"🧱Матеріал: {order['container_material']}\n"
+                f"📡Сенсор: {sensor_message}\n"
                 f"1️⃣Ціна за контейнер: {order['total_price'] / order['quantity']} грн\n"
-                f"🔢Кількість:  {order['quantity']} шт.\n"
-                f"💵Сума:  {order['total_price']} грн\n"
+                f"🔢Кількість: {order['quantity']} шт.\n"
+                f"💵Сума: {order['total_price']} грн\n"
                 '-----------------------------------------------'
             )
         elif order['container_name'] == 'Напівпідземний':
             message_lines.append(
                 f"№{idx}:\n"
-                f"🗑Контейнер:  {order['container_name']}\n"
-                f"🏷Тип:  {order['container_type']}\n"
-                f"🧱Матеріал:  {order['container_material']}\n"
-                f"1️⃣Ціна за контейнер:  {order['total_price'] / order['quantity']} грн\n"
-                f"🔢Кількість:  {order['quantity']} шт.\n"
-                f"💵Сума:  {order['total_price']} грн\n"
+                f"🗑Контейнер: {order['container_name']}\n"
+                f"🏷Тип: {order['container_type']}\n"
+                f"🧱Матеріал: {order['container_material']}\n"
+                f"1️⃣Ціна за контейнер: {order['total_price'] / order['quantity']} грн\n"
+                f"🔢Кількість: {order['quantity']} шт.\n"
+                f"💵Сума: {order['total_price']} грн\n"
                 '-----------------------------------------------'
             )
         else:
             message_lines.append(
                 f"№{idx}:\n"
-                f"🗑Контейнер:  {order['container_name']}\n"
-                f"🏷Тип:  {order['container_type']}\n"
-                f"1️⃣Ціна за контейнер:  {order['total_price'] / order['quantity']} грн\n"
-                f"🔢Кількість:  {order['quantity']} шт.\n"
-                f"💵Сума:  {order['total_price']} грн\n"
+                f"🗑Контейнер: {order['container_name']}\n"
+                f"🏷Тип: {order['container_type']}\n"
+                f"1️⃣Ціна за контейнер: {order['total_price'] / order['quantity']} грн\n"
+                f"🔢Кількість: {order['quantity']} шт.\n"
+                f"💵Сума: {order['total_price']} грн\n"
                 '-----------------------------------------------')
 
     message = "\n".join(message_lines)
