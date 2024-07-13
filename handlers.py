@@ -47,11 +47,11 @@ def get_wall_width(message):
             width = int(message.text)
             if width < 2 or width > 5:
                 bot.send_message(message_id, 'Ви ввели некорректну товщину стінок контейнерів.\n'
-                                             'Введіть бажану товщину стінок контейнерів:')
+                                             '✍🏻 Введіть бажану товщину стінок контейнерів:')
                 bot.register_next_step_handler(message, get_wall_width)
             else:
                 user_data[message_id]['container_width'] = width
-                bot.send_message(message_id, 'Введіть бажану кількість контейнерів: ')
+                bot.send_message(message_id, '✍🏻 Введіть бажану кількість контейнерів: ')
                 bot.register_next_step_handler(message, get_quantity)
         except ValueError:
             bot.send_message(message_id, VALUE_ERROR_MESSAGE)
@@ -178,7 +178,7 @@ def get_all_purchases(message):
         f"<b>🎉Вітаємо, Ви успішно створили нове замовлення!</b>\n"
         f"Очікуйте на повідомлення від нашого менеджера\n\n"
         f"<b>Ваше замовлення:</b>",
-        f"<b>Загальна сума:</b> від {total_sum} $",
+        f"<b>💵 Загальна сума:</b> від {total_sum} $",
         "----------------------------------------"
     ]
 
@@ -190,35 +190,35 @@ def get_all_purchases(message):
                 sensor_message = '❌'
             message_lines.append(
                 f"№{idx}:\n"
-                f"🗑Контейнер:  {order['container_name']}\n"
-                f"🏷Тип:  {order['container_type']}\n"
-                f"🧱Матеріал:  {order['container_material']}\n"
-                f"📡Сенсор:  {sensor_message}\n"
-                f"1️⃣Ціна за контейнер: {order['total_price'] / order['quantity']} $\n"
-                f"🔢Кількість:  {order['quantity']} шт.\n"
-                f"💵Сума:  від {order['total_price']} $\n"
+                f"🗑 <b>Контейнер:</b>  {order['container_name']}\n"
+                f"🏷 <b>Тип:</b>  {order['container_type']}\n"
+                f"🧱 <b>Матеріал:</b>  {order['container_material']}\n"
+                f"📡 <b>Сенсор:</b>  {sensor_message}\n"
+                f"1️⃣ <b>Ціна за контейнер:</b> від {order['total_price'] / order['quantity']} $\n"
+                f"🔢 <b>Кількість:</b>  {order['quantity']} шт.\n"
+                f"💵 <b>Сума:</b>  від {order['total_price']} $\n"
                 '----------------------------------------'
             )
         elif order['container_name'] == 'Напівпідземний':
             message_lines.append(
                 f"№{idx}:\n"
-                f"🗑Контейнер:  {order['container_name']}\n"
-                f"🏷Тип:  {order['container_type']}\n"
-                f"🧱Матеріал:  {order['container_material']}\n"
-                f"1️⃣Ціна за контейнер:  {order['total_price'] / order['quantity']} $\n"
-                f"🔢Кількість:  {order['quantity']} шт.\n"
-                f"💵Сума:  {order['total_price']} $\n"
+                f"🗑 <b>Контейнер:</b>  {order['container_name']}\n"
+                f"🏷 <b>Тип:</b>  {order['container_type']}\n"
+                f"🧱 <b>Матеріал:</b>  {order['container_material']}\n"
+                f"1️⃣ <b>Ціна за контейнер:</b> від {order['total_price'] / order['quantity']} $\n"
+                f"🔢 <b>Кількість:</b>  {order['quantity']} шт.\n"
+                f"💵 <b>Сума:</b>  від {order['total_price']} $\n"
                 '----------------------------------------'
             )
         else:
             message_lines.append(
                 f"№{idx}:\n"
-                f"🗑Контейнер:  {order['container_name']}\n"
-                f"🏷Тип:  {order['container_type']}\n"
-                f"{f'📏<b>Товщина стінки:</b> {order['container_width']}\n' if order['container_width'] > 0 else ''}"
-                f"1️⃣Ціна за контейнер:  від {order['total_price'] / order['quantity']} $\n"
-                f"🔢Кількість:  {order['quantity']} шт.\n"
-                f"💵Сума:  від {order['total_price']} $\n"
+                f"🗑 <b>Контейнер:</b>  {order['container_name']}\n"
+                f"🏷 <b>Тип:</b>  {order['container_type']}\n"
+                f"{f'📏 <b>Товщина стінки:</b> {order['container_width']}\n' if order['container_width'] > 0 else ''}"
+                f"1️⃣ <b>Ціна за контейнер:</b> від {order['total_price'] / order['quantity']} $\n"
+                f"🔢 <b>Кількість:</b>  {order['quantity']} шт.\n"
+                f"💵 <b>Сума:</b>  від {order['total_price']} $\n"
                 '----------------------------------------')
 
     message_lines.append(
@@ -265,12 +265,12 @@ def notify_admin(message, orders):
     total_sum = user_data[message_id]['total_sum']
     message_lines = [
         f"<b>🚨 Нове замовлення від клієнта 🚨</b>\n"
-        f"<b>🆔ID користувача: </b> {user_id}\n"
-        f"<b>👤Ім'я користувача: </b> {user_name}\n"
-        f"<b>📧Username користувача: </b> @{user_username}\n"
-        f"<b> Моб телефон користувача: </b> {user_telephone_number}\n",
-        f"<b>💵Загальна сума:</b> від {total_sum} $",
-        "-----------------------------------------------"
+        f"<b>🆔 ID користувача: </b> {user_id}\n"
+        f"<b>👤 Ім'я користувача: </b> {user_name}\n"
+        f"<b>📧 Username користувача: </b> @{user_username}\n"
+        f"<b>📱 Моб телефон користувача: </b> {user_telephone_number}\n",
+        f"<b>💵 Загальна сума:</b> від {total_sum} $",
+        "-----------------------------------------"
     ]
 
     for idx, order in enumerate(orders, start=1):
@@ -281,14 +281,14 @@ def notify_admin(message, orders):
                 sensor_message = '❌'
             message_lines.append(
                 f"№{idx}:\n"
-                f"🗑Контейнер: {order['container_name']}\n"
-                f"🏷Тип: {order['container_type']}\n"
-                f"🧱Матеріал: {order['container_material']}\n"
-                f"📡Сенсор: {sensor_message}\n"
-                f"1️⃣Ціна за контейнер: від {order['total_price'] / order['quantity']} $\n"
-                f"🔢Кількість: {order['quantity']} шт.\n"
-                f"💵Сума: від {order['total_price']} $\n"
-                '-----------------------------------------------'
+                f"🗑 Контейнер: {order['container_name']}\n"
+                f"🏷 Тип: {order['container_type']}\n"
+                f"🧱 Матеріал: {order['container_material']}\n"
+                f"📡 Сенсор: {sensor_message}\n"
+                f"1️⃣ Ціна за контейнер: від {order['total_price'] / order['quantity']} $\n"
+                f"🔢 Кількість: {order['quantity']} шт.\n"
+                f"💵 Сума: від {order['total_price']} $\n"
+                '-----------------------------------------'
             )
         elif order['container_name'] == 'Напівпідземний':
             message_lines.append(
@@ -299,7 +299,7 @@ def notify_admin(message, orders):
                 f"1️⃣Ціна за контейнер: від {order['total_price'] / order['quantity']} $\n"
                 f"🔢Кількість: {order['quantity']} шт.\n"
                 f"💵Сума: від {order['total_price']} $\n"
-                '-----------------------------------------------'
+                '-----------------------------------------'
             )
         else:
             message_lines.append(
@@ -310,9 +310,9 @@ def notify_admin(message, orders):
                 f"1️⃣Ціна за контейнер: від {order['total_price'] / order['quantity']} $\n"
                 f"🔢Кількість: {order['quantity']} шт.\n"
                 f"💵Сума: від {order['total_price']} $\n"
-                '-----------------------------------------------')
+                '-----------------------------------------')
 
     message = "\n".join(message_lines)
 
     bot.send_message(ADMIN_ID, message, parse_mode='HTML')
-    bot.send_message(ADMIN_ID_SECOND, message, parse_mode='HTML')
+    #bot.send_message(ADMIN_ID_SECOND, message, parse_mode='HTML')

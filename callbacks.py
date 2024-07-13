@@ -103,10 +103,10 @@ def setup_callbacks(bot):
                     max_width = 5
                     if data == 'Для сміття різних фракцій':
                         max_width = 3
-                    bot.send_message(message_id, f'Введіть бажану товщину стінки контейнера (Від 2мм до {max_width}мм)')
+                    bot.send_message(message_id, f'✍🏻 Введіть бажану товщину стінки контейнера (Від 2мм до {max_width}мм)')
                     bot.register_next_step_handler(callback.message, get_wall_width)
                 else:
-                    bot.send_message(message_id, 'Введіть кількість контейнерів:')
+                    bot.send_message(message_id, '✍🏻 Введіть кількість контейнерів:')
                     bot.register_next_step_handler(callback.message, get_quantity)
 
 
