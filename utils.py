@@ -43,6 +43,7 @@ def calculate_ra_volume_count(user_id):
     return ceil(N)
 
 
+
 def send_photos_with_message(chat_id, photo_paths, caption, reply_markup=None):
     media = []
     open_files = []
@@ -61,10 +62,11 @@ def send_photos_with_message(chat_id, photo_paths, caption, reply_markup=None):
 
         if media:
             bot.send_media_group(chat_id, media)
-            bot.send_message(chat_id, caption, reply_markup=reply_markup)
+            bot.send_message(chat_id, caption, reply_markup=reply_markup,parse_mode='html')
     finally:
         for file in open_files:
             file.close()
+
 
 
 def clear_user_data(user_id):

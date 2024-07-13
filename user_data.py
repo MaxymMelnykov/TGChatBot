@@ -11,5 +11,7 @@ user_data = defaultdict(
              'container_material': None,
              'container_quantity': 0,
              'container_underground_sensor': False,
+             'container_width': 0,  # Товщина стінки контейнера
+             'telephone_number': None,
              'orders': [],
              'total_sum': 0})
