@@ -229,7 +229,7 @@ def get_all_purchases(message):
     clear_user_data(message_id)
 
 
-def get_telephone_number(message):
+def get_telephone_number(message): # TODO: Поменять на отправку контакта пользователем
     message_id = message.chat.id
     ua_phone_regex = re.compile(r'^\+?380\d{9}$|^0\d{9}$')
     if message.text is not None:
