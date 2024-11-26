@@ -13,22 +13,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Крок для клонування репозиторію
     - name: Checkout code
       uses: actions/checkout@v2
 
-    # Крок для налаштування Python
     - name: Set up Python 3.9
       uses: actions/setup-python@v2
       with:
         python-version: '3.9'
 
-    # Крок для встановлення залежностей
     - name: Install dependencies
       run: |
-        pip install pytest
+        pip install -r requirements.txt  
 
-    # Крок для запуску тестів
     - name: Run unit tests
       run: |
         pytest unit_tests.py
