@@ -2,10 +2,10 @@
 
 import telebot
 
-TOKEN = 'мій токен'
+TOKEN = '7367025283:AAFahZ2L7v-YugDOLAedTkxOqQ02MbHW8jg'
 bot = telebot.TeleBot(TOKEN)
 # ID адміністратора
-ADMIN_ID = айді адміністратора
+ADMIN_ID = 516166196
 #ADMIN_ID_SECOND = айді адміністратора 2
 
 # Повідомлення

@@ -134,7 +134,7 @@ class Container:
             container_need_more = ceil(calc_res / 3.8)
         return container_need_more
 
-# Приклад додавання контейнерів
+    # Приклад додавання контейнерів
 Container('Підземний', './resources/name_photo/pidzemniy.jpg', 'Сталь нержавіюча','./resources/material_photo/stal_nerzha.jpg', '1️⃣ 120л','./resources/type_photo/pidzemniy_type_big.jpg', 5, 7000)
 Container('Підземний', './resources/name_photo/pidzemniy.jpg', 'Сталь оцинкована','./resources/material_photo/stal_ocink.jpg', '1️⃣ 120л','./resources/type_photo/pidzemniy_type_big.jpg', 5, 7000)
 Container('Підземний', './resources/name_photo/pidzemniy.jpg', 'Сталь нержавіюча','./resources/material_photo/stal_nerzha.jpg', '2️⃣ 50л','./resources/type_photo/pidzemniy_type_normal.jpg', 5, 7200)
