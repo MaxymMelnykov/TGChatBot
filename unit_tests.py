@@ -4,6 +4,7 @@ from utils import calculate_volume_count, calculate_ra_volume_count, clear_user_
 
 
 @pytest.fixture
+#
 def setup_user_data():
     user_id = 12345
     user_data[user_id] = {
