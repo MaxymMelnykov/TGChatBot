@@ -28,5 +28,5 @@ jobs:
 
     - name: Run behave tests
       run: |
-        behave /tests/behave_tests
+        behave tests/behave_tests
 
