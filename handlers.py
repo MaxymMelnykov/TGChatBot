@@ -229,17 +229,24 @@ def get_all_purchases(message):
                 '----------------------------------------'
             )
         else:
+            container_width_text = (
+                f"📏 <b>Товщина стінки:</b> {order['container_width']}\n"
+                if order['container_width'] > 0
+                else ''
+            )
+
             message_lines.append(
                 f"№{idx}:\n"
                 f"🗑 <b>Контейнер:</b>  {order['container_name']}\n"
                 f"🏷 <b>Тип:</b>  {order['container_type']}\n"
-                f"{f'📏 <b>Товщина стінки:</b> {order['container_width']}\n' if order['container_width'] > 0 else ''}"
+                f"{container_width_text}"
                 f"1️⃣ <b>Ціна за контейнер:</b> від {order['total_price'] / order['quantity']} $\n"
                 f"🔢 <b>Кількість:</b>  {order['quantity']} шт.\n"
                 f"💵 <b>Сума:</b>  від {order['total_price']} $\n"
-                '----------------------------------------')
+                '----------------------------------------'
+            )
 
-    message_lines.append(
+            message_lines.append(
         'Натисніть "🚪 До головного меню", щоб перейти до головного меню.')
     message = "\n".join(message_lines)
     send_photos_with_message(message_id, container_photos, message, create_main_menu_keyboard())
