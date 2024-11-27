@@ -27,6 +27,8 @@ jobs:
         pip install behave
 
     - name: Run behave tests
+      env:
+        PYTHONPATH: ${{ github.workspace }}
       run: |
         behave tests/behave_tests
 
