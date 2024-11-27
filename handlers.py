@@ -109,15 +109,33 @@ def get_quantity(message):
 
             total_price = quantity * price_per_unit
             container_volume_need_more = ceil(container_volume_needed_for_ra - container_volume_of_all_orders)
+            optional_message = (
+                f"❗️<strong>Для вашого ЖК потрібно ще {container_volume_need_more} м³ контейнерів, бажаєте дозамовити?</strong>\n\n"
+                if user_type == 'ra' and container_volume_need_more > 0
+                else ''
+            )
+            material_message = (
+                f"🧱<b>Матеріал:</b> {container_material}\n"
+                if container_name in ['Підземний', 'Напівпідземний']
+                else ''
+            )
+            sensor_message_text = (
+                f"📡<b>Сенсор:</b> {sensor_message}\n" if container_name == 'Підземний' else ''
+            )
+            width_message = (
+                f"📏<b>Товщина стінки:</b> {container_width}\n" if container_width > 0 else ''
+            )
+
+            # Збираємо основний текст
             message_text = (
-                f"{f'❗️<strong>Для вашого ЖК потрібно ще {container_volume_need_more} м³ контейнерів, бажаєте дозамовити?</strong>\n\n' if user_type == 'ra' and container_volume_need_more > 0 else ''}"
+                f"{optional_message}"
                 f"<b>Ви успішно додали товар до вашого замовлення!</b>\n"
                 f"<b>Товар:</b>\n"
                 f"🗑 <b>Контейнер:</b> {container_name}\n"
                 f"🏷 <b>Тип:</b> {container_type}\n"
-                f"{f'🧱<b>Матеріал:</b> {container_material}\n' if container_name in ['Підземний', 'Напівпідземний'] else ''}"
-                f"{f'📡<b>Сенсор:</b> {sensor_message}\n' if container_name == 'Підземний' else ''}"
-                f"{f'📏<b>Товщина стінки:</b> {container_width}\n' if container_width > 0 else ''}"
+                f"{material_message}"
+                f"{sensor_message_text}"
+                f"{width_message}"
                 f"1️⃣<b>Вартість одного</b>: {price_per_unit}\n"
                 f"🔢 <b>Кількість:</b> {quantity} шт.\n"
                 f"💵 <b>Сума:</b> {total_price} $\n\n"
