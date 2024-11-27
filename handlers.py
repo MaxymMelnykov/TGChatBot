@@ -327,15 +327,22 @@ def notify_admin(message, orders):
                 '-----------------------------------------'
             )
         else:
+            container_width_text = (
+                f"📏 <b>Товщина стінки:</b> {order['container_width']}\n"
+                if order['container_width'] > 0
+                else ''
+            )
+
             message_lines.append(
                 f"№{idx}:\n"
-                f"🗑Контейнер: {order['container_name']}\n"
-                f"🏷Тип: {order['container_type']}\n"
-                f"{f'📏Товщина стінки: {order['container_width']}\n' if order['container_width'] > 0 else ''}"
-                f"1️⃣Ціна за контейнер: від {order['total_price'] / order['quantity']} $\n"
-                f"🔢Кількість: {order['quantity']} шт.\n"
-                f"💵Сума: від {order['total_price']} $\n"
-                '-----------------------------------------')
+                f"🗑 <b>Контейнер:</b>  {order['container_name']}\n"
+                f"🏷 <b>Тип:</b>  {order['container_type']}\n"
+                f"{container_width_text}"
+                f"1️⃣ <b>Ціна за контейнер:</b> від {order['total_price'] / order['quantity']} $\n"
+                f"🔢 <b>Кількість:</b>  {order['quantity']} шт.\n"
+                f"💵 <b>Сума:</b>  від {order['total_price']} $\n"
+                '----------------------------------------'
+            )
 
     message = "\n".join(message_lines)
 
