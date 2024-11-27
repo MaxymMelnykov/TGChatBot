@@ -33,3 +33,6 @@ def test_clear_user_data(setup_user_data):
     user_id = setup_user_data
     clear_user_data(user_id)
     assert user_id not in user_data
+
+
+
