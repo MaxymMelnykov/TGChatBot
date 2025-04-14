@@ -1,0 +1,9 @@
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "B", "I", "N"]
+ignore = ["E501"]  # Довгі рядки, якщо потрібно дозволити
+exclude = ["resources", "tests", ".venv"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

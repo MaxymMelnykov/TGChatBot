@@ -42,22 +42,22 @@ def setup_callbacks(bot):
             if user_data[message_id]['user_type'] == 'customer':
                 if data == 'Підземний':
                     send_photos_with_message(message_id, Container.get_all_type_photos_by_name(data),
-                                             f'У підземного контейнера є 2 типи:\n'
-                                             f'1️⃣ Зі <strong>збільшеною</strong> сміттєприймальною колонкою на <strong>120л</strong>\n'
-                                             f'2️⃣ Зі <strong>звичайною</strong> сміттєприймальною колонкою на <strong>50л</strong>\n\n'
-                                             f'Виберіть тип контейнера:',
+                                             'У підземного контейнера є 2 типи:\n'
+                                             '1️⃣ Зі <strong>збільшеною</strong> сміттєприймальною колонкою на <strong>120л</strong>\n'
+                                             '2️⃣ Зі <strong>звичайною</strong> сміттєприймальною колонкою на <strong>50л</strong>\n\n'
+                                             'Виберіть тип контейнера:',
                                              create_type_markup(data))
                 elif data == 'Напівпідземний':
                     send_photos_with_message(message_id, Container.get_all_type_photos_by_name(data),
-                                             f'У напівпідземного контейнера є 3 типи:\n'
-                                             f'1️⃣ З об`ємом бака <strong>2,5 м³</strong>\n'
-                                             f'2️⃣ З об`ємом бака <strong>3,8 м³</strong>\n'
-                                             f'3️⃣ З об`ємом бака <strong>5,0 м³</strong>\n\n'
-                                             f'Виберіть тип контейнера:',
+                                             'У напівпідземного контейнера є 3 типи:\n'
+                                             '1️⃣ З об`ємом бака <strong>2,5 м³</strong>\n'
+                                             '2️⃣ З об`ємом бака <strong>3,8 м³</strong>\n'
+                                             '3️⃣ З об`ємом бака <strong>5,0 м³</strong>\n\n'
+                                             'Виберіть тип контейнера:',
                                              create_type_markup(data))
                 else:
                     send_photos_with_message(message_id, Container.get_all_type_photos_by_name(data),
-                                             f'Виберіть тип контейнера', create_type_markup(data))
+                                             'Виберіть тип контейнера', create_type_markup(data))
 
             elif user_data[message_id]['user_type'] == 'ra':
                 calc_res = user_data[message_id]['container_calc_res_ra'] - user_data[message_id][
@@ -133,7 +133,7 @@ def setup_callbacks(bot):
 
         elif data == 'customer_end':
             if callback.from_user.username is None:
-                bot.send_message(message_id, f'Будь ласка, введіть ваш номер телефону, щоб наш менеджер міг зв`язатись з вами.')
+                bot.send_message(message_id, 'Будь ласка, введіть ваш номер телефону, щоб наш менеджер міг зв`язатись з вами.')
                 bot.register_next_step_handler(callback.message, get_telephone_number)
             else:
                 get_all_purchases(callback)
