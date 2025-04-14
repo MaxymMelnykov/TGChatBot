@@ -1,7 +1,7 @@
 [tool.ruff]
 line-length = 100
-select = ["E", "F", "B", "I", "N"]
-ignore = ["E501"]  # Довгі рядки, якщо потрібно дозволити
+lint.select = ["E", "F", "B", "I", "N"]
+lint.ignore = ["E501"]  # Довгі рядки, якщо потрібно дозволити
 exclude = ["resources", "tests", ".venv"]
 
 [tool.ruff.format]

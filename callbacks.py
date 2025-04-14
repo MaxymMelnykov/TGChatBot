@@ -1,7 +1,36 @@
-import user_data
-from handlers import *
-from markups import *
-from utils import *
+from numpy import ceil
+
+from config import (
+    CONFIG_CUSTOMER_MESSAGE,
+    CONFIG_MESSAGE,
+    CONFIG_RA_AREA_MESSAGE,
+    CONTACTS_MESSAGE,
+    HELP_MESSAGE,
+    QUESTIONS,
+    START_MESSAGE,
+)
+from Container import Container
+from handlers import (
+    get_all_purchases,
+    get_quantity,
+    get_ra_area,
+    get_telephone_number,
+    get_wall_width,
+)
+from markups import (
+    create_config_customer_markup,
+    create_config_markup,
+    create_contacts_markup,
+    create_faq_markup,
+    create_get_ra_name_markup,
+    create_help_markup,
+    create_main_markup,
+    create_material_markup,
+    create_sensor_markup,
+    create_type_markup,
+)
+from user_data import user_data
+from utils import send_photos_with_message
 
 
 def setup_callbacks(bot):
