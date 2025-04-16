@@ -21,6 +21,8 @@ requests==2.32.3
 six==1.16.0
 urllib3==2.2.2
 behave~=1.2.6
+sphinx
+sphinx-autodoc-typehints
 
 ruff
 mypy
