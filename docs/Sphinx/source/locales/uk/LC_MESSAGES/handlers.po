@@ -1,0 +1,247 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Melnykov Maxym
+# This file is distributed under the same license as the TGChatBot package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TGChatBot \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-16 17:32+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uk\n"
+"Language-Team: uk <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../handlers.rst:2 67ca760487164cbba10ae35b57d8828c
+msgid "handlers.py"
+msgstr ""
+
+#: b0b9fc71d6b9458ca34f50763b98d79b handlers.get_all_purchases:1 of
+msgid ""
+"Виводить всі покупки користувача та відправляє повідомлення менеджеру про"
+" нове замовлення."
+msgstr ""
+
+#: ../../handlers.rst 085b327fc3f54acba2fc61e3b9699322
+#: 13c6b45b99a64c15b76134d5fe3fa391 6e00e5112f70413d9d6afd333af139f0
+#: 8d463a5d38eb4e39a56aa74fe59000c1 9726083001f746cfa4d5e1dc6c2a6fb8
+#: 97cf2df861a24cbbab5a2e9d1b68168a a5379dcc81204eaf8242bba299a55eac
+#: c74865fba69a4d32a09f57704417c37f c9e679d7a558482f9a6b75fbb2630f1c
+msgid "Параметри"
+msgstr ""
+
+#: 5991642fd0524e7095720ab1955b5f95 8bc05c7e7cb44f598a5655e5b5b68d36
+#: handlers.get_all_purchases:4 handlers.handle_main_menu:4 of
+msgid "Повідомлення від користувача."
+msgstr ""
+
+#: ../../handlers.rst 1a7b454909cb471cb536dffef901447b
+#: 6a4e1463c8ea494bb7deeccdf0909ff2 715ce8d379144c37bd1189ef91f0ae47
+#: 8367135297714097a805195e0de89202 8711667bbfd44ed29e0c34f21db11f0c
+#: a3cd0b32d2a74ccc8be58d0e98d7e2f6 a92f55a04da144a29eddcda441edf2ec
+#: d1d1e59bac43417ea81e650487c459f7 f9b1b64f7e2f4601ba6573edf9a77d69
+msgid "Повертає"
+msgstr ""
+
+#: a3af63d61fec4a1c8db5024c8962c4ac handlers.get_all_purchases:7 of
+msgid ""
+"- Якщо все нормально - виводить всі замовлення користувача та передає "
+"повідомлення менеджеру через notify_admin. - Якщо щось пішло не так - "
+"виводить повідомлення про помилку."
+msgstr ""
+
+#: c0d5338d9bcb4a0e894868b71aa1f1ea handlers.get_all_purchases:9 of
+msgid ""
+"Якщо все нормально - виводить всі замовлення користувача та передає "
+"повідомлення менеджеру через notify_admin."
+msgstr ""
+
+#: 5fa9fd5c216f4594bda98af12606be55 handlers.get_all_purchases:10 of
+msgid "Якщо щось пішло не так - виводить повідомлення про помилку."
+msgstr ""
+
+#: 819831c42df647fd8920dffd001b8233 handlers.get_quantity:1 of
+msgid ""
+"Отримує кількість контейнерів від користувача, обчислює загальну вартість"
+" замовлення."
+msgstr ""
+
+#: a5bce6366f9a459a92db7379db24c2bc handlers.get_quantity:4 of
+msgid "Повідомлення від користувача, яке містить кількість контейнерів."
+msgstr ""
+
+#: fcb416df2cce481381250d8e99d2c857 handlers.get_quantity:7 of
+msgid ""
+"- Якщо введено коректну кількість контейнерів, система розраховує "
+"загальну вартість замовлення. - Якщо кількість некоректна, з'являється "
+"повідомлення про помилку."
+msgstr ""
+
+#: 0631ffec0f2f47db87274773918950c8 handlers.get_quantity:9 of
+msgid ""
+"Якщо введено коректну кількість контейнерів, система розраховує загальну "
+"вартість замовлення."
+msgstr ""
+
+#: d7fd892f75da479297dfb41407676fad handlers.get_quantity:10 of
+msgid "Якщо кількість некоректна, з'являється повідомлення про помилку."
+msgstr ""
+
+#: 11927fdf0a09426693715f7cbe947cbe handlers.get_ra_apartments:1 of
+msgid ""
+"Отримує кількість квартир від користувача та обчислює обсяг контейнерів, "
+"необхідних для ЖК."
+msgstr ""
+
+#: 84b9f1c156f44ae6bd8c16f6f3cd1370 handlers.get_ra_apartments:4 of
+msgid "Повідомлення від користувача, яке містить кількість квартир."
+msgstr ""
+
+#: 7a2957ee67d44f51ab2efaee2a762fb4 handlers.get_ra_apartments:7 of
+msgid ""
+"- Якщо введено коректну кількість квартир, переходимо до наступного "
+"етапу. - Якщо значення некоректне, з'являється повідомлення про помилку."
+msgstr ""
+
+#: 0ce59ab305ab48efbaa9616612ff4677 handlers.get_ra_apartments:9 of
+msgid "Якщо введено коректну кількість квартир, переходимо до наступного етапу."
+msgstr ""
+
+#: 03adf94458924523b3fe38f60fe2a163 eaa497fd45b8424ab093be22146013d5
+#: handlers.get_ra_apartments:10 handlers.get_ra_area:10 of
+msgid "Якщо значення некоректне, з'являється повідомлення про помилку."
+msgstr ""
+
+#: dc9058537aa24df1b5fd4991bd27a455 handlers.get_ra_area:1 of
+msgid ""
+"Отримує площу приміщення від користувача та переходить до наступного "
+"кроку для введення кількості квартир."
+msgstr ""
+
+#: 802d300a01d144eb871ae3b4d15832af handlers.get_ra_area:4 of
+msgid "Повідомлення від користувача, яке містить площу приміщення."
+msgstr ""
+
+#: 30a2a4b1094b4dd195369360467f610f handlers.get_ra_area:7 of
+msgid ""
+"- Якщо введено коректну площу, переходимо до наступного етапу. - Якщо "
+"значення некоректне, з'являється повідомлення про помилку."
+msgstr ""
+
+#: ecf96b5fd7514ad48fdecf948ab62454 handlers.get_ra_area:9 of
+msgid "Якщо введено коректну площу, переходимо до наступного етапу."
+msgstr ""
+
+#: 41591ad9bdcc448fad7ac3de5de8f80c handlers.get_telephone_number:1 of
+msgid ""
+"Отримує номер телефону користувача та перевіряє правильність введених "
+"даних."
+msgstr ""
+
+#: 4b1777b4fe974cca88c069e3f11ed94d handlers.get_telephone_number:4 of
+msgid "Повідомлення від користувача, яке містить номер телефону."
+msgstr ""
+
+#: 9dead1ffb4114fe0bccb10c7b88c377e handlers.get_telephone_number:7 of
+msgid ""
+"- Якщо введено корректний номер - перезыд до наступного етапу. - Якщо "
+"введено некорректний номер телефону - повыдомлення про помилку та функцыя"
+" запускаэться знову."
+msgstr ""
+
+#: 4cee0074c12643c8b517535c73176daf handlers.get_telephone_number:9 of
+msgid "Якщо введено корректний номер - перезыд до наступного етапу."
+msgstr ""
+
+#: d935316a933f44c6b1e1be65e470ece1 handlers.get_telephone_number:10 of
+msgid ""
+"Якщо введено некорректний номер телефону - повыдомлення про помилку та "
+"функцыя запускаэться знову."
+msgstr ""
+
+#: 36f9c9101d194c69bb1191060b31a023 handlers.get_wall_width:1 of
+msgid ""
+"Отримує товщину стінок контейнерів від користувача, перевіряє "
+"правильність введених даних."
+msgstr ""
+
+#: 3e2611c9916a4bd7a3e4791ffaf457b8 handlers.get_wall_width:4 of
+msgid "Повідомлення від користувача, яке містить товщину стінок контейнера."
+msgstr ""
+
+#: 3843f8b86c9142ddbcb623734d077ed4 handlers.get_wall_width:7 of
+msgid ""
+"- Якщо введена некоректна товщина стінок, система просить ввести значення"
+" знову. - Якщо значення коректне, переходимо до введення кількості "
+"контейнерів."
+msgstr ""
+
+#: 0fd3dec257744e1aa23aa2fd4853abc6 handlers.get_wall_width:9 of
+msgid ""
+"Якщо введена некоректна товщина стінок, система просить ввести значення "
+"знову."
+msgstr ""
+
+#: 42244fb837cc4991899c278235a98039 handlers.get_wall_width:10 of
+msgid "Якщо значення коректне, переходимо до введення кількості контейнерів."
+msgstr ""
+
+#: 99fa2809659d43ba9296a1795c9ec925 handlers.handle_main_menu:1 of
+msgid "Обробляє запит користувача на повернення до головного меню."
+msgstr ""
+
+#: b2a90fd4a85e4275a8d7f9e120d7c20b handlers.handle_main_menu:7 of
+msgid "- Повертає користувача до головного меню(через функцію send_main_menu)."
+msgstr ""
+
+#: 3859a888d29a47e0a980cae16707a8c4 handlers.handle_main_menu:9 of
+msgid "Повертає користувача до головного меню(через функцію send_main_menu)."
+msgstr ""
+
+#: 2dc8b7aa95f74a8899e7b4c59cd29975 handlers.notify_admin:1 of
+msgid "Відправляє менеджеру повідомлення про нове замовлення від користувача."
+msgstr ""
+
+#: dbd2c2c1e81a4ddb8186f6cf04eb4ec6 handlers.notify_admin:4 of
+msgid "Повідомлення від користувача, яке містить дані замовлення."
+msgstr ""
+
+#: 009c536aa5f346a4a98c87fe444e90c6 handlers.notify_admin:7 of
+msgid "Список замовлених товарів, що включає дані про контейнери та їх кількість."
+msgstr ""
+
+#: aa2dfa4e965e4393bc388d24919ec368 handlers.notify_admin:10 of
+msgid ""
+"- Відправляє повідомлення менеджеру з замовленням користувача, та його "
+"контактними даними."
+msgstr ""
+
+#: fcbf1549a13742d4b389849f6a125342 handlers.notify_admin:12 of
+msgid ""
+"Відправляє повідомлення менеджеру з замовленням користувача, та його "
+"контактними даними."
+msgstr ""
+
+#: 8b496e7931254a619cc3c89bb8fdf18b handlers.send_main_menu:1 of
+msgid "Відправляє користувачеві головне меню."
+msgstr ""
+
+#: 189d92bd01c04e3785dc5670fb094a41 handlers.send_main_menu:4 of
+msgid "ID користувача, якому потрібно відправити головне меню."
+msgstr ""
+
+#: ed73840ceb5049f1bc67ec1704c866d3 handlers.send_main_menu:7 of
+msgid "- Повертає користувача до головного меню"
+msgstr ""
+
+#: d22b963c8cf849a2a4dbe5bca6307b54 handlers.send_main_menu:9 of
+msgid "Повертає користувача до головного меню"
+msgstr ""

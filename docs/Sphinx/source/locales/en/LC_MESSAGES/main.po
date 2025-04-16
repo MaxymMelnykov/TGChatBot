@@ -1,0 +1,26 @@
+#: ../../source/main.rst:2
+msgid "main.py"
+msgstr "main.py"
+
+#: main:1 of
+msgid "Основна точка запуску для Telegram-бота. Ініціалізує та запускає бота."
+msgstr "The main entry point for the Telegram bot. It initializes and starts the bot."
+
+#: main:3 of
+msgid ""
+"При запуску: - Виводиться повідомлення про запуск бота в консолі. - "
+"Налаштовуються зворотні виклики для обробки повідомлень та команд. - "
+"Запускається процес polling для бота, що дозволяє йому працювати без "
+"зупинок."
+msgstr ""
+"On startup: - A message about the bot launch is printed to the console. - "
+"Callbacks for handling messages and commands are set up. - The polling "
+"process starts, allowing the bot to run continuously."
+
+#: main:8 of
+msgid ""
+"Викликається функція `setup_callbacks` для налаштування обробників. Потім"
+" запускається метод `polling` для безперервної роботи бота."
+msgstr ""
+"The `setup_callbacks` function is called to configure the handlers. Then the "
+"`polling` method is started to keep the bot running continuously."

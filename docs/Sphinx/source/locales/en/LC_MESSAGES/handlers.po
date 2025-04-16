@@ -1,0 +1,279 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Melnykov Maxym
+# This file is distributed under the same license as the TGChatBot package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TGChatBot \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-16 16:49+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../source/handlers.rst:2
+msgid "handlers.py"
+msgstr "handlers.py"
+
+#: handlers.get_all_purchases:1 of
+msgid ""
+"Виводить всі покупки користувача та відправляє повідомлення менеджеру про"
+" нове замовлення."
+msgstr ""
+"Displays all user purchases and sends a notification to the manager about "
+"a new order."
+
+#: ../../source/handlers.rst
+msgid "Параметри"
+msgstr "Parameters"
+
+#: handlers.get_all_purchases:4 handlers.handle_main_menu:4 of
+msgid "Повідомлення від користувача."
+msgstr "Message from the user."
+
+#: ../../source/handlers.rst
+msgid "Повертає"
+msgstr "Returns"
+
+#: handlers.get_all_purchases:7 of
+msgid ""
+"- Якщо все нормально - виводить всі замовлення користувача та передає "
+"повідомлення менеджеру через notify_admin. - Якщо щось пішло не так - "
+"виводить повідомлення про помилку."
+msgstr ""
+"- If everything is okay - displays all user orders and sends a message to "
+"the manager via notify_admin. - If something went wrong - displays an "
+"error message."
+
+#: handlers.get_all_purchases:9 of
+msgid ""
+"Якщо все нормально - виводить всі замовлення користувача та передає "
+"повідомлення менеджеру через notify_admin."
+msgstr ""
+"If everything is okay - displays all user orders and sends a message to "
+"the manager via notify_admin."
+
+#: handlers.get_all_purchases:10 of
+msgid "Якщо щось пішло не так - виводить повідомлення про помилку."
+msgstr "If something went wrong - displays an error message."
+
+#: handlers.get_quantity:1 of
+msgid ""
+"Отримує кількість контейнерів від користувача, обчислює загальну вартість"
+" замовлення."
+msgstr ""
+"Receives the number of containers from the user and calculates the total "
+"order cost."
+
+#: handlers.get_quantity:4 of
+msgid "Повідомлення від користувача, яке містить кількість контейнерів."
+msgstr "Message from the user containing the number of containers."
+
+#: handlers.get_quantity:7 of
+msgid ""
+"- Якщо введено коректну кількість контейнерів, система розраховує "
+"загальну вартість замовлення. - Якщо кількість некоректна, з'являється "
+"повідомлення про помилку."
+msgstr ""
+"- If the correct number of containers is entered, the system calculates "
+"the total order cost. - If the quantity is incorrect, an error message "
+"appears."
+
+#: handlers.get_quantity:9 of
+msgid ""
+"Якщо введено коректну кількість контейнерів, система розраховує загальну "
+"вартість замовлення."
+msgstr ""
+"If the correct number of containers is entered, the system calculates the "
+"total order cost."
+
+#: handlers.get_quantity:10 of
+msgid "Якщо кількість некоректна, з'являється повідомлення про помилку."
+msgstr "If the quantity is incorrect, an error message appears."
+
+#: handlers.get_ra_apartments:1 of
+msgid ""
+"Отримує кількість квартир від користувача та обчислює обсяг контейнерів, "
+"необхідних для ЖК."
+msgstr ""
+"Receives the number of apartments from the user and calculates the "
+"required container volume for the residential complex."
+
+#: handlers.get_ra_apartments:4 of
+msgid "Повідомлення від користувача, яке містить кількість квартир."
+msgstr "Message from the user containing the number of apartments."
+
+#: handlers.get_ra_apartments:7 of
+msgid ""
+"- Якщо введено коректну кількість квартир, переходимо до наступного "
+"етапу. - Якщо значення некоректне, з'являється повідомлення про помилку."
+msgstr ""
+"- If the correct number of apartments is entered, we proceed to the next "
+"step. - If the value is incorrect, an error message appears."
+
+#: handlers.get_ra_apartments:9 of
+msgid "Якщо введено коректну кількість квартир, переходимо до наступного етапу."
+msgstr ""
+"If the correct number of apartments is entered, we proceed to the next "
+"step."
+
+#: handlers.get_ra_apartments:10 handlers.get_ra_area:10 of
+msgid "Якщо значення некоректне, з'являється повідомлення про помилку."
+msgstr "If the value is incorrect, an error message appears."
+
+#: handlers.get_ra_area:1 of
+msgid ""
+"Отримує площу приміщення від користувача та переходить до наступного "
+"кроку для введення кількості квартир."
+msgstr ""
+"Receives the premises area from the user and proceeds to the next step for"
+" entering the number of apartments."
+
+#: handlers.get_ra_area:4 of
+msgid "Повідомлення від користувача, яке містить площу приміщення."
+msgstr "Message from the user containing the premises area."
+
+#: handlers.get_ra_area:7 of
+msgid ""
+"- Якщо введено коректну площу, переходимо до наступного етапу. - Якщо "
+"значення некоректне, з'являється повідомлення про помилку."
+msgstr ""
+"- If the correct area is entered, we proceed to the next step. - If the "
+"value is incorrect, an error message appears."
+
+#: handlers.get_ra_area:9 of
+msgid "Якщо введено коректну площу, переходимо до наступного етапу."
+msgstr "If the correct area is entered, we proceed to the next step."
+
+#: handlers.get_telephone_number:1 of
+msgid ""
+"Отримує номер телефону користувача та перевіряє правильність введених "
+"даних."
+msgstr ""
+"Receives the user's phone number and verifies the correctness of the "
+"entered data."
+
+#: handlers.get_telephone_number:4 of
+msgid "Повідомлення від користувача, яке містить номер телефону."
+msgstr "Message from the user containing the phone number."
+
+#: handlers.get_telephone_number:7 of
+msgid ""
+"- Якщо введено корректний номер - переходимо до наступного етапу. - Якщо "
+"введено некорректний номер телефону - повідомлення про помилку та функція "
+"запускається знову."
+msgstr ""
+"- If the correct number is entered - we proceed to the next stage. - If an "
+"incorrect phone number is entered - an error message appears and the "
+"function starts again."
+
+#: handlers.get_telephone_number:9 of
+msgid "Якщо введено корректний номер - переходимо до наступного етапу."
+msgstr "If the correct number is entered - we proceed to the next stage."
+
+#: handlers.get_telephone_number:10 of
+msgid ""
+"Якщо введено некорректний номер телефону - повідомлення про помилку та "
+"функція запускається знову."
+msgstr ""
+"If an incorrect phone number is entered - an error message appears and the "
+"function starts again."
+
+#: handlers.get_wall_width:1 of
+msgid ""
+"Отримує товщину стінок контейнерів від користувача, перевіряє "
+"правильність введених даних."
+msgstr ""
+"Receives the container wall thickness from the user and verifies the "
+"correctness of the entered data."
+
+#: handlers.get_wall_width:4 of
+msgid "Повідомлення від користувача, яке містить товщину стінок контейнера."
+msgstr "Message from the user containing the container wall thickness."
+
+#: handlers.get_wall_width:7 of
+msgid ""
+"- Якщо введена некоректна товщина стінок, система просить ввести значення"
+" знову. - Якщо значення коректне, переходимо до введення кількості "
+"контейнерів."
+msgstr ""
+"- If incorrect wall thickness is entered, the system asks to enter the "
+"value again. - If the value is correct, we proceed to entering the number "
+"of containers."
+
+#: handlers.get_wall_width:9 of
+msgid ""
+"Якщо введена некоректна товщина стінок, система просить ввести значення "
+"знову."
+msgstr ""
+"If incorrect wall thickness is entered, the system asks to enter the value"
+" again."
+
+#: handlers.get_wall_width:10 of
+msgid "Якщо значення коректне, переходимо до введення кількості контейнерів."
+msgstr ""
+"If the value is correct, we proceed to entering the number of containers."
+
+#: handlers.handle_main_menu:1 of
+msgid "Обробляє запит користувача на повернення до головного меню."
+msgstr "Processes the user's request to return to the main menu."
+
+#: handlers.handle_main_menu:7 of
+msgid "- Повертає користувача до головного меню(через функцію send_main_menu)."
+msgstr "- Returns the user to the main menu (via the send_main_menu function)."
+
+#: handlers.handle_main_menu:9 of
+msgid "Повертає користувача до головного меню(через функцію send_main_menu)."
+msgstr "Returns the user to the main menu (via the send_main_menu function)."
+
+#: handlers.notify_admin:1 of
+msgid "Відправляє менеджеру повідомлення про нове замовлення від користувача."
+msgstr "Sends the manager a notification about a new order from the user."
+
+#: handlers.notify_admin:4 of
+msgid "Повідомлення від користувача, яке містить дані замовлення."
+msgstr "Message from the user containing order data."
+
+#: handlers.notify_admin:7 of
+msgid "Список замовлених товарів, що включає дані про контейнери та їх кількість."
+msgstr "List of ordered products, including container data and their quantity."
+
+#: handlers.notify_admin:10 of
+msgid ""
+"- Відправляє повідомлення менеджеру з замовленням користувача, та його "
+"контактними даними."
+msgstr ""
+"- Sends a message to the manager with the user's order and their contact "
+"information."
+
+#: handlers.notify_admin:12 of
+msgid ""
+"Відправляє повідомлення менеджеру з замовленням користувача, та його "
+"контактними даними."
+msgstr ""
+"Sends a message to the manager with the user's order and their contact "
+"information."
+
+#: handlers.send_main_menu:1 of
+msgid "Відправляє користувачеві головне меню."
+msgstr "Sends the main menu to the user."
+
+#: handlers.send_main_menu:4 of
+msgid "ID користувача, якому потрібно відправити головне меню."
+msgstr "User ID to whom the main menu should be sent."
+
+#: handlers.send_main_menu:7 of
+msgid "- Повертає користувача до головного меню"
+msgstr "- Returns the user to the main menu"
+
+#: handlers.send_main_menu:9 of
+msgid "Повертає користувача до головного меню"
+msgstr "Returns the user to the main menu"

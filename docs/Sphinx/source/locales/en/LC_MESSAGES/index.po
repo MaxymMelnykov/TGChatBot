@@ -1,0 +1,79 @@
+#: ../../source/index.rst:13
+msgid "Вміст:"
+msgstr "Contents:"
+
+#: ../../source/index.rst:7
+msgid "TGChatBot Documentation"
+msgstr "TGChatBot Documentation"
+
+#: ../../source/index.rst:9
+msgid "Ласкаво просимо до документації для проекту **TGChatBot**! Ця документація охоплює всі основні аспекти бота, його структуру та функціональність. З цією документацією ви зможете ознайомитись з основними модулями, налаштуваннями та методами бота."
+msgstr "Welcome to the documentation for the **TGChatBot** project! This documentation covers all the main aspects of the bot, its structure, and functionality. With this documentation, you can explore the bot's core modules, configurations, and methods."
+
+#: ../../source/index.rst:11
+msgid "Мета цього проєкту — створення Telegram-бота, який допомагає користувачам в ефективному виборі та замовленні контейнерів для різних потреб."
+msgstr "The goal of this project is to create a Telegram bot that assists users in efficiently selecting and ordering containers for various needs."
+
+#: ../../source/index.rst:28
+msgid "Module Descriptions"
+msgstr "Module Descriptions"
+
+#: ../../source/index.rst:30
+msgid "**container** Модуль містить клас `Container`, що відповідає за обробку контейнерів, їх типів, матеріалів та інших властивостей. Тут ви знайдете методи для отримання даних про контейнер, їх типи та матеріали."
+msgstr "**container** This module contains the `Container` class responsible for handling containers, their types, materials, and other properties. Here you will find methods for retrieving container data, their types, and materials."
+
+#: ../../source/index.rst:33
+msgid "**config** Цей модуль містить конфігураційні налаштування бота, включаючи API токени, налаштування користувачів та питання для довідки. Це ядро для всього налаштування бота."
+msgstr "**config** This module contains the bot’s configuration settings, including API tokens, user settings, and FAQ questions. It forms the core of the bot's setup."
+
+#: ../../source/index.rst:36
+msgid "**callbacks** У цьому модулі знаходяться функції для обробки зворотних викликів від користувачів. Використовується для інтерактивного спілкування з ботом, включаючи вибір варіантів меню та інших інтерактивних елементів."
+msgstr "**callbacks** This module contains functions for handling user callback queries. It is used for interactive communication with the bot, including menu selections and other interactive elements."
+
+#: ../../source/index.rst:39
+msgid "**handlers** Основні обробники, які реагують на повідомлення користувачів. Вони відповідають за обробку команд, запитів і переходів між різними секціями бота."
+msgstr "**handlers** Main handlers that respond to user messages. They handle commands, queries, and navigation between various bot sections."
+
+#: ../../source/index.rst:42
+msgid "**user_data** Модуль, який містить структуру для зберігання та обробки даних користувачів, таких як їх вибір, замовлення, персональна інформація."
+msgstr "**user_data** Module that provides structure for storing and handling user data such as their selections, orders, and personal information."
+
+#: ../../source/index.rst:45
+msgid "**utils** Додаткові утиліти для обробки даних, роботи з файлами, розрахунків та інших функцій, що допомагають боту працювати більш ефективно."
+msgstr "**utils** Additional utilities for data processing, file handling, calculations, and other helper functions that enhance bot efficiency."
+
+#: ../../source/index.rst:48
+msgid "**main** Основна точка входу для запуску бота. Цей модуль ініціалізує бота і починає процес його роботи."
+msgstr "**main** The main entry point for running the bot. This module initializes the bot and starts its operation."
+
+#: ../../source/index.rst:51
+msgid "**markups** Модуль для створення різних клавіатур для взаємодії з користувачами. Клавіатури можуть бути як інлайн, так і звичайні, що дозволяють зручно управляти всіма функціями бота."
+msgstr "**markups** A module for creating various keyboards for user interaction. The keyboards can be either inline or standard, enabling convenient control of all bot functions."
+
+#: ../../source/index.rst:55
+msgid "Getting Started"
+msgstr "Getting Started"
+
+#: ../../source/index.rst:57
+msgid "Клонуйте репозиторій: git clone https://github.com/ваш-юзернейм/TGChatBot.git"
+msgstr "Clone the repository: git clone https://github.com/your-username/TGChatBot.git"
+
+#: ../../source/index.rst:59
+msgid "Встановіть всі залежності pip install -r requirements.txt"
+msgstr "Install all dependencies: pip install -r requirements.txt"
+
+#: ../../source/index.rst:61
+msgid "Налаштування:"
+msgstr "Setup:"
+
+#: ../../source/index.rst:63
+msgid "У файлі config.py у змінну TOKEN впишіть згенерований токен бота, а у змінну ADMIN_ID впишіть ID менеджера, якому будуть приходити повідомлення про нові замовлення."
+msgstr "In the config.py file, enter the generated bot token in the TOKEN variable, and the ADMIN_ID of the manager who will receive notifications about new orders."
+
+#: ../../source/index.rst:67
+msgid "Використання:"
+msgstr "Usage:"
+
+#: ../../source/index.rst:69
+msgid "Запускаємо бота, через main.py, заходимо у бота, до якого Ви прив'язали свій токен, тепер Ви можеет користуватися основними функціями бота такими як: 1. Отримати відповіді на поширені запитання. 2. Отримати контакту інформацію. 3. Перейти на веб-сайт компанії, для перегляду каталогу товарів. 3. Сконфігурувати онлайн-замовлення, як забудовник ЖК, з прорахуванням кількості квартир та площі ЖК. 4. Замовити товар, як приватний покупець."
+msgstr "Start the bot via main.py, access the bot linked to your token, and now you can use its main features such as: 1. Getting answers to frequently asked questions. 2. Receiving contact information. 3. Visiting the company’s website to browse the product catalog. 4. Configuring an online order as a residential complex developer, including apartment and area calculations. 5. Ordering as a private customer."

@@ -1,0 +1,260 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Melnykov Maxym
+# This file is distributed under the same license as the TGChatBot package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TGChatBot \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-16 17:32+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../container.rst:2
+#: cf8661b9323547a28fd89ea2f039302d
+msgid "Container.py"
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container:1
+#: 30b2f1414e4f47d1bd73b20d3faf8ff2
+msgid "Bases: :py:class:`object`"
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container:1
+#: fd6544e7d0234cbcaae2ff8aa096400a
+msgid "Клас для представлення контейнера та роботи з колекцією контейнерів."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container:3
+#: c4babf30a9e84e239f577f096393b2c7
+msgid "Атрибути класу:"
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container:4
+#: 40197e89053c4cef852cf028cdcab579
+msgid "containers (list): Список усіх створених об'єктів Container."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container:6
+#: c69ba71196bf4f6c814d5400f9c17c76
+msgid "Атрибути:"
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container:7
+#: 65b16227e9974141bfdaf0fb7150bcfd
+msgid "container_name (str): Назва контейнера. name_photo (str): Шлях до фото, що відповідає назві. container_material (str): Матеріал контейнера. material_photo (str): Фото матеріалу. container_type (str): Тип контейнера (обʼєм або функціонал). container_type_photo (str): Фото типу контейнера. volume (float): Обʼєм контейнера в м³ або л. price (float): Ціна контейнера в гривнях."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_all_materials:1
+#: 52695d5107d24cd4842797b7129fdf46
+msgid "Повертає список усіх матеріалів контейнерів."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_all_type_photos_by_name:1
+#: 41b6d64611a44f709a7aebb08816cfc3
+msgid "Отримати всі фото типів контейнерів за назвою."
+msgstr ""
+
+#: ../../container.rst:0
+#: 9b16f20baf7347f4b71295a14413f949
+#: 22285da221254017b3dec7311e217cc5
+#: 1325cf55084f4a8db123da3041b9eec0
+#: 556829c61a0940c3b57717a97cfd5a04
+#: 5402064dd5874542af648a9c295a975f
+#: 646e970edd6a4211ac0a336c6cbc1696
+#: ddb79cada9a64da6861de8c8e366598c
+#: 8643c5f2ce8747f8ba3064332070b65e
+#: cfe7d85517b449919c89117baf7c9ca4
+#: b5aef889e07b4c69a917f80eba6d207f
+msgid "Параметри"
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_all_type_photos_by_name:4
+#: ../../../../../Container.py:docstring of Container.Container.get_price_of_container_by_all_data:4
+#: 544509e4182044b6bb067907c145bbac
+#: 29dadd8bedca4a2bb0dd02fa80cfa7a2
+msgid "Назва."
+msgstr ""
+
+#: ../../container.rst:0
+#: c2b0e10a1957463f9fe496c79836180c
+#: 59c0e5ea84184c528953dbe301824c1e
+#: 595ca9f06e914e7383b8b4e5f19630ba
+#: fe257ba4fad549feb2db41ed19f346b9
+#: ff98409b47cd4166bda42057da1b0cb5
+#: cb56b740c3624941a2d96e614b86885b
+#: 741de6e1050a4e10ab2c1450894aa68f
+#: f2e0f88f5749466a9ebafd611be09594
+#: 3043a8b190f34649b57c2bf406255328
+#: 7418f6cc750d4a6eb43890feef21e2f5
+msgid "Повертає"
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_all_type_photos_by_name:7
+#: 5e6419706fde4c52864a556a0c4cff1b
+msgid "Список фото типів."
+msgstr ""
+
+#: ../../container.rst:0
+#: a2517d5402ba4192866eadbb23001f70
+#: b86f95f8dea74ee7bae378050e1ebbc6
+#: 03f80526d5c14d50927f1ea17f990f43
+#: a4f2f64cf513474d92224d7e6c84a9ca
+#: 8377f6bfa89e4d8394ec08aff54875d5
+#: 7ac978c0d2a14422b73bf40dbd9d3a65
+#: 2c07c3886fd44621ba968f6b33ea0713
+#: a368e1af8e58497cb20c8b80e05fb8fb
+#: f8530e4641fd498083ae7e99bec4eac1
+#: 2ba81a21d1754bd296b1e279c812d398
+msgid "Тип повернення"
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_all_types:1
+#: c8c4752783ca426fafd851580c2f60d2
+msgid "Повертає список усіх типів контейнерів."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_container_need_more_by_type:1
+#: 7a2933ef549742618491b9df66adce0b
+msgid "Розрахувати кількість контейнерів, необхідну для зберігання заданого об'єму."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_container_need_more_by_type:4
+#: ../../../../../Container.py:docstring of Container.Container.get_price_by_type:4
+#: ../../../../../Container.py:docstring of Container.Container.get_volume_by_type:4
+#: e11218aadafe42df86c6e05627ba3c15
+#: 1c29cd41f9c04477bcbfa72663141e51
+#: 72520e9610a745a0aa44598e9f5b2e32
+msgid "Тип контейнера."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_container_need_more_by_type:7
+#: 27f3fcfa990f459ebfb56eebda4481e1
+msgid "Розрахунковий обʼєм (м³)."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_container_need_more_by_type:10
+#: 937d99d8e98c4fbc99cfb00b7dff46a4
+msgid "Кількість контейнерів."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_containers:1
+#: 7fc3a90658504f6793e22bd48da81366
+msgid "Повертає всі контейнери."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_material_photos_by_name:1
+#: ae68c74e8df443368285caa273304cd8
+msgid "Отримати фото матеріалів за назвою контейнера."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_material_photos_by_name:4
+#: ../../../../../Container.py:docstring of Container.Container.get_materials_by_name:4
+#: ../../../../../Container.py:docstring of Container.Container.get_photo_by_name:4
+#: ../../../../../Container.py:docstring of Container.Container.get_types_by_name:4
+#: 96490763280f4d5c9f2a68e2740f3137
+#: a5a4085c6255483b9776d0eb521b32ad
+#: 9b9a7956f51f4cf1a45e4f7d4036f370
+#: 9d39324f3011492dab616459e1003d75
+msgid "Назва контейнера."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_material_photos_by_name:7
+#: 2204d8ab29b64ea9a2a6b015e2cb3313
+msgid "Список фото матеріалів."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_materials_by_name:1
+#: 81ab7d9f8056481fa00e710c8c4cc6aa
+msgid "Отримати всі доступні матеріали для вказаної назви контейнера."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_materials_by_name:7
+#: af692de2362242f2bdb8b22b938d35ba
+msgid "Список матеріалів."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_names_containers:1
+#: 6c62533d4f0247059c01d343af6b46d8
+msgid "Повертає список усіх назв контейнерів."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_photo_by_name:1
+#: 7f25b7a20c004102b4b2901a7021327f
+msgid "Отримати фото назви контейнера."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_photo_by_name:7
+#: ../../../../../Container.py:docstring of Container.Container.get_photo_by_type:7
+#: 6b2def5eb6c1419da4022b1495697c21
+#: a3be60617a1047008674eb5a10ba717a
+msgid "Шлях до фото."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_photo_by_type:1
+#: 565dc784765847f79e894e6786645071
+msgid "Отримати фото типу контейнера."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_photo_by_type:4
+#: ../../../../../Container.py:docstring of Container.Container.get_price_of_container_by_all_data:7
+#: 86d1ce9a07c34775a249c3975a032983
+#: e2bffdc0b42e49e595ae17a769c3ad3b
+msgid "Тип."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_photoes_containers:1
+#: 4bc386b65a5e44c38adfeb6e5d88a3ba
+msgid "Повертає унікальні фото назв контейнерів."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_price_by_type:1
+#: 1f9cf8c0ef6846619e1e55b8b62eca01
+msgid "Отримати ціну контейнера за його типом."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_price_by_type:7
+#: d8cc966877aa4805893462f7503d2337
+msgid "Ціна контейнера."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_price_of_container_by_all_data:1
+#: 7e683eab182142f7a5931772dc318277
+msgid "Отримати ціну контейнера за всіма параметрами."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_price_of_container_by_all_data:10
+#: 0466699dcb9f40928071debe7736adc1
+msgid "Матеріал."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_price_of_container_by_all_data:13
+#: 148049429ea24cb2a85a0c7da89cce71
+msgid "Ціна."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_types_by_name:1
+#: c3ebeee8cc9d42fdb17aa2815883ae26
+msgid "Отримати всі типи контейнера за його назвою."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_types_by_name:7
+#: 9b4ba3fd9eb945eb8d3abfca277bbd98
+msgid "Типи контейнерів."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_volume_by_type:1
+#: 39fca8b935d6462c962efeb15e56660c
+msgid "Отримати обʼєм контейнера за типом."
+msgstr ""
+
+#: ../../../../../Container.py:docstring of Container.Container.get_volume_by_type:7
+#: c2b4b98716a64eda8a80a6f094417912
+msgid "Обʼєм."
+msgstr ""

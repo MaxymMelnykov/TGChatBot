@@ -1,0 +1,127 @@
+#: ../../source/markups.rst:2
+msgid "markups.py"
+msgstr "markups.py"
+
+#: markups.create_config_customer_markup:1 of
+msgid "Створює клавіатуру для вибору контейнерів для приватних покупців."
+msgstr "Creates a keyboard for selecting containers for private buyers."
+
+#: ../../source/markups.rst
+msgid "Повертає"
+msgstr "Returns"
+
+#: markups.create_config_customer_markup:3 of
+msgid "Клавіатура для вибору контейнерів."
+msgstr "Keyboard for selecting containers."
+
+#: ../../source/markups.rst
+msgid "Тип повернення"
+msgstr "Return type"
+
+#: markups.create_config_markup:1 of
+msgid ""
+"Створює клавіатуру для вибору типу користувача (приватний покупець або "
+"забудовник)."
+msgstr "Creates a keyboard for selecting the user type (private buyer or developer)."
+
+#: markups.create_config_markup:3 of
+msgid "Клавіатура для вибору типу користувача."
+msgstr "Keyboard for selecting the user type."
+
+#: markups.create_contacts_markup:1 of
+msgid ""
+"Створює клавіатуру для перегляду контактної інформації та повернення до "
+"допомоги."
+msgstr "Creates a keyboard for viewing contact information and returning to help."
+
+#: markups.create_contacts_markup:3 of
+msgid "Клавіатура для контактної інформації."
+msgstr "Keyboard for contact information."
+
+#: markups.create_faq_markup:1 of
+msgid ""
+"Створює клавіатуру для відповіді на запитання та повернення до головного "
+"меню."
+msgstr "Creates a keyboard for answering questions and returning to the main menu."
+
+#: markups.create_faq_markup:3 of
+msgid "Клавіатура для FAQ."
+msgstr "FAQ keyboard."
+
+#: markups.create_get_ra_name_markup:1 of
+msgid ""
+"Створює клавіатуру для вибору типу контейнера (підземний або "
+"напівпідземний)."
+msgstr "Creates a keyboard for selecting the container type (underground or semi-underground)."
+
+#: markups.create_get_ra_name_markup:3 markups.create_type_markup:7 of
+msgid "Клавіатура для вибору типу контейнера."
+msgstr "Keyboard for selecting container type."
+
+#: markups.create_help_markup:1 of
+msgid "Створює клавіатуру для допомоги, що містить питання та контактні кнопки."
+msgstr "Creates a keyboard for help, containing questions and contact buttons."
+
+#: markups.create_help_markup:3 of
+msgid "Клавіатура з кнопками для допомоги."
+msgstr "Keyboard with help buttons."
+
+#: markups.create_main_markup:1 of
+msgid "Створює основну клавіатуру для головного меню."
+msgstr "Creates the main keyboard for the main menu."
+
+#: markups.create_main_markup:3 of
+msgid "Клавіатура з кнопками для головного меню."
+msgstr "Keyboard with buttons for the main menu."
+
+#: markups.create_main_menu_keyboard:1 of
+msgid "Створює клавіатуру для переходу до головного меню."
+msgstr "Creates a keyboard for navigating to the main menu."
+
+#: markups.create_main_menu_keyboard:3 of
+msgid "Клавіатура для переходу до головного меню."
+msgstr "Keyboard for going to the main menu."
+
+#: markups.create_material_markup:1 of
+msgid "Створює клавіатуру для вибору матеріалів контейнера на основі його назви."
+msgstr "Creates a keyboard for selecting container materials based on its name."
+
+#: ../../source/markups.rst
+msgid "Параметри"
+msgstr "Parameters"
+
+#: markups.create_material_markup:4 markups.create_type_markup:4 of
+msgid "Назва контейнера."
+msgstr "Container name."
+
+#: markups.create_material_markup:7 of
+msgid "Клавіатура для вибору матеріалів."
+msgstr "Keyboard for selecting materials."
+
+#: markups.create_order_navigation_markup:1 of
+msgid ""
+"Створює клавіатуру для навігації замовленнями залежно від типу "
+"користувача."
+msgstr "Creates a keyboard for order navigation depending on the user type."
+
+#: markups.create_order_navigation_markup:4 of
+msgid "ID повідомлення."
+msgstr "Message ID."
+
+#: markups.create_order_navigation_markup:7 of
+msgid "Клавіатура для навігації замовленнями."
+msgstr "Keyboard for order navigation."
+
+#: markups.create_sensor_markup:1 of
+msgid ""
+"Створює клавіатуру для вибору необхідності сенсора (потрібен чи не "
+"потрібен)."
+msgstr "Creates a keyboard for selecting the need for a sensor (needed or not)."
+
+#: markups.create_sensor_markup:3 of
+msgid "Клавіатура для вибору сенсора."
+msgstr "Keyboard for selecting a sensor."
+
+#: markups.create_type_markup:1 of
+msgid "Створює клавіатуру для вибору типу контейнера на основі його назви."
+msgstr "Creates a keyboard for selecting the container type based on its name."

@@ -1,0 +1,47 @@
+#: ../../source/callbacks.rst:2
+msgid "callbacks.py"
+msgstr "callbacks.py"
+
+#: callbacks.setup_callbacks:1 of
+msgid "Реєструє всі обробники команд і callback-запитів для Telegram-бота."
+msgstr "Registers all command and callback query handlers for the Telegram bot."
+
+#: callbacks.setup_callbacks:3 of
+msgid "Ця функція налаштовує основну логіку обробки взаємодії з користувачем:"
+msgstr "This function configures the core logic for handling user interactions:"
+
+#: callbacks.setup_callbacks:5 of
+msgid "Обробляє команду `/start` та виводить стартове меню."
+msgstr "Handles the `/start` command and displays the start menu."
+
+#: callbacks.setup_callbacks:6 of
+msgid ""
+"Обробляє callback-запити: - Перехід по головному меню, допомога, "
+"контакти, FAQ. - Налаштування користувачів (замовник/ЖК). - Вибір типу та"
+" матеріалу контейнерів. - Опція датчиків наповнення для підземних "
+"контейнерів. - Підрахунок потрібних контейнерів для ЖК. - Запит номера "
+"телефону для замовника."
+msgstr ""
+"Handles callback queries including:\n"
+"- Navigation through the main menu, help, contacts, and FAQ.\n"
+"- User role selection (customer/residential complex).\n"
+"- Selection of container type and material.\n"
+"- Sensor option for underground containers.\n"
+"- Calculation of required containers for the residential complex.\n"
+"- Request for the customer's phone number."
+
+#: callbacks.setup_callbacks:14 of
+msgid ""
+"Працює в парі з іншими модулями проєкту: `config`, `handlers`, "
+"`Container`, `markups`, `user_data`, `utils`."
+msgstr ""
+"Works in conjunction with other project modules: `config`, `handlers`, "
+"`Container`, `markups`, `user_data`, `utils`."
+
+#: ../../source/callbacks.rst
+msgid "Параметри"
+msgstr "Parameters"
+
+#: callbacks.setup_callbacks:18 of
+msgid "Екземпляр TeleBot для взаємодії з Telegram API."
+msgstr "TeleBot instance for interacting with the Telegram API."

@@ -1,0 +1,23 @@
+#: ../../source/test_driven.rst:2
+msgid "live_examples"
+msgstr "live_examples"
+
+#: ../../source/test_driven.rst:5
+msgid "Test-Driven Documentation"
+msgstr "Test-Driven Documentation"
+
+#: ../../source/test_driven.rst:7
+msgid ""
+"Цей розділ демонструє приклади використання компонентів бота на основі "
+"функціональних тестів."
+msgstr "This section demonstrates usage examples of the bot's components based on functional tests."
+
+#: ../../source/test_driven.rst:9
+msgid ""
+"Нижче наведено Gherkin-сценарій, який показує, як користувач взаємодіє з "
+"ботом під час замовлення контейнера."
+msgstr "Below is a Gherkin scenario showing how a user interacts with the bot when ordering a container."
+
+#: ../../source/test_driven.rst:11
+msgid "Сценарій: Користувач виберає тип контейнера"
+msgstr "Scenario: The user selects the container type"

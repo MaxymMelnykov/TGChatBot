@@ -1,0 +1,190 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Melnykov Maxym
+# This file is distributed under the same license as the TGChatBot package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TGChatBot \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-16 17:32+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../markups.rst:2
+#: c9355a1b6985417ebbd691c6aacc03a3
+msgid "markups.py"
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_config_customer_markup:1
+#: 5abec6ce38104c32a7ea93725089e7cf
+msgid "Створює клавіатуру для вибору контейнерів для приватних покупців."
+msgstr ""
+
+#: ../../markups.rst:0
+#: a226ca35263c4f208fdd96ca433c89a8
+#: 07c0ed39b99b4fed8d0aacb8e479b0e5
+#: f83853693bfb476ca66537939b15bad6
+#: 99d2115aad634b309733e4060e6dae3f
+#: 7ef41a953b144dcebd5a9f0c1a0edf1a
+#: b0dedfc97fec47eca045daa77da30e85
+#: 5c8de27c13314256aa569e10602cc499
+#: a24ca3d870cf4818abf5f3a117a1a9f6
+#: 84aa546e417c4ee498750a530e3f9b15
+#: 4fb5b421271f4a629306dd10cfb6ac67
+#: 7d679c7f652a488f9dc56511ab6f0fad
+#: dfaa433f1bd643e79c3c10cd844b50a3
+msgid "Повертає"
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_config_customer_markup:3
+#: 6bd62ead83d24c28863d6b6bc3ab7119
+msgid "Клавіатура для вибору контейнерів."
+msgstr ""
+
+#: ../../markups.rst:0
+#: 511085271e944fd5ab3af04d13d6d10e
+#: e808a166fcbb432ca47ad7721c3a6949
+#: 3bcad966e0c140849be85bd87bdb564f
+#: e29c4f4b8ada4deaa69d127ebfed9576
+#: 78075f95b06d4b60976041fb10213a6c
+#: a7bc4da0bd464be5ad355e4f261fd899
+#: a96b12fd9aa44abcac2dce1e6e30c855
+#: 81a58a4b8fc0484a94fb56f175962a6f
+#: a266f80b445a4f819dd0a8d43a86dd61
+#: de51df79fa7c410aaa26860273fc310b
+#: 55343a19734b4f45b745c7accfaba2a5
+#: db7d50e913d04d74806e0b1fc02f6f0f
+msgid "Тип повернення"
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_config_markup:1
+#: d0dad3018a44408a95e92ee0ceeaa28b
+msgid "Створює клавіатуру для вибору типу користувача (приватний покупець або забудовник)."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_config_markup:3
+#: 9f13b2fbd2374455af9a57e93311192d
+msgid "Клавіатура для вибору типу користувача."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_contacts_markup:1
+#: c2713496893e42588a8197f96c6b74fd
+msgid "Створює клавіатуру для перегляду контактної інформації та повернення до допомоги."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_contacts_markup:3
+#: 986fc93a7baf49ad8f5c286ace78638e
+msgid "Клавіатура для контактної інформації."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_faq_markup:1
+#: d9cb678b437b4c2dae93fa39492fc845
+msgid "Створює клавіатуру для відповіді на запитання та повернення до головного меню."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_faq_markup:3
+#: 9e4610db553846ffa69ddbd70f4211e9
+msgid "Клавіатура для FAQ."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_get_ra_name_markup:1
+#: 09e8f054ea8a4d41ba6e207156defb3a
+msgid "Створює клавіатуру для вибору типу контейнера (підземний або напівпідземний)."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_get_ra_name_markup:3
+#: ../../../../../markups.py:docstring of markups.create_type_markup:7
+#: 7f627146362049e6adac5a36c0e5e67a
+#: 40284306eb9b4e7f927752f078c2f671
+msgid "Клавіатура для вибору типу контейнера."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_help_markup:1
+#: 865fc76b250b4e338f2e76d8c830b3b9
+msgid "Створює клавіатуру для допомоги, що містить питання та контактні кнопки."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_help_markup:3
+#: 588ff1cdb3084bb0bf9a74952fd84d07
+msgid "Клавіатура з кнопками для допомоги."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_main_markup:1
+#: f8435c98118649b6a3326a3f473a6567
+msgid "Створює основну клавіатуру для головного меню."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_main_markup:3
+#: e90ee4f413764e538e674338035a301f
+msgid "Клавіатура з кнопками для головного меню."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_main_menu_keyboard:1
+#: 165ba1bdc8bc449fb4030d90002e8ab5
+msgid "Створює клавіатуру для переходу до головного меню."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_main_menu_keyboard:3
+#: 9ed333b50e0a4f688796424be89ab04a
+msgid "Клавіатура для переходу до головного меню."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_material_markup:1
+#: 4a9a7b9eb3ad45a2accbfcf4a1df26a4
+msgid "Створює клавіатуру для вибору матеріалів контейнера на основі його назви."
+msgstr ""
+
+#: ../../markups.rst:0
+#: fafddce59d764351bd2f978f521c25a0
+#: 7a72024a76ac4c8e8bb13981f1239e51
+#: 7843dcc218824291a5106581be3c07d2
+msgid "Параметри"
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_material_markup:4
+#: ../../../../../markups.py:docstring of markups.create_type_markup:4
+#: 7d06071e9010429bbfbe74f172fa55c9
+#: 6f79499a20714df2877714c99b2e2e3f
+msgid "Назва контейнера."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_material_markup:7
+#: 6de14da81a9342a3aabcd70c59669c94
+msgid "Клавіатура для вибору матеріалів."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_order_navigation_markup:1
+#: f0fdcf45a28b4ecf8fee061e4f469d7f
+msgid "Створює клавіатуру для навігації замовленнями залежно від типу користувача."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_order_navigation_markup:4
+#: 31cbe6558cc74377b1f7777235f6af14
+msgid "ID повідомлення."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_order_navigation_markup:7
+#: 021ac844759049a6b130f475c11bfda2
+msgid "Клавіатура для навігації замовленнями."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_sensor_markup:1
+#: feda4e1b775643e6ad5042217b5647f2
+msgid "Створює клавіатуру для вибору необхідності сенсора (потрібен чи не потрібен)."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_sensor_markup:3
+#: 8714e0e09a194c38a6582b2b8a0f7de3
+msgid "Клавіатура для вибору сенсора."
+msgstr ""
+
+#: ../../../../../markups.py:docstring of markups.create_type_markup:1
+#: 2192cacb5a6d4331b5ba28e7de18533d
+msgid "Створює клавіатуру для вибору типу контейнера на основі його назви."
+msgstr ""

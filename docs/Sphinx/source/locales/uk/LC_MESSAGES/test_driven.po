@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Melnykov Maxym
+# This file is distributed under the same license as the TGChatBot package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TGChatBot \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-16 17:32+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uk\n"
+"Language-Team: uk <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../test_driven.rst:2 9dae7a09dcbd4ec5bdc94696f6e754b0
+msgid "live_examples"
+msgstr ""
+
+#: ../../test_driven.rst:5 13664bdba007487cafb539b1f845fbac
+msgid "Test-Driven Documentation"
+msgstr ""
+
+#: ../../test_driven.rst:7 2864c5044fbb41cba3b091e35b068d14
+msgid ""
+"Цей розділ демонструє приклади використання компонентів бота на основі "
+"функціональних тестів."
+msgstr ""
+
+#: ../../test_driven.rst:9 fd21d8808bb346bb83e91067725580af
+msgid ""
+"Нижче наведено Gherkin-сценарій, який показує, як користувач взаємодіє з "
+"ботом під час замовлення контейнера."
+msgstr ""
+
+#: ../../test_driven.rst:11 7729ffb5e8294ff08d61a7df97055fd4
+msgid "Сценарій: Користувач виберає тип контейнера"
+msgstr ""

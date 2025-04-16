@@ -1,0 +1,179 @@
+#: ../../source/container.rst:2
+msgid "Container.py"
+msgstr "Container.py"
+
+#: Container.Container:1 of
+msgid "Bases: :py:class:`object`"
+msgstr "Bases: :py:class:`object`"
+
+#: Container.Container:1 of
+msgid "Клас для представлення контейнера та роботи з колекцією контейнерів."
+msgstr "A class for representing a container and managing a collection of containers."
+
+#: Container.Container:3 of
+msgid "Атрибути класу:"
+msgstr "Class attributes:"
+
+#: Container.Container:4 of
+msgid "containers (list): Список усіх створених об'єктів Container."
+msgstr "containers (list): List of all created Container objects."
+
+#: Container.Container:6 of
+msgid "Атрибути:"
+msgstr "Attributes:"
+
+#: Container.Container:7 of
+msgid ""
+"container_name (str): Назва контейнера. name_photo (str): Шлях до фото, "
+"що відповідає назві. container_material (str): Матеріал контейнера. "
+"material_photo (str): Фото матеріалу. container_type (str): Тип "
+"контейнера (обʼєм або функціонал). container_type_photo (str): Фото типу "
+"контейнера. volume (float): Обʼєм контейнера в м³ або л. price (float): "
+"Ціна контейнера в гривнях."
+msgstr ""
+"container_name (str): Container name. name_photo (str): Path to the corresponding name image. "
+"container_material (str): Container material. material_photo (str): Material image. "
+"container_type (str): Container type (volume or function). container_type_photo (str): Type image. "
+"volume (float): Container volume in m³ or L. price (float): Price in UAH."
+
+#: Container.Container.get_all_materials:1 of
+msgid "Повертає список усіх матеріалів контейнерів."
+msgstr "Returns a list of all container materials."
+
+#: Container.Container.get_all_type_photos_by_name:1 of
+msgid "Отримати всі фото типів контейнерів за назвою."
+msgstr "Get all container type images by name."
+
+#: ../../source/container.rst
+msgid "Параметри"
+msgstr "Parameters"
+
+#: Container.Container.get_all_type_photos_by_name:4
+#: Container.Container.get_price_of_container_by_all_data:4 of
+msgid "Назва."
+msgstr "Name."
+
+#: ../../source/container.rst
+msgid "Повертає"
+msgstr "Returns"
+
+#: Container.Container.get_all_type_photos_by_name:7 of
+msgid "Список фото типів."
+msgstr "List of type images."
+
+#: ../../source/container.rst
+msgid "Тип повернення"
+msgstr "Return type"
+
+#: Container.Container.get_all_types:1 of
+msgid "Повертає список усіх типів контейнерів."
+msgstr "Returns a list of all container types."
+
+#: Container.Container.get_container_need_more_by_type:1 of
+msgid ""
+"Розрахувати кількість контейнерів, необхідну для зберігання заданого "
+"об'єму."
+msgstr "Calculates the number of containers needed to store a given volume."
+
+#: Container.Container.get_container_need_more_by_type:4
+#: Container.Container.get_price_by_type:4
+#: Container.Container.get_volume_by_type:4 of
+msgid "Тип контейнера."
+msgstr "Container type."
+
+#: Container.Container.get_container_need_more_by_type:7 of
+msgid "Розрахунковий обʼєм (м³)."
+msgstr "Required volume (m³)."
+
+#: Container.Container.get_container_need_more_by_type:10 of
+msgid "Кількість контейнерів."
+msgstr "Number of containers."
+
+#: Container.Container.get_containers:1 of
+msgid "Повертає всі контейнери."
+msgstr "Returns all containers."
+
+#: Container.Container.get_material_photos_by_name:1 of
+msgid "Отримати фото матеріалів за назвою контейнера."
+msgstr "Get material images by container name."
+
+#: Container.Container.get_material_photos_by_name:4
+#: Container.Container.get_materials_by_name:4
+#: Container.Container.get_photo_by_name:4
+#: Container.Container.get_types_by_name:4 of
+msgid "Назва контейнера."
+msgstr "Container name."
+
+#: Container.Container.get_material_photos_by_name:7 of
+msgid "Список фото матеріалів."
+msgstr "List of material images."
+
+#: Container.Container.get_materials_by_name:1 of
+msgid "Отримати всі доступні матеріали для вказаної назви контейнера."
+msgstr "Get all available materials for the given container name."
+
+#: Container.Container.get_materials_by_name:7 of
+msgid "Список матеріалів."
+msgstr "List of materials."
+
+#: Container.Container.get_names_containers:1 of
+msgid "Повертає список усіх назв контейнерів."
+msgstr "Returns a list of all container names."
+
+#: Container.Container.get_photo_by_name:1 of
+msgid "Отримати фото назви контейнера."
+msgstr "Get container name image."
+
+#: Container.Container.get_photo_by_name:7
+#: Container.Container.get_photo_by_type:7 of
+msgid "Шлях до фото."
+msgstr "Path to image."
+
+#: Container.Container.get_photo_by_type:1 of
+msgid "Отримати фото типу контейнера."
+msgstr "Get container type image."
+
+#: Container.Container.get_photo_by_type:4
+#: Container.Container.get_price_of_container_by_all_data:7 of
+msgid "Тип."
+msgstr "Type."
+
+#: Container.Container.get_photoes_containers:1 of
+msgid "Повертає унікальні фото назв контейнерів."
+msgstr "Returns unique images of container names."
+
+#: Container.Container.get_price_by_type:1 of
+msgid "Отримати ціну контейнера за його типом."
+msgstr "Get the price of a container by its type."
+
+#: Container.Container.get_price_by_type:7 of
+msgid "Ціна контейнера."
+msgstr "Container price."
+
+#: Container.Container.get_price_of_container_by_all_data:1 of
+msgid "Отримати ціну контейнера за всіма параметрами."
+msgstr "Get the price of a container based on all parameters."
+
+#: Container.Container.get_price_of_container_by_all_data:10 of
+msgid "Матеріал."
+msgstr "Material."
+
+#: Container.Container.get_price_of_container_by_all_data:13 of
+msgid "Ціна."
+msgstr "Price."
+
+#: Container.Container.get_types_by_name:1 of
+msgid "Отримати всі типи контейнера за його назвою."
+msgstr "Get all container types by its name."
+
+#: Container.Container.get_types_by_name:7 of
+msgid "Типи контейнерів."
+msgstr "Container types."
+
+#: Container.Container.get_volume_by_type:1 of
+msgid "Отримати обʼєм контейнера за типом."
+msgstr "Get the container volume by its type."
+
+#: Container.Container.get_volume_by_type:7 of
+msgid "Обʼєм."
+msgstr "Volume."

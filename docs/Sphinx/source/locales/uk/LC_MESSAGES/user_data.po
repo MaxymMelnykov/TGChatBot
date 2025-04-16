@@ -1,0 +1,165 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Melnykov Maxym
+# This file is distributed under the same license as the TGChatBot package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TGChatBot \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-16 17:32+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uk\n"
+"Language-Team: uk <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../user_data.rst:2 e87c4710445a459d984e922009e14d16
+msgid "user_data.py"
+msgstr ""
+
+#: ../../../../../docstring a3dc11734b04407cbd135014e3b275e2 of
+#: user_data.user_data:1
+msgid "Словник за замовчуванням для зберігання даних користувачів."
+msgstr ""
+
+#: ../../../../../docstring 5c26c8b8cd0e44beb6d47951d0fb52f5 of
+#: user_data.user_data:3
+msgid ""
+"Використовує `defaultdict` з лямбда-функцією, яка ініціалізує кожного "
+"користувача з набором значень за замовчуванням."
+msgstr ""
+
+#: ../../../../../docstring 3ba834dd3e3b441fb6eb7a524a090ed4 of
+#: user_data.user_data:7
+msgid "Тип користувача, наприклад, 'замовник' або 'представник ЖК'."
+msgstr ""
+
+#: ../../../../../docstring 113f6c6ab25d43979eadb7ba6b8b6883
+#: 1630b4fdad424ea3bdee67d6dc4b7373 196f1de8907c47dea8a7dde2a867c826
+#: 19abe3f3a15d4c479227ca48883d534d 19e1214a8f8f4a3ea4422f0cc214fcd7
+#: 1d0edc71d7524807bb129c9748cde537 2c617ff7813e4341acd22c50a3b36765
+#: 3c8d20e8e54b4f5fbd44cfa87bf4fe3b 3faf49f5fa224095a9a4bc0e87253dcf
+#: 835ff510c9ba4057b7c8f301b61228a2 87523513c8ec444a975601bf589caab1
+#: 9fd4fb38885d4a178e9c1f656a3998dd e3e9288b7b474600a126338df8f3bf68
+#: f1a6a13f4ec84c45b878a58c627188d4 of user_data.user_data
+msgid "type"
+msgstr ""
+
+#: ../../../../../docstring 2b3a685dafc54de1b183197aa704b093
+#: 2c96aec79c1e47e88660afa8658fc62b 779ca32b405f43fa98034c74329e2bad
+#: 7defd34bfca343ebbe21869b7ef6455f e6f247e67b1e45439fb0dce5ed52b7e0
+#: f4866994411b44d5afa7ac193cf4ca2d fffe1a6fa70f4b3a8a70c09cec20f26b of
+#: user_data.user_data:9 user_data.user_data:27 user_data.user_data:33
+#: user_data.user_data:39 user_data.user_data:45 user_data.user_data:51
+#: user_data.user_data:75
+msgid "str or None"
+msgstr ""
+
+#: ../../../../../docstring cb73db9ea15244dcb070602291696026 of
+#: user_data.user_data:13
+msgid "Результат розрахунку для контейнера."
+msgstr ""
+
+#: ../../../../../docstring 0d9c9318460e4f7e9fcf3bed1fbfdb13
+#: 2863321170314bd191103004e4680e39 de7f25c761194c8fbad72a148968fefc
+#: fb90203d07ab40a5b7fc93c57e433d85 of user_data.user_data:15
+#: user_data.user_data:21 user_data.user_data:57 user_data.user_data:69
+msgid "int"
+msgstr ""
+
+#: ../../../../../docstring 3f19c13ab108436880ef6c483d239c8d of
+#: user_data.user_data:19
+msgid "Загальний об'єм всіх замовлених контейнерів."
+msgstr ""
+
+#: ../../../../../docstring 7d8cea33ce0c4f6ab847362a4c98a33d of
+#: user_data.user_data:25
+msgid "Площа, яку обслуговує користувач."
+msgstr ""
+
+#: ../../../../../docstring 766702b1f48c4710942a16758d7b1bce of
+#: user_data.user_data:31
+msgid "Кількість квартир, пов'язаних з користувачем."
+msgstr ""
+
+#: ../../../../../docstring 83a4eaf3a8594916bb1e3d5dc5570691 of
+#: user_data.user_data:37
+msgid "Назва контейнера."
+msgstr ""
+
+#: ../../../../../docstring 16a410b17e614ce8bdc8934275d88e2f of
+#: user_data.user_data:43
+msgid "Тип контейнера."
+msgstr ""
+
+#: ../../../../../docstring 4898bfc04e1b46439bac4a082af00139 of
+#: user_data.user_data:49
+msgid "Матеріал контейнера."
+msgstr ""
+
+#: ../../../../../docstring 987152442f404b2abe986d1f9dd7dddf of
+#: user_data.user_data:55
+msgid "Кількість контейнерів."
+msgstr ""
+
+#: ../../../../../docstring 1326a06af83b419fa731154198cdc1bb of
+#: user_data.user_data:61
+msgid "Наявність сенсора у підземного контейнера."
+msgstr ""
+
+#: ../../../../../docstring 2df5bf6f015b4c6b9d594b9e8e56f095 of
+#: user_data.user_data:63
+msgid "bool"
+msgstr ""
+
+#: ../../../../../docstring 91b8bf7fe0924d468b8fa0e5d957bfda of
+#: user_data.user_data:67
+msgid "Товщина стінки контейнера."
+msgstr ""
+
+#: ../../../../../docstring 1854cc1782864e308fb2a6fc4ef3186b of
+#: user_data.user_data:73
+msgid "Номер телефону користувача."
+msgstr ""
+
+#: ../../../../../docstring 90b62506070f4dab81c2ae44c04338d4 of
+#: user_data.user_data:79
+msgid "Список замовлень користувача."
+msgstr ""
+
+#: ../../../../../docstring 5744c61fddce4a749dbc2d54ce5d1e30 of
+#: user_data.user_data:81
+msgid "list"
+msgstr ""
+
+#: ../../../../../docstring e98cf77d6a87486794e1a7a1c60c4ede of
+#: user_data.user_data:85
+msgid "Загальна сума всіх замовлень користувача."
+msgstr ""
+
+#: ../../../../../docstring a5d3a5ff31004ab286a64b0263c9346f of
+#: user_data.user_data:87
+msgid "float"
+msgstr ""
+
+#: ../../user_data.rst b5e24d652245481798509d2b3be18f7b
+msgid "Повертає"
+msgstr ""
+
+#: ../../../../../docstring 3d4ad1179cb64e388ab5b984accdb38d of
+#: user_data.user_data:89
+msgid ""
+"Об'єкт `defaultdict`, який автоматично ініціалізує нові записи з "
+"вказаними значеннями за замовчуванням."
+msgstr ""
+
+#: ../../user_data.rst 863db62bfd5f4b3b95033e5945a616aa
+msgid "Тип повернення"
+msgstr ""

@@ -1,0 +1,37 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Melnykov Maxym
+# This file is distributed under the same license as the TGChatBot package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TGChatBot \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-16 17:32+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../config.rst:2
+#: bd4e4b66ab2a4d5cab7c813b95c3dfe0
+msgid "config.py"
+msgstr ""
+
+#: ../../../../../config.py:docstring of config:1
+#: 3dd6365e00e949d6bc13b296ddb5fbf1
+msgid "Модуль конфігурації для Telegram-бота."
+msgstr ""
+
+#: ../../../../../config.py:docstring of config:3
+#: f903fa1616444b42b636141c23336e48
+msgid "Цей модуль містить токен бота, ID адміністратора, стандартні повідомлення, питання з відповідями, а також контактну інформацію."
+msgstr ""
+
+#: ../../../../../config.py:docstring of config:6
+#: 3065041aa5f34482bc83dd916089cf4c
+msgid "Для правильної роботи бота, треба у змінну TOKEN згенерований токен вашого бота, а замість ADMIN_ID Telegram ID менеджера"
+msgstr ""

@@ -1,0 +1,57 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Melnykov Maxym
+# This file is distributed under the same license as the TGChatBot package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TGChatBot \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-16 17:32+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../callbacks.rst:2
+#: 49d0641962bc46c4a2e743d2dbaaaf67
+msgid "callbacks.py"
+msgstr ""
+
+#: ../../../../../callbacks.py:docstring of callbacks.setup_callbacks:1
+#: fb10b349c078487daad84431f441580e
+msgid "Реєструє всі обробники команд і callback-запитів для Telegram-бота."
+msgstr ""
+
+#: ../../../../../callbacks.py:docstring of callbacks.setup_callbacks:3
+#: deb62f2dce6d4622a62b168afd4659b0
+msgid "Ця функція налаштовує основну логіку обробки взаємодії з користувачем:"
+msgstr ""
+
+#: ../../../../../callbacks.py:docstring of callbacks.setup_callbacks:5
+#: b6db81287d9845dbad04a1edb965c891
+msgid "Обробляє команду `/start` та виводить стартове меню."
+msgstr ""
+
+#: ../../../../../callbacks.py:docstring of callbacks.setup_callbacks:6
+#: 816050562a01419dbf91727453b9a7e7
+msgid "Обробляє callback-запити: - Перехід по головному меню, допомога, контакти, FAQ. - Налаштування користувачів (замовник/ЖК). - Вибір типу та матеріалу контейнерів. - Опція датчиків наповнення для підземних контейнерів. - Підрахунок потрібних контейнерів для ЖК. - Запит номера телефону для замовника."
+msgstr ""
+
+#: ../../../../../callbacks.py:docstring of callbacks.setup_callbacks:14
+#: 6ea03bd55d3a42e7b8935afff791a7ef
+msgid "Працює в парі з іншими модулями проєкту: `config`, `handlers`, `Container`, `markups`, `user_data`, `utils`."
+msgstr ""
+
+#: ../../callbacks.rst:0
+#: 438f017655c44c0f9598e9aa2edace03
+msgid "Параметри"
+msgstr ""
+
+#: ../../../../../callbacks.py:docstring of callbacks.setup_callbacks:18
+#: 2b57df3ef368472ab0f6763054977dab
+msgid "Екземпляр TeleBot для взаємодії з Telegram API."
+msgstr ""

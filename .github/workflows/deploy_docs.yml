@@ -31,6 +31,9 @@ jobs:
         run: |
           pip install -r requirements.txt
 
+      - name: Build English docs
+        run: sphinx-build -b html -D language=en docs/Sphinx/source docs/Sphinx/html/en
+
       - name: Build the documentation with Sphinx
         run: |
           sphinx-build -b html docs/Sphinx/source docs/Sphinx/html

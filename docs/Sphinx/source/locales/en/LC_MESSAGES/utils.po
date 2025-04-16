@@ -1,0 +1,88 @@
+#: ../../source/utils.rst:2
+msgid "utils.py"
+msgstr "utils.py"
+
+#: of utils.calculate_ra_volume_count:1
+msgid ""
+"Обчислює кількість контейнерів для житлового комплексу (ЖК) на основі "
+"різних параметрів, таких як площа та кількість квартир, а також генерує "
+"рекомендації щодо контейнерів для утилізації ПВ."
+msgstr ""
+"Calculates the number of containers for a residential complex (RC) based on "
+"various parameters such as area and number of apartments, and generates "
+"recommendations for containers for waste disposal."
+
+#: ../../source/utils.rst
+msgid "Параметри"
+msgstr "Parameters"
+
+#: of utils.calculate_ra_volume_count:5 utils.calculate_volume_count:4
+msgid "ID користувача."
+msgstr "User ID."
+
+#: ../../source/utils.rst
+msgid "Повертає"
+msgstr "Returns"
+
+#: of utils.calculate_ra_volume_count:8
+msgid "Кількість рекомендованих контейнерів для ЖК."
+msgstr "Number of recommended containers for the RC."
+
+#: ../../source/utils.rst
+msgid "Тип повернення"
+msgstr "Return type"
+
+#: of utils.calculate_volume_count:1
+msgid ""
+"Обчислює кількість контейнерів на основі результатів розрахунків і об'єму"
+" контейнера."
+msgstr ""
+"Calculates the number of containers based on the calculation results and the "
+"volume of the container."
+
+#: of utils.calculate_volume_count:7
+msgid "Об'єм контейнера."
+msgstr "Container volume."
+
+#: of utils.calculate_volume_count:10
+msgid "Кількість контейнерів, що можна заповнити заданим об'ємом."
+msgstr "Number of containers that can be filled with the specified volume."
+
+#: of utils.clear_user_data:1
+msgid "Очищає дані користувача з глобального словника."
+msgstr "Clears user data from the global dictionary."
+
+#: of utils.clear_user_data:4
+msgid "ID користувача, чиї дані потрібно очистити."
+msgstr "User ID whose data needs to be cleared."
+
+#: of utils.send_photos_with_message:1
+msgid ""
+"Відправляє групу фотографій користувачу з підписом та, за потреби, "
+"кнопками."
+msgstr ""
+"Sends a group of photos to the user with a caption and, if needed, buttons."
+
+#: of utils.send_photos_with_message:4
+msgid "ID чату користувача."
+msgstr "User's chat ID."
+
+#: of utils.send_photos_with_message:7
+msgid "Список шляхів до фотографій, які потрібно надіслати."
+msgstr "List of paths to the photos to be sent."
+
+#: of utils.send_photos_with_message:10
+msgid "Підпис до фотографій."
+msgstr "Caption for the photos."
+
+#: of utils.send_photos_with_message:13
+msgid "Клавіатура для відповіді користувача (за замовчуванням None)."
+msgstr "Keyboard for user response (default None)."
+
+#: of utils.send_photos_with_message:16
+msgid "- Повідомлення користувачеві з фотографіями."
+msgstr "- Message to the user with photos."
+
+#: of utils.send_photos_with_message:18
+msgid "Повідомлення користувачеві з фотографіями."
+msgstr "Message to the user with photos."

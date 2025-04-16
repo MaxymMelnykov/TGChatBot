@@ -1,0 +1,43 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Melnykov Maxym
+# This file is distributed under the same license as the TGChatBot package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TGChatBot \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-16 17:32+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uk\n"
+"Language-Team: uk <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../main.rst:2 7b7e5439849848dab15b539a673b8570
+msgid "main.py"
+msgstr ""
+
+#: 9c6854cdf4d148c181b6dde6d357117a main:1 of
+msgid "Основна точка запуску для Telegram-бота. Ініціалізує та запускає бота."
+msgstr ""
+
+#: 6005929e7b3344019bb6ee683bbf84d5 main:3 of
+msgid ""
+"При запуску: - Виводиться повідомлення про запуск бота в консолі. - "
+"Налаштовуються зворотні виклики для обробки повідомлень та команд. - "
+"Запускається процес polling для бота, що дозволяє йому працювати без "
+"зупинок."
+msgstr ""
+
+#: 911032d9ee1b40598dec54e2cd9cc1fa main:8 of
+msgid ""
+"Викликається функція `setup_callbacks` для налаштування обробників. Потім"
+" запускається метод `polling` для безперервної роботи бота."
+msgstr ""

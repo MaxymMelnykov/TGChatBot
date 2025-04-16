@@ -1,0 +1,110 @@
+#: ../../source/user_data.rst:2
+msgid "user_data.py"
+msgstr "user_data.py"
+
+#: ../../docstring of user_data.user_data:1
+msgid "Словник за замовчуванням для зберігання даних користувачів."
+msgstr "Default dictionary for storing user data."
+
+#: ../../docstring of user_data.user_data:3
+msgid ""
+"Використовує `defaultdict` з лямбда-функцією, яка ініціалізує кожного "
+"користувача з набором значень за замовчуванням."
+msgstr "Uses `defaultdict` with a lambda function that initializes each user with a set of default values."
+
+#: ../../docstring of user_data.user_data:7
+msgid "Тип користувача, наприклад, 'замовник' або 'представник ЖК'."
+msgstr "User type, e.g., 'customer' or 'residential representative'."
+
+#: ../../docstring of user_data.user_data
+msgid "type"
+msgstr "type"
+
+#: ../../docstring of user_data.user_data:9 user_data.user_data:27
+#: user_data.user_data:33 user_data.user_data:39 user_data.user_data:45
+#: user_data.user_data:51 user_data.user_data:75
+msgid "str or None"
+msgstr "str or None"
+
+#: ../../docstring of user_data.user_data:13
+msgid "Результат розрахунку для контейнера."
+msgstr "Calculation result for the container."
+
+#: ../../docstring of user_data.user_data:15 user_data.user_data:21
+#: user_data.user_data:57 user_data.user_data:69
+msgid "int"
+msgstr "int"
+
+#: ../../docstring of user_data.user_data:19
+msgid "Загальний об'єм всіх замовлених контейнерів."
+msgstr "Total volume of all ordered containers."
+
+#: ../../docstring of user_data.user_data:25
+msgid "Площа, яку обслуговує користувач."
+msgstr "Area served by the user."
+
+#: ../../docstring of user_data.user_data:31
+msgid "Кількість квартир, пов'язаних з користувачем."
+msgstr "Number of apartments associated with the user."
+
+#: ../../docstring of user_data.user_data:37
+msgid "Назва контейнера."
+msgstr "Container name."
+
+#: ../../docstring of user_data.user_data:43
+msgid "Тип контейнера."
+msgstr "Container type."
+
+#: ../../docstring of user_data.user_data:49
+msgid "Матеріал контейнера."
+msgstr "Container material."
+
+#: ../../docstring of user_data.user_data:55
+msgid "Кількість контейнерів."
+msgstr "Number of containers."
+
+#: ../../docstring of user_data.user_data:61
+msgid "Наявність сенсора у підземного контейнера."
+msgstr "Presence of a sensor in the underground container."
+
+#: ../../docstring of user_data.user_data:63
+msgid "bool"
+msgstr "bool"
+
+#: ../../docstring of user_data.user_data:67
+msgid "Товщина стінки контейнера."
+msgstr "Container wall thickness."
+
+#: ../../docstring of user_data.user_data:73
+msgid "Номер телефону користувача."
+msgstr "User's phone number."
+
+#: ../../docstring of user_data.user_data:79
+msgid "Список замовлень користувача."
+msgstr "List of the user's orders."
+
+#: ../../docstring of user_data.user_data:81
+msgid "list"
+msgstr "list"
+
+#: ../../docstring of user_data.user_data:85
+msgid "Загальна сума всіх замовлень користувача."
+msgstr "Total sum of all the user's orders."
+
+#: ../../docstring of user_data.user_data:87
+msgid "float"
+msgstr "float"
+
+#: ../../source/user_data.rst
+msgid "Повертає"
+msgstr "Returns"
+
+#: ../../docstring of user_data.user_data:89
+msgid ""
+"Об'єкт `defaultdict`, який автоматично ініціалізує нові записи з "
+"вказаними значеннями за замовчуванням."
+msgstr "A `defaultdict` object that automatically initializes new entries with specified default values."
+
+#: ../../source/user_data.rst
+msgid "Тип повернення"
+msgstr "Return type"

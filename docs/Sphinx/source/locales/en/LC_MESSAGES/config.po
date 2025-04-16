@@ -1,0 +1,23 @@
+#: ../../source/config.rst:2
+msgid "config.py"
+msgstr "config.py"
+
+#: config:1 of
+msgid "Модуль конфігурації для Telegram-бота."
+msgstr "Configuration module for the Telegram bot."
+
+#: config:3 of
+msgid ""
+"Цей модуль містить токен бота, ID адміністратора, стандартні "
+"повідомлення, питання з відповідями, а також контактну інформацію."
+msgstr ""
+"This module contains the bot token, admin ID, default messages, questions with answers, "
+"and contact information."
+
+#: config:6 of
+msgid ""
+"Для правильної роботи бота, треба у змінну TOKEN згенерований токен "
+"вашого бота, а замість ADMIN_ID Telegram ID менеджера"
+msgstr ""
+"To ensure correct bot operation, assign your generated bot token to the TOKEN variable, "
+"and replace ADMIN_ID with the Telegram ID of the manager."

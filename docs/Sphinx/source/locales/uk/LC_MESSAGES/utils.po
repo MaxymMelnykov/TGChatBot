@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2025, Melnykov Maxym
+# This file is distributed under the same license as the TGChatBot package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TGChatBot \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-16 17:32+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: uk\n"
+"Language-Team: uk <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: ../../utils.rst:2 3f2204e7d4af43b887cdfadc35f60e7e
+msgid "utils.py"
+msgstr ""
+
+#: dde99775432f4ecdbe0d830a7da390a3 of utils.calculate_ra_volume_count:1
+msgid ""
+"Обчислює кількість контейнерів для житлового комплексу (ЖК) на основі "
+"різних параметрів, таких як площа та кількість квартир, а також генерує "
+"рекомендації щодо контейнерів для утилізації ПВ."
+msgstr ""
+
+#: ../../utils.rst 2c2f49a2eb21444695a6013ecabe1169
+#: 6c0f1cb69a2f4d958c36bf15a4ee4e48 72634507fe77473ab766d248c9a50614
+#: f7c6b6844ed74b81a42a3fc07b62ab31
+msgid "Параметри"
+msgstr ""
+
+#: b2bcba4f22254639984240d7f7bd8378 f75eb5bf7c41461898054c10a784ff5f of
+#: utils.calculate_ra_volume_count:5 utils.calculate_volume_count:4
+msgid "ID користувача."
+msgstr ""
+
+#: ../../utils.rst 88c86670383846aa8780e19d538064f0
+#: 9a9e9700f2904c1ab346867d30b2e9a6 a5a90bd7eca4463cafc97b50b40efefc
+msgid "Повертає"
+msgstr ""
+
+#: fcfaa179f6e045e0bfd152daecd37d43 of utils.calculate_ra_volume_count:8
+msgid "Кількість рекомендованих контейнерів для ЖК."
+msgstr ""
+
+#: ../../utils.rst 7fc96f7235904fd9a7b210b2f82bdaec
+#: d98c91077bc4445e9fb1bf7a1ddd91b4
+msgid "Тип повернення"
+msgstr ""
+
+#: d2c96461a3e64912846eaf76748d5fed of utils.calculate_volume_count:1
+msgid ""
+"Обчислює кількість контейнерів на основі результатів розрахунків і об'єму"
+" контейнера."
+msgstr ""
+
+#: bd843648d20b424bb0574237c4b63780 of utils.calculate_volume_count:7
+msgid "Об'єм контейнера."
+msgstr ""
+
+#: 5c2377fffe0243a49c62c228d0d36a8c of utils.calculate_volume_count:10
+msgid "Кількість контейнерів, що можна заповнити заданим об'ємом."
+msgstr ""
+
+#: e035ba32a7324750b2e7a7a934af922c of utils.clear_user_data:1
+msgid "Очищає дані користувача з глобального словника."
+msgstr ""
+
+#: f5d201314dfd4b6ab7e68cb53f0f1235 of utils.clear_user_data:4
+msgid "ID користувача, чиї дані потрібно очистити."
+msgstr ""
+
+#: f2f48d4024f34070bbbf8948e3e845c3 of utils.send_photos_with_message:1
+msgid ""
+"Відправляє групу фотографій користувачу з підписом та, за потреби, "
+"кнопками."
+msgstr ""
+
+#: ff57ae90a14a49c78fec0a751a7716a0 of utils.send_photos_with_message:4
+msgid "ID чату користувача."
+msgstr ""
+
+#: e7b8862a86a84b7286ef7e2ad9baf688 of utils.send_photos_with_message:7
+msgid "Список шляхів до фотографій, які потрібно надіслати."
+msgstr ""
+
+#: d20256a0840e4bbfbef02c82a71930a2 of utils.send_photos_with_message:10
+msgid "Підпис до фотографій."
+msgstr ""
+
+#: 153646b5c7c749408c852f39fe01f4d7 of utils.send_photos_with_message:13
+msgid "Клавіатура для відповіді користувача (за замовчуванням None)."
+msgstr ""
+
+#: 838bb2eaf12a45358b0b179183013a69 of utils.send_photos_with_message:16
+msgid "- Повідомлення користувачеві з фотографіями."
+msgstr ""
+
+#: effe61daa23b48a5a2a268ccb5ea7f92 of utils.send_photos_with_message:18
+msgid "Повідомлення користувачеві з фотографіями."
+msgstr ""
