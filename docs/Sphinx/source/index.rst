@@ -22,6 +22,7 @@ TGChatBot Documentation
    utils
    main
    markups
+   test_driven
 
 Module Descriptions
 ====================

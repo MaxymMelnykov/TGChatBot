@@ -41,3 +41,26 @@ sys.path.insert(0, os.path.abspath('../../../'))
 ```bash
 .\make.bat html
 ```
+
+## Лінтери для документації
+doc8 — перевіряє відповідність документації стилю reStructuredText.
+
+### Встановлення
+```bash
+pip install doc8
+```
+### Використання:
+```bash
+doc8 docs/
+```
+
+rstcheck — валідує синтаксис .rst та перехресні посилання.
+
+### Встановлення
+```bash
+pip install rstcheck
+```
+### Використання
+```bash
+rstcheck docs/
+```
