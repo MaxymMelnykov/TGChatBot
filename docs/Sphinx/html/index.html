@@ -44,7 +44,7 @@
               <p class="caption" role="heading"><span class="caption-text">Вміст:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="container.html">Container.py</a></li>
-<li class="toctree-l1"><a class="reference internal" href="config_example.html">config_example.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">config.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="callbacks.html">callbacks.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="handlers.html">handlers.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user_data.html">user_data.py</a></li>
@@ -89,7 +89,7 @@
 <li class="toctree-l2"><a class="reference internal" href="container.html#Container.Container"><code class="docutils literal notranslate"><span class="pre">Container</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="config_example.html">config_example.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">config.py</a></li>
 <li class="toctree-l1"><a class="reference internal" href="callbacks.html">callbacks.py</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="callbacks.html#callbacks.setup_callbacks"><code class="docutils literal notranslate"><span class="pre">setup_callbacks()</span></code></a></li>
 </ul>
@@ -170,8 +170,9 @@ git clone <a class="reference external" href="https://github.com">https://github
 pip install -r requirements.txt</p></li>
 <li><p>Налаштування:</p></li>
 </ol>
-<p>Створіть копію файлу config.example.py під назвою config.py</p>
-<p>Додайте ваш Telegram токен у config.py, змініть конатктну інформацію.</p>
+<p>У файлі config.py у змінну TOKEN впишіть згенерований токен бота,
+а у змінну ADMIN_ID впишіть ID менеджера, якому будуть приходити
+повідомлення про нові замовлення.</p>
 <p>Використання:</p>
 <p>Запускаємо бота, через main.py, заходимо у бота, до якого Ви прив’язали свій токен, тепер Ви можеет користуватися основними функціями бота такими як:
 1. Отримати відповіді на поширені запитання.

@@ -15,7 +15,7 @@ TGChatBot Documentation
    :caption: Вміст:
 
    container
-   config_example
+   config
    callbacks
    handlers
    user_data
@@ -60,9 +60,9 @@ Getting Started
    pip install -r requirements.txt
 3. Налаштування:
 
-Створіть копію файлу config.example.py під назвою config.py
-
-Додайте ваш Telegram токен у config.py, змініть конатктну інформацію.
+У файлі config.py у змінну TOKEN впишіть згенерований токен бота,
+а у змінну ADMIN_ID впишіть ID менеджера, якому будуть приходити
+повідомлення про нові замовлення.
 
 Використання:
 
