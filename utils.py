@@ -8,12 +8,32 @@ from user_data import user_data
 
 
 def calculate_volume_count(user_id, volume):
+    """
+    Обчислює кількість контейнерів на основі результатів розрахунків і об'єму контейнера.
+
+    Args:
+        user_id (int): ID користувача.
+        volume (float): Об'єм контейнера.
+
+    Returns:
+        float: Кількість контейнерів, що можна заповнити заданим об'ємом.
+    """
     count = user_data[user_id]["container_calc_res_ra"]
     result = count / volume
     return result
 
 
 def calculate_ra_volume_count(user_id):
+    """
+    Обчислює кількість контейнерів для житлового комплексу (ЖК) на основі різних параметрів, таких як площа
+    та кількість квартир, а також генерує рекомендації щодо контейнерів для утилізації ПВ.
+
+    Args:
+        user_id (int): ID користувача.
+
+    Returns:
+        int: Кількість рекомендованих контейнерів для ЖК.
+    """
     area = user_data[user_id]["area"]
     apartments = user_data[user_id]["apartments"]
 
@@ -48,6 +68,18 @@ def calculate_ra_volume_count(user_id):
 
 
 def send_photos_with_message(chat_id, photo_paths, caption, reply_markup=None):
+    """
+    Відправляє групу фотографій користувачу з підписом та, за потреби, кнопками.
+
+    Args:
+        chat_id (int): ID чату користувача.
+        photo_paths (list of str): Список шляхів до фотографій, які потрібно надіслати.
+        caption (str): Підпис до фотографій.
+        reply_markup (types.ReplyKeyboardMarkup, optional): Клавіатура для відповіді користувача (за замовчуванням None).
+
+    Returns:
+        - Повідомлення користувачеві з фотографіями.
+    """
     media = []
     open_files = []
     try:
@@ -76,5 +108,11 @@ def send_photos_with_message(chat_id, photo_paths, caption, reply_markup=None):
 
 
 def clear_user_data(user_id):
+    """
+    Очищає дані користувача з глобального словника.
+
+    Args:
+        user_id (int): ID користувача, чиї дані потрібно очистити.
+    """
     if user_id in user_data:
         del user_data[user_id]

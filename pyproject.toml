@@ -2,6 +2,7 @@
 line-length = 100
 lint.select = ["E", "F", "B", "I", "N"]
 lint.ignore = ["E501"]  # Довгі рядки, якщо потрібно дозволити
+extend-ignore = ["N999"]
 exclude = ["resources", "tests", ".venv"]
 
 [tool.ruff.format]

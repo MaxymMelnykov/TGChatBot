@@ -6,6 +6,12 @@ from user_data import user_data
 
 
 def create_main_markup():
+    """
+    Створює основну клавіатуру для головного меню.
+
+    Returns:
+        types.InlineKeyboardMarkup: Клавіатура з кнопками для головного меню.
+    """
     markup = types.InlineKeyboardMarkup(row_width=1)
     markup.add(
         types.InlineKeyboardButton("🛒 Конфігуратор замовлень", callback_data="config")
@@ -22,6 +28,12 @@ def create_main_markup():
 
 
 def create_help_markup():
+    """
+    Створює клавіатуру для допомоги, що містить питання та контактні кнопки.
+
+    Returns:
+        types.InlineKeyboardMarkup: Клавіатура з кнопками для допомоги.
+    """
     markup = types.InlineKeyboardMarkup(row_width=1)
     for key, (text, _) in QUESTIONS.items():
         markup.add(types.InlineKeyboardButton(text, callback_data=key))
@@ -33,6 +45,12 @@ def create_help_markup():
 
 
 def create_get_ra_name_markup():
+    """
+    Створює клавіатуру для вибору типу контейнера (підземний або напівпідземний).
+
+    Returns:
+        types.InlineKeyboardMarkup: Клавіатура для вибору типу контейнера.
+    """
     markup = types.InlineKeyboardMarkup(row_width=1)
     markup.add(types.InlineKeyboardButton("Підземний", callback_data="Підземний"))
     markup.add(
@@ -42,6 +60,12 @@ def create_get_ra_name_markup():
 
 
 def create_config_markup():
+    """
+    Створює клавіатуру для вибору типу користувача (приватний покупець або забудовник).
+
+    Returns:
+        types.InlineKeyboardMarkup: Клавіатура для вибору типу користувача.
+    """
     markup = types.InlineKeyboardMarkup(row_width=1)
     # Звичайний покупець
     markup.add(
@@ -53,6 +77,12 @@ def create_config_markup():
 
 
 def create_config_customer_markup():
+    """
+    Створює клавіатуру для вибору контейнерів для приватних покупців.
+
+    Returns:
+        types.InlineKeyboardMarkup: Клавіатура для вибору контейнерів.
+    """
     markup = types.InlineKeyboardMarkup(row_width=1)
     names = set()
     containers = Container.get_containers()
@@ -68,6 +98,12 @@ def create_config_customer_markup():
 
 
 def create_sensor_markup():
+    """
+    Створює клавіатуру для вибору необхідності сенсора (потрібен чи не потрібен).
+
+    Returns:
+        types.InlineKeyboardMarkup: Клавіатура для вибору сенсора.
+    """
     markup = types.InlineKeyboardMarkup(row_width=2)
     markup.row(
         types.InlineKeyboardButton("✅ Потрібна", callback_data="true"),
@@ -77,6 +113,12 @@ def create_sensor_markup():
 
 
 def create_contacts_markup():
+    """
+    Створює клавіатуру для перегляду контактної інформації та повернення до допомоги.
+
+    Returns:
+        types.InlineKeyboardMarkup: Клавіатура для контактної інформації.
+    """
     markup = types.InlineKeyboardMarkup(row_width=1)
     markup.add(
         types.InlineKeyboardButton(
@@ -92,6 +134,12 @@ def create_contacts_markup():
 
 
 def create_faq_markup():
+    """
+    Створює клавіатуру для відповіді на запитання та повернення до головного меню.
+
+    Returns:
+        types.InlineKeyboardMarkup: Клавіатура для FAQ.
+    """
     markup = types.InlineKeyboardMarkup(row_width=1)
     markup.add(types.InlineKeyboardButton("◀️ Повернутися", callback_data="help"))
     markup.add(
@@ -101,6 +149,15 @@ def create_faq_markup():
 
 
 def create_type_markup(container_name):
+    """
+    Створює клавіатуру для вибору типу контейнера на основі його назви.
+
+    Args:
+        container_name (str): Назва контейнера.
+
+    Returns:
+        types.InlineKeyboardMarkup: Клавіатура для вибору типу контейнера.
+    """
     if (
         container_name == "Підземний"
         or container_name == "Напівпідземний"
@@ -121,6 +178,15 @@ def create_type_markup(container_name):
 
 
 def create_order_navigation_markup(message_id):
+    """
+    Створює клавіатуру для навігації замовленнями залежно від типу користувача.
+
+    Args:
+        message_id (int): ID повідомлення.
+
+    Returns:
+        types.InlineKeyboardMarkup: Клавіатура для навігації замовленнями.
+    """
     markup = types.InlineKeyboardMarkup(row_width=1)
     if user_data[message_id]["user_type"] == "customer":
         markup.add(
@@ -148,6 +214,15 @@ def create_order_navigation_markup(message_id):
 
 
 def create_material_markup(container_name):
+    """
+    Створює клавіатуру для вибору матеріалів контейнера на основі його назви.
+
+    Args:
+        container_name (str): Назва контейнера.
+
+    Returns:
+        types.InlineKeyboardMarkup: Клавіатура для вибору матеріалів.
+    """
     markup = types.InlineKeyboardMarkup(row_width=1)
     materials = Container.get_materials_by_name(container_name)
     for material in materials:
@@ -156,6 +231,12 @@ def create_material_markup(container_name):
 
 
 def create_main_menu_keyboard():
+    """
+    Створює клавіатуру для переходу до головного меню.
+
+    Returns:
+        types.ReplyKeyboardMarkup: Клавіатура для переходу до головного меню.
+    """
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
     markup.add(types.KeyboardButton("🚪 До головного меню"))
     return markup
