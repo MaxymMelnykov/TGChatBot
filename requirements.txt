@@ -23,6 +23,7 @@ urllib3==2.2.2
 behave~=1.2.6
 sphinx
 sphinx-autodoc-typehints
+sphinx_rtd_theme
 
 ruff
 mypy
