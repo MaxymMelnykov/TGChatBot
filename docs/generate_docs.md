@@ -26,7 +26,7 @@ sys.path.insert(0, os.path.abspath('../../../'))
 
 ### Крок 4: Додавання файлів .rst у [диркеторію](Sphinx/source/)
 Для кожного файлу треба додати у [диркеторію](Sphinx/source/) файл .rst, наприклад для config.rst:
-[приклад](Sphinx/source/config.rst)
+[приклад](Sphinx/source/config_example.rst)
 ### Крок 5: Додавання створених файлів в toctree:
 У файлі [index.rst](Sphinx/source/index.rst) треба написати в toctree назви створених файлів.
 ### Крок 6: Білд

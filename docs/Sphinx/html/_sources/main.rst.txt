@@ -1,7 +1,7 @@
-config.py
-=============
+main.py
+===============
 
-.. automodule:: config
+.. automodule:: main
    :members:
    :undoc-members:
    :show-inheritance:

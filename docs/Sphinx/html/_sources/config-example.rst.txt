@@ -1,0 +1,7 @@
+config-example.py
+=============
+
+.. automodule:: config-example
+   :members:
+   :undoc-members:
+   :show-inheritance:
