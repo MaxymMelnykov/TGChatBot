@@ -2,9 +2,39 @@ from math import ceil
 
 
 class Container:
+    """
+        Клас для представлення контейнера та роботи з колекцією контейнерів.
+
+        Атрибути класу:
+            containers (list): Список усіх створених об'єктів Container.
+
+        Атрибути:
+            container_name (str): Назва контейнера.
+            name_photo (str): Шлях до фото, що відповідає назві.
+            container_material (str): Матеріал контейнера.
+            material_photo (str): Фото матеріалу.
+            container_type (str): Тип контейнера (обʼєм або функціонал).
+            container_type_photo (str): Фото типу контейнера.
+            volume (float): Обʼєм контейнера в м³ або л.
+            price (float): Ціна контейнера в гривнях.
+        """
+
     containers = []
 
     def __init__(self, container_name, name_photo, container_material, material_photo, container_type,container_type_photo, volume, price):
+        """
+        Ініціалізує новий обʼєкт Container та додає його до загального списку.
+
+        Args:
+            container_name (str): Назва контейнера.
+            name_photo (str): Фото за назвою.
+            container_material (str): Матеріал контейнера.
+            material_photo (str): Фото матеріалу.
+            container_type (str): Тип контейнера.
+            container_type_photo (str): Фото типу контейнера.
+            volume (float): Обʼєм контейнера.
+            price (float): Ціна контейнера.
+        """
         self.container_name = container_name
         self.name_photo = name_photo
         self.container_material = container_material
@@ -16,9 +46,24 @@ class Container:
         Container.containers.append(self)
 
     def __str__(self):
+        """
+        Повертає рядкове представлення контейнера.
+
+        Returns:
+            str: Назва, тип та ціна контейнера.
+        """
         return f"{self.container_name}, {self.container_type}: {self.price} грн"
     @staticmethod
     def get_material_photos_by_name(container_name):
+        """
+        Отримати фото матеріалів за назвою контейнера.
+
+        Args:
+            container_name (str): Назва контейнера.
+
+        Returns:
+            list[str]: Список фото матеріалів.
+        """
         material_photoes = []
         for container in Container.containers:
             if container.container_name == container_name:
@@ -27,10 +72,20 @@ class Container:
         return material_photoes
     @staticmethod
     def get_containers():
+        """Повертає всі контейнери."""
         return Container.containers
 
     @staticmethod
     def get_types_by_name(container_name):
+        """
+        Отримати всі типи контейнера за його назвою.
+
+        Args:
+            container_name (str): Назва контейнера.
+
+        Returns:
+            list[str]: Типи контейнерів.
+        """
         types = []
         for container in Container.containers:
             if container.container_name == container_name:
@@ -40,6 +95,7 @@ class Container:
 
     @staticmethod
     def get_names_containers():
+        """Повертає список усіх назв контейнерів."""
         names = []
         for container in Container.containers:
             names.append(container.container_name)
@@ -47,6 +103,15 @@ class Container:
 
     @staticmethod
     def get_price_by_type(container_type):
+        """
+        Отримати ціну контейнера за його типом.
+
+        Args:
+            container_type (str): Тип контейнера.
+
+        Returns:
+            float: Ціна контейнера.
+        """
         for container in Container.containers:
             if container.container_type == container_type:
                 return container.price
@@ -54,6 +119,7 @@ class Container:
 
     @staticmethod
     def get_all_types():
+        """Повертає список усіх типів контейнерів."""
         types = []
         for container in Container.containers:
             types.append(container.container_type)
@@ -61,6 +127,7 @@ class Container:
 
     @staticmethod
     def get_all_materials():
+        """Повертає список усіх матеріалів контейнерів."""
         materials = []
         for container in Container.containers:
             materials.append(container.container_material)
@@ -69,6 +136,7 @@ class Container:
 
     @staticmethod
     def get_photoes_containers():
+        """Повертає унікальні фото назв контейнерів."""
         photoes = []
         for container in Container.containers:
             if container.name_photo not in photoes:
@@ -77,6 +145,15 @@ class Container:
 
     @staticmethod
     def get_photo_by_name(container_name):
+        """
+        Отримати фото назви контейнера.
+
+        Args:
+            container_name (str): Назва контейнера.
+
+        Returns:
+            str: Шлях до фото.
+        """
         photo = ''
         for container in Container.containers:
             if container.container_name == container_name:
@@ -85,6 +162,15 @@ class Container:
 
     @staticmethod
     def get_materials_by_name(container_name):
+        """
+        Отримати всі доступні матеріали для вказаної назви контейнера.
+
+        Args:
+            container_name (str): Назва контейнера.
+
+        Returns:
+            list[str]: Список матеріалів.
+        """
         materials = []
         for container in Container.containers:
             if container.container_name == container_name:
@@ -94,6 +180,17 @@ class Container:
 
     @staticmethod
     def get_price_of_container_by_all_data(container_name, container_type, container_material):
+        """
+        Отримати ціну контейнера за всіма параметрами.
+
+        Args:
+            container_name (str): Назва.
+            container_type (str): Тип.
+            container_material (str): Матеріал.
+
+        Returns:
+            float: Ціна.
+        """
         price_of_container = 0
         for container in Container.containers:
             if container.container_name == container_name:
@@ -103,6 +200,15 @@ class Container:
         return price_of_container
     @staticmethod
     def get_volume_by_type(container_type):
+        """
+        Отримати обʼєм контейнера за типом.
+
+        Args:
+            container_type (str): Тип контейнера.
+
+        Returns:
+            float: Обʼєм.
+        """
         volume = 0
         for container in Container.containers:
             if container.container_type == container_type:
@@ -110,6 +216,15 @@ class Container:
         return volume
     @staticmethod
     def get_photo_by_type(container_type):
+        """
+        Отримати фото типу контейнера.
+
+        Args:
+            container_type (str): Тип.
+
+        Returns:
+            str: Шлях до фото.
+        """
         photo = ''
         for container in Container.containers:
             if container.container_type == container_type:
@@ -117,6 +232,15 @@ class Container:
         return photo
     @staticmethod
     def get_all_type_photos_by_name(container_name):
+        """
+        Отримати всі фото типів контейнерів за назвою.
+
+        Args:
+            container_name (str): Назва.
+
+        Returns:
+            list[str]: Список фото типів.
+        """
         photoes = []
         types = Container.get_types_by_name(container_name)
         for type in types:
@@ -125,6 +249,16 @@ class Container:
 
     @staticmethod
     def get_container_need_more_by_type(container_type,calc_res):
+        """
+        Розрахувати кількість контейнерів, необхідну для зберігання заданого об'єму.
+
+        Args:
+            container_type (str): Тип контейнера.
+            calc_res (float): Розрахунковий обʼєм (м³).
+
+        Returns:
+            int: Кількість контейнерів.
+        """
         container_need_more = 0
         if container_type == '1️⃣ 120л' or container_type == '2️⃣ 50л' or container_type == '3️⃣ 5,0 м³':
             container_need_more = ceil(calc_res / 5.0)
