@@ -77,7 +77,10 @@ class Container:
             if container.container_name == container_name:
                 if container.material_photo not in material_photoes:
                     material_photoes.append(container.material_photo)
-        logger.info(f"Знайдено {len(material_photoes)} фото для контейнера {container_name}.")
+        if material_photoes:
+            logger.info(f"Знайдено {len(material_photoes)} фото для контейнера {container_name}.")
+        else:
+            logger.critical(f"Не знайдено фото матеріалів для контейнерів {container_name}")
         return material_photoes
     @staticmethod
     def get_containers():
@@ -161,7 +164,7 @@ class Container:
         if photoes:
             logger.debug("Отримано унікальні фото назв контейнерів.")
         else:
-            logger.warning("НЕ отримано унікалььні фото назв контейнерів")
+            logger.critical("НЕ отримано унікалььні фото назв контейнерів")
         return photoes
 
     @staticmethod
@@ -183,7 +186,7 @@ class Container:
         if photo:
             logger.info(f"Знайдено фото для контейнера {container_name}.")
         else:
-            logger.warning(f"Фото для контейнера {container_name} не знайдено.")
+            logger.critical(f"Фото для контейнера {container_name} не знайдено.")
         return photo
 
     @staticmethod
@@ -271,7 +274,7 @@ class Container:
         if photo:
             logger.info(f"Фото за типом {container_type} знайдено: {photo}")
         else:
-            logger.warning(f"Фото за типом {container_type} не знайдено!")
+            logger.critical(f"Фото за типом {container_type} не знайдено!")
         return photo
     @staticmethod
     def get_all_type_photos_by_name(container_name):
@@ -292,7 +295,7 @@ class Container:
         if photoes:
             logger.debug(f"Отримано фото типів контейнерів для назви: {container_name}")
         else:
-            logger.warning(f"НЕ Отримано фото типів контейнерів для назви: {container_name}")
+            logger.critical(f"НЕ Отримано фото типів контейнерів для назви: {container_name}")
         return photoes
 
     @staticmethod

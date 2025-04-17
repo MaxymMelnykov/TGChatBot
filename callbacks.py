@@ -11,6 +11,7 @@ from config import (
 )
 from Container import Container
 from handlers import (
+    collect_error_steps,
     get_quantity,
     get_ra_area,
     get_wall_width,
@@ -60,6 +61,11 @@ def setup_callbacks(bot):
         bot.delete_message(message_id, this_message_id)
         bot.send_message(message.chat.id, START_MESSAGE, reply_markup=create_main_markup(), parse_mode='html')
         logger.info(f"Команда '/start' отримана від користувача {message.chat.id}")
+
+    @bot.message_handler(commands=['report_error'])
+    def report_error(message):
+        msg = bot.send_message(message.chat.id, "Опишіть, що сталося (які дії призвели до помилки):")
+        bot.register_next_step_handler(msg, collect_error_steps)
 
     @bot.callback_query_handler(func=lambda callback: True)
     def callback_function(callback):

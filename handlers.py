@@ -1,3 +1,4 @@
+from datetime import datetime
 
 from numpy import ceil
 
@@ -75,7 +76,7 @@ def get_ra_apartments(message):
                 Container.get_photo_by_name("Напівпідземний"),
             ],
             caption=f"Для вашого ЖК потрібно <strong>{ceil(volume)} м³</strong> об`єму контейнерів.\n"
-            f"Виберіть вид контейнера",
+                    f"Виберіть вид контейнера",
             reply_markup=create_get_ra_name_markup(),
         )
     except ValueError:
@@ -85,7 +86,7 @@ def get_ra_apartments(message):
     except TypeError:
         bot.send_message(message_id, TYPE_ERROR_MESSAGE)
         bot.register_next_step_handler(message, get_ra_apartments)
-        logger.exception(f"[{message_id}] Некоректна кількість квартир: {message.text}")
+        logger.exeption(f"[{message_id}] Некоректна кількість квартир: {message.text}")
 
 
 def get_wall_width(message):
@@ -166,13 +167,14 @@ def get_quantity(message):
         container_width = user_data[message_id]["container_width"]
 
         user_data[message_id]["container_volume_of_all_orders"] += (
-            quantity * container_volume
+                quantity * container_volume
         )
         container_volume_of_all_orders = user_data[message_id][
             "container_volume_of_all_orders"
         ]
 
         if not container_photo_path:
+            logger.critical(f"[{message_id} Не знайдено фото для контейнерів]")
             raise FileNotFoundError("No photo path found for container.")
 
         with open(container_photo_path, "rb") as container_photo:
@@ -255,7 +257,7 @@ def get_quantity(message):
 
     except FileNotFoundError as e:
         bot.send_message(message_id, str(e))
-        logger.exception(f"[{message_id} файл не знайдено {str(e)}]")
+        logger.critical(f"[{message_id} файл не знайдено {str(e)}]")
     except ValueError:
         bot.send_message(message_id, VALUE_ERROR_MESSAGE)
         bot.register_next_step_handler(message, get_quantity)
@@ -367,6 +369,7 @@ def get_all_purchases(message):
 
     clear_user_data(message_id)
 
+
 @bot.message_handler(regexp="^🚪 До головного меню$")
 def handle_main_menu(message):
     """
@@ -406,6 +409,57 @@ def handle_contact(message):
     user_data[message.chat.id]["name"] = user_name
 
     get_all_purchases(message)
+
+
+def collect_error_steps(message):
+    user_data[message.chat.id] = {'steps': message.text}
+    msg = bot.send_message(message.chat.id, "Яку ОС / пристрій ви використовуєте?")
+    bot.register_next_step_handler(msg, collect_error_system)
+
+
+def collect_error_system(message):
+    if message.chat.id not in user_data:
+        user_data[message.chat.id] = {}
+    user_data[message.chat.id]['system'] = message.text
+    msg = bot.send_message(message.chat.id, "Прикріпіть скріншот або напищіть будь-що.")
+    bot.register_next_step_handler(msg, collect_error_screenshot)
+
+
+def collect_error_screenshot(message):
+    error = user_data.get(message.chat.id, {
+        'steps': 'невідомо',
+        'system': 'невідомо',
+    })
+
+    try:
+        if message.content_type == 'photo':
+            file_info = bot.get_file(message.photo[-1].file_id)
+            downloaded_file = bot.download_file(file_info.file_path)
+            screenshot_path = f"resources/errors/{message.chat.id}_{datetime.now().isoformat().replace(':', '-')}.jpg"
+
+            with open(screenshot_path, 'wb') as f:
+                f.write(downloaded_file)
+
+            error['screenshot'] = screenshot_path
+        else:
+            error['screenshot'] = 'не надано'
+
+        log_msg = (
+            f"[USER ERROR REPORT] ID: {message.chat.id}\n"
+            f"Steps: {error.get('steps')}\n"
+            f"System: {error.get('system')}\n"
+            f"Screenshot: {error.get('screenshot')}"
+        )
+        logger.error(log_msg)
+        bot.send_message(message.chat.id, "✅ Дякуємо! Повідомлення збережено та передано адміністрації.")
+        bot.send_message(ADMIN_ID, log_msg)
+
+    except Exception:
+        logger.exception(f"[ERROR REPORT FAIL] Не вдалося обробити скаргу від {message.chat.id}")
+        bot.send_message(message.chat.id,
+                         "⚠️ Виникла помилка під час обробки. Спробуйте ще раз або зверніться до підтримки.")
+
+
 def notify_admin(message, orders):
     """
     Відправляє менеджеру повідомлення про нове замовлення від користувача.

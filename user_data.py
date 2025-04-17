@@ -16,7 +16,11 @@ user_data = defaultdict(
              'username': None,
              'name': None,
              'orders': [],
-             'total_sum': 0})
+             'total_sum': 0,
+             "steps": None,
+             "system": None,
+             "screenshot": None
+             })
 """
 Словник за замовчуванням для зберігання даних користувачів.
 

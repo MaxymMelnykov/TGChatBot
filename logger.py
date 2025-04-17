@@ -2,6 +2,8 @@ import logging
 import os
 from logging.handlers import RotatingFileHandler
 
+from config import ADMIN_ID, bot
+
 LOG_FILE = "bot.log"
 LOG_LEVEL = os.getenv("BOT_LOG_LEVEL", "DEBUG").upper()
 
@@ -23,3 +25,18 @@ console_handler.setFormatter(formatter)
 # Додаємо обробники до логера
 logger.addHandler(file_handler)
 logger.addHandler(console_handler)
+
+
+class TelegramCriticalHandler(logging.Handler):
+    def emit(self, record):
+        if record.levelno >= logging.CRITICAL:
+            log_entry = self.format(record)
+            try:
+                bot.send_message(ADMIN_ID, f"🚨 КРИТИЧНА ПОМИЛКА 🚨\n{log_entry}")
+            except Exception as e:
+                print("Не вдалося надіслати критичну помилку:", e)
+
+
+critical_handler = TelegramCriticalHandler()
+critical_handler.setFormatter(formatter)
+logger.addHandler(critical_handler)
