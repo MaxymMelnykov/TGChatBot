@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tg-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tg-bot
+  template:
+    metadata:
+      labels:
+        app: tg-bot
+    spec:
+      containers:
+      - name: tg-bot
+        image: your-dockerhub-username/tg-bot:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: TELEGRAM_BOT_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: bot-secrets
+              key: token
