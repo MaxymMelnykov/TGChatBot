@@ -12,8 +12,15 @@
 
 from callbacks import setup_callbacks
 from config import bot
+from logger import logger
 
 if __name__ == '__main__':
+    logger.info('Запуск Telegram-бота...')
     print('Бота запущено!')
-    setup_callbacks(bot)
-    bot.polling(none_stop=True)
+
+    try:
+        setup_callbacks(bot)
+        logger.debug('Зворотні виклики успішно налаштовано.')
+        bot.polling(none_stop=True)
+    except Exception:
+        logger.critical('Помилка під час запуску бота')

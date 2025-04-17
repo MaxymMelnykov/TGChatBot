@@ -11,15 +11,15 @@ from config import (
 )
 from Container import Container
 from handlers import (
-    get_all_purchases,
     get_quantity,
     get_ra_area,
-    get_telephone_number,
     get_wall_width,
 )
+from logger import logger
 from markups import (
     create_config_customer_markup,
     create_config_markup,
+    create_contact_markup,
     create_contacts_markup,
     create_faq_markup,
     create_get_ra_name_markup,
@@ -59,35 +59,44 @@ def setup_callbacks(bot):
         this_message_id = message.message_id
         bot.delete_message(message_id, this_message_id)
         bot.send_message(message.chat.id, START_MESSAGE, reply_markup=create_main_markup(), parse_mode='html')
+        logger.info(f"Команда '/start' отримана від користувача {message.chat.id}")
 
     @bot.callback_query_handler(func=lambda callback: True)
     def callback_function(callback):
         data = callback.data
         message_id = callback.message.chat.id
         this_message_id = callback.message.message_id
+        logger.info(f"Отримано callback-запит: {data} від користувача {message_id}")
         # Різні callback функції
         if data == 'start':
             bot.delete_message(message_id, this_message_id)
             bot.send_message(message_id, START_MESSAGE, reply_markup=create_main_markup(), parse_mode='html')
+            logger.info(f"Надіслано стартове повідомлення користувачу {message_id}")
         elif data == 'help':
             bot.delete_message(message_id, this_message_id)
             bot.send_message(message_id, HELP_MESSAGE, reply_markup=create_help_markup())
+            logger.info(f"Надіслано повідомлення з допомогою користувачу {message_id}")
         elif data in QUESTIONS:
             _, response = QUESTIONS[data]
             bot.delete_message(message_id, this_message_id)
             bot.send_message(message_id, response, reply_markup=create_faq_markup(), parse_mode='html')
+            logger.info(f"Надіслано відповідь на запит користувача {message_id} по запиту {data}")
         elif data == 'contacts':
             bot.delete_message(message_id, this_message_id)
             bot.send_message(message_id, CONTACTS_MESSAGE, reply_markup=create_contacts_markup(), parse_mode='html')
+            logger.info(f"Надіслано повідомлення з контактами користувачу {message_id}")
         elif data == 'config':
             bot.send_message(message_id, CONFIG_MESSAGE, reply_markup=create_config_markup())
+            logger.info(f"Надіслано налаштування користувачу {message_id}")
         elif data == 'customer':
             user_data[message_id]['user_type'] = data
             send_photos_with_message(message_id, Container.get_photoes_containers(), CONFIG_CUSTOMER_MESSAGE,
                                      reply_markup=create_config_customer_markup())
+            logger.info(f"Користувач {message_id} вибрав роль 'customer'")
         elif data in Container.get_names_containers():
             user_data[message_id]['container_name'] = data
             if user_data[message_id]['user_type'] == 'customer':
+                logger.info(f"Користувач {message_id} вибрав контейнер: {data} як приватний покупець")
                 if data == 'Підземний':
                     send_photos_with_message(message_id, Container.get_all_type_photos_by_name(data),
                                              'У підземного контейнера є 2 типи:\n'
@@ -119,6 +128,8 @@ def setup_callbacks(bot):
                                              f'2️⃣ Зі <strong>звичайною</strong> сміттєприймальною колонкою на <strong>50л</strong>\n\n'
                                              f'Виберіть тип контейнера:',
                                              create_type_markup(data))
+                    logger.info(
+                        f"Користувач {message_id} вибрав контейнер: {data} як забудовник з необхідністю об'єму контейнерів: {container_need_more}")
                 elif data == 'Напівпідземний':
                     container_need_more_2_5 = Container.get_container_need_more_by_type('1️⃣ 2,5 м³', calc_res)
                     container_need_more_3_8 = Container.get_container_need_more_by_type('2️⃣ 3,8 м³', calc_res)
@@ -137,15 +148,20 @@ def setup_callbacks(bot):
                                              f'4️⃣ З об`ємом бака <strong>2,5 м³</strong>, та сортуванням скло/пластик.\n\n'
                                              f'Виберіть тип контейнера:',
                                              create_type_markup(data))
+                    logger.info(
+                        f"Користувач {message_id} вибрав контейнер: {data} як забудовник.")
+                    # TODO : Зробити нормальне логування для вибору типів напівпідземних
 
 
         elif data in Container.get_all_types():
             user_data[message_id]['container_type'] = data
+            logger.info(f"Користувач {message_id} вибрав тип контейнера: {data}")
             container_name = user_data[message_id]['container_name']
             if container_name == 'Підземний' or container_name == 'Напівпідземний':
                 photoes = Container.get_material_photos_by_name(container_name)
                 send_photos_with_message(message_id, photoes, 'Виберіть матеріал контейнера',
                                          create_material_markup(container_name))
+                logger.info(f"Надіслано варіанти матеріалів користувачу {message_id} для контейнера {container_name}")
             else:
                 if data == 'Для сміття різних фракцій' or data == 'Для сміття з попільничкою' or data == 'З дерев`яними вставками':
                     max_width = 5
@@ -153,13 +169,16 @@ def setup_callbacks(bot):
                         max_width = 3
                     bot.send_message(message_id, f'✍🏻 Введіть бажану товщину стінки контейнера (Від 2мм до {max_width}мм)')
                     bot.register_next_step_handler(callback.message, get_wall_width)
+                    logger.info(f"Користувач {message_id} вказує товщину стінки для контейнера типу {data}")
                 else:
                     bot.send_message(message_id, '✍🏻 Введіть кількість контейнерів:')
                     bot.register_next_step_handler(callback.message, get_quantity)
+                    logger.info(f"Користувач {message_id} вводить кількість контейнерів")
 
 
         elif data in Container.get_all_materials():
             user_data[message_id]['container_material'] = data
+            logger.info(f"Користувач {message_id} вибрав матеріал контейнера: {data}")
             if user_data[message_id]['container_name'] != 'Підземний':
                 container_type = user_data[message_id]['container_type']
                 calc_res = user_data[message_id]['container_calc_res_ra'] - user_data[message_id][
@@ -180,11 +199,9 @@ def setup_callbacks(bot):
                                  reply_markup=create_sensor_markup())
 
         elif data == 'customer_end':
-            if callback.from_user.username is None:
-                bot.send_message(message_id, 'Будь ласка, введіть ваш номер телефону, щоб наш менеджер міг зв`язатись з вами.')
-                bot.register_next_step_handler(callback.message, get_telephone_number)
-            else:
-                get_all_purchases(callback)
+            bot.send_message(message_id,
+                             'Надішліть, будь ласка свій контакт, щоб менеджер міг зв`язатись з Вами',
+                             reply_markup=create_contact_markup())
         elif data == 'ra':
             user_id = callback.message.chat.id
             user_data[user_id]['user_type'] = data

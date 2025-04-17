@@ -13,6 +13,8 @@ user_data = defaultdict(
              'container_underground_sensor': False,
              'container_width': 0,  # Товщина стінки контейнера
              'telephone_number': None,
+             'username': None,
+             'name': None,
              'orders': [],
              'total_sum': 0})
 """

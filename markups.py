@@ -159,9 +159,9 @@ def create_type_markup(container_name):
         types.InlineKeyboardMarkup: Клавіатура для вибору типу контейнера.
     """
     if (
-        container_name == "Підземний"
-        or container_name == "Напівпідземний"
-        or container_name == "Для небезпечних відходів"
+            container_name == "Підземний"
+            or container_name == "Напівпідземний"
+            or container_name == "Для небезпечних відходів"
     ):
         markup = types.InlineKeyboardMarkup(row_width=3)
     elif container_name == "Сортувальний":
@@ -239,4 +239,10 @@ def create_main_menu_keyboard():
     """
     markup = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
     markup.add(types.KeyboardButton("🚪 До головного меню"))
+    return markup
+
+
+def create_contact_markup():
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+    markup.add(types.KeyboardButton("📱 Надіслати свій номер телефону", request_contact=True))
     return markup

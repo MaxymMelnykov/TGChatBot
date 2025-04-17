@@ -1,4 +1,3 @@
-import re
 
 from numpy import ceil
 
@@ -6,10 +5,12 @@ from config import (
     ADMIN_ID,
     CONFIG_RA_APARTMENTS_MESSAGE,
     START_MESSAGE,
+    TYPE_ERROR_MESSAGE,
     VALUE_ERROR_MESSAGE,
     bot,
 )
 from Container import Container
+from logger import logger
 from markups import (
     create_get_ra_name_markup,
     create_main_markup,
@@ -32,18 +33,20 @@ def get_ra_area(message):
         - Якщо значення некоректне, з'являється повідомлення про помилку.
     """
     user_id = message.chat.id
-    if message.text is not None:
-        try:
-            area = float(message.text)
-            user_data[user_id]["area"] = area
-            bot.send_message(user_id, CONFIG_RA_APARTMENTS_MESSAGE)
-            bot.register_next_step_handler(message, get_ra_apartments)
-        except ValueError:
-            bot.send_message(user_id, VALUE_ERROR_MESSAGE)
-            bot.register_next_step_handler(message, get_ra_area)
-    else:
+    try:
+        area = float(message.text)
+        user_data[user_id]["area"] = area
+        bot.send_message(user_id, CONFIG_RA_APARTMENTS_MESSAGE)
+        bot.register_next_step_handler(message, get_ra_apartments)
+        logger.info(f"[{user_id}] Введена площа: {area}")
+    except ValueError:
         bot.send_message(user_id, VALUE_ERROR_MESSAGE)
         bot.register_next_step_handler(message, get_ra_area)
+        logger.exception(f"[{user_id}] Некоректне значення площі: {message.text}")
+    except TypeError:
+        bot.send_message(user_id, TYPE_ERROR_MESSAGE)
+        bot.register_next_step_handler(message, get_ra_area)
+        logger.exception(f"[{user_id}] TypeError при введенні площі: {message.text}")
 
 
 def get_ra_apartments(message):
@@ -58,27 +61,31 @@ def get_ra_apartments(message):
         - Якщо значення некоректне, з'являється повідомлення про помилку.
     """
     message_id = message.chat.id
-    if message.text is not None:
-        try:
-            apartments = int(message.text)
-            user_data[message_id]["apartments"] = apartments
-            calculate_ra_volume_count(message_id)
-            send_photos_with_message(
-                message_id,
-                [
-                    Container.get_photo_by_name("Підземний"),
-                    Container.get_photo_by_name("Напівпідземний"),
-                ],
-                caption=f"Для вашого ЖК потрібно <strong>{ceil(calculate_ra_volume_count(message_id))} м³</strong> об`єму контейнерів.\n"
-                f"Виберіть вид контейнера",
-                reply_markup=create_get_ra_name_markup(),
-            )
-        except ValueError:
-            bot.send_message(message_id, VALUE_ERROR_MESSAGE)
-            bot.register_next_step_handler(message, get_ra_apartments)
-    else:
+    try:
+        apartments = int(message.text)
+        user_data[message_id]["apartments"] = apartments
+        logger.info(f"[{message_id}] Введена кількість квартир: {apartments}")
+
+        volume = calculate_ra_volume_count(message_id)
+        logger.info(f"[{message_id}] Обчислений об'єм контейнерів для ЖК: {volume} м³")
+        send_photos_with_message(
+            message_id,
+            [
+                Container.get_photo_by_name("Підземний"),
+                Container.get_photo_by_name("Напівпідземний"),
+            ],
+            caption=f"Для вашого ЖК потрібно <strong>{ceil(volume)} м³</strong> об`єму контейнерів.\n"
+            f"Виберіть вид контейнера",
+            reply_markup=create_get_ra_name_markup(),
+        )
+    except ValueError:
         bot.send_message(message_id, VALUE_ERROR_MESSAGE)
         bot.register_next_step_handler(message, get_ra_apartments)
+        logger.exception(f"[{message_id}] Некоректна кількість квартир: {message.text}")
+    except TypeError:
+        bot.send_message(message_id, TYPE_ERROR_MESSAGE)
+        bot.register_next_step_handler(message, get_ra_apartments)
+        logger.exception(f"[{message_id}] Некоректна кількість квартир: {message.text}")
 
 
 def get_wall_width(message):
@@ -93,28 +100,31 @@ def get_wall_width(message):
         - Якщо значення коректне, переходимо до введення кількості контейнерів.
     """
     message_id = message.chat.id
-    if message.text is not None:
-        try:
-            width = int(message.text)
-            if width < 2 or width > 5:
-                bot.send_message(
-                    message_id,
-                    "Ви ввели некорректну товщину стінок контейнерів.\n"
-                    "✍🏻 Введіть бажану товщину стінок контейнерів:",
-                )
-                bot.register_next_step_handler(message, get_wall_width)
-            else:
-                user_data[message_id]["container_width"] = width
-                bot.send_message(
-                    message_id, "✍🏻 Введіть бажану кількість контейнерів: "
-                )
-                bot.register_next_step_handler(message, get_quantity)
-        except ValueError:
-            bot.send_message(message_id, VALUE_ERROR_MESSAGE)
+    try:
+        width = int(message.text)
+        if width < 2 or width > 5:
+            bot.send_message(
+                message_id,
+                "Ви ввели некорректну товщину стінок контейнерів.\n"
+                "✍🏻 Введіть бажану товщину стінок контейнерів:",
+            )
             bot.register_next_step_handler(message, get_wall_width)
-    else:
+            logger.warning(f"[{message_id}] Некоректна товщина стінки: {width}")
+        else:
+            user_data[message_id]["container_width"] = width
+            logger.info(f"[{message_id}] Введена товщина стінки: {width}")
+            bot.send_message(
+                message_id, "✍🏻 Введіть бажану кількість контейнерів: "
+            )
+            bot.register_next_step_handler(message, get_quantity)
+    except ValueError:
         bot.send_message(message_id, VALUE_ERROR_MESSAGE)
         bot.register_next_step_handler(message, get_wall_width)
+        logger.exception(f"[{message_id}] Некоректна товщина стінки {message.text}")
+    except TypeError:
+        bot.send_message(message_id, TYPE_ERROR_MESSAGE)
+        bot.register_next_step_handler(message, get_wall_width)
+        logger.exception(f"[{message_id}] Некоректна товщина стінки {message.text}")
 
 
 def get_quantity(message):
@@ -130,9 +140,9 @@ def get_quantity(message):
     """
     message_id = message.chat.id
     quantity_text = message.text
-
     try:
         quantity = int(quantity_text)
+        logger.info(f"[{message_id} введена кількість контейнерів: {message.text}]")
         user_data[message_id]["container_quantity"] = quantity
 
         container_volume_needed_for_ra = user_data[message_id]["container_calc_res_ra"]
@@ -245,9 +255,15 @@ def get_quantity(message):
 
     except FileNotFoundError as e:
         bot.send_message(message_id, str(e))
+        logger.exception(f"[{message_id} файл не знайдено {str(e)}]")
     except ValueError:
         bot.send_message(message_id, VALUE_ERROR_MESSAGE)
         bot.register_next_step_handler(message, get_quantity)
+        logger.exception(f"[{message_id} Неккоректна кількість контейнерів {message.text}]")
+    except TypeError:
+        bot.send_message(message_id, TYPE_ERROR_MESSAGE)
+        bot.register_next_step_handler(message, get_quantity)
+        logger.exception(f"[{message_id} Неккоректна кількість контейнерів {message.text}]")
 
 
 def get_all_purchases(message):
@@ -351,34 +367,6 @@ def get_all_purchases(message):
 
     clear_user_data(message_id)
 
-
-def get_telephone_number(message):  # TODO: Поменять на отправку контакта пользователем
-    """
-    Отримує номер телефону користувача та перевіряє правильність введених даних.
-
-    Args:
-        message (Message): Повідомлення від користувача, яке містить номер телефону.
-
-    Returns:
-        - Якщо введено корректний номер - перезыд до наступного етапу.
-        - Якщо введено некорректний номер телефону - повыдомлення про помилку та функцыя запускаэться знову.
-    """
-    message_id = message.chat.id
-    ua_phone_regex = re.compile(r"^\+?380\d{9}$|^0\d{9}$")
-    if message.text is not None:
-        if ua_phone_regex.match(message.text):
-            user_data[message_id]["telephone_number"] = message.text
-            get_all_purchases(message)
-        else:
-            bot.send_message(
-                message_id, "Введіть корректний номер телефону, будь ласка."
-            )
-            bot.register_next_step_handler(message, get_telephone_number)
-    else:
-        bot.send_message(message_id, "Введіть корректний номер телефону, будь ласка.")
-        bot.register_next_step_handler(message, get_telephone_number)
-
-
 @bot.message_handler(regexp="^🚪 До головного меню$")
 def handle_main_menu(message):
     """
@@ -409,7 +397,15 @@ def send_main_menu(user_id):
     )
 
 
-# Відправлення менеджеру повідомлення про нове замовлення.
+@bot.message_handler(content_types=['contact'])
+def handle_contact(message):
+    phone_number = message.contact.phone_number
+    user_name = message.contact.first_name
+
+    user_data[message.chat.id]["telephone_number"] = phone_number
+    user_data[message.chat.id]["name"] = user_name
+
+    get_all_purchases(message)
 def notify_admin(message, orders):
     """
     Відправляє менеджеру повідомлення про нове замовлення від користувача.
@@ -424,15 +420,13 @@ def notify_admin(message, orders):
     message_id = message.chat.id
 
     user_id = message.chat.id
-    user_username = message.from_user.username
-    user_name = message.from_user.first_name or "Невідоме"
+    user_name = user_data[message.chat.id]["name"]
     user_telephone_number = user_data[message_id]["telephone_number"]
     total_sum = user_data[message_id]["total_sum"]
     message_lines = [
         f"<b>🚨 Нове замовлення від клієнта 🚨</b>\n"
         f"<b>🆔 ID користувача: </b> {user_id}\n"
         f"<b>👤 Ім'я користувача: </b> {user_name}\n"
-        f"<b>📧 Username користувача: </b> @{user_username}\n"
         f"<b>📱 Моб телефон користувача: </b> {user_telephone_number}\n",
         f"<b>💵 Загальна сума:</b> від {total_sum} $",
         "-----------------------------------------",
@@ -485,6 +479,6 @@ def notify_admin(message, orders):
             )
 
     message = "\n".join(message_lines)
-
     bot.send_message(ADMIN_ID, message, parse_mode="HTML")
+    logger.info(f'[{message_id} Менеджеру відправлено повідомлення {message}]')
     # bot.send_message(ADMIN_ID_SECOND, message, parse_mode='HTML')

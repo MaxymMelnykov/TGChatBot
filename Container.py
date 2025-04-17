@@ -1,5 +1,7 @@
 from math import ceil
 
+from logger import logger
+
 
 class Container:
     """
@@ -35,6 +37,9 @@ class Container:
             volume (float): Обʼєм контейнера.
             price (float): Ціна контейнера.
         """
+
+        logger.debug(
+            f"Створення контейнера: {container_name}, тип: {container_type}, обʼєм: {volume} м³, ціна: {price} грн")
         self.container_name = container_name
         self.name_photo = name_photo
         self.container_material = container_material
@@ -44,6 +49,7 @@ class Container:
         self.volume = volume
         self.price = price
         Container.containers.append(self)
+        logger.info(f"Контейнер {self.container_name} успішно доданий до списку контейнерів.")
 
     def __str__(self):
         """
@@ -52,6 +58,7 @@ class Container:
         Returns:
             str: Назва, тип та ціна контейнера.
         """
+        logger.debug(f"Виведення рядкового представлення контейнера: {self.container_name}")
         return f"{self.container_name}, {self.container_type}: {self.price} грн"
     @staticmethod
     def get_material_photos_by_name(container_name):
@@ -65,14 +72,17 @@ class Container:
             list[str]: Список фото матеріалів.
         """
         material_photoes = []
+        logger.debug(f"Отримання фото матеріалів для контейнера: {container_name}")
         for container in Container.containers:
             if container.container_name == container_name:
                 if container.material_photo not in material_photoes:
                     material_photoes.append(container.material_photo)
+        logger.info(f"Знайдено {len(material_photoes)} фото для контейнера {container_name}.")
         return material_photoes
     @staticmethod
     def get_containers():
         """Повертає всі контейнери."""
+        logger.debug("Отримання всіх контейнерів.")
         return Container.containers
 
     @staticmethod
@@ -86,11 +96,13 @@ class Container:
         Returns:
             list[str]: Типи контейнерів.
         """
+        logger.debug(f"Отримання типів контейнера за назвою: {container_name}")
         types = []
         for container in Container.containers:
             if container.container_name == container_name:
                 if container.container_type not in types:
                     types.append(container.container_type)
+        logger.info(f"Знайдено {len(types)} типів для контейнера {container_name}.")
         return types
 
     @staticmethod
@@ -112,14 +124,17 @@ class Container:
         Returns:
             float: Ціна контейнера.
         """
+        logger.debug(f"Отримання ціни контейнера за типом: {container_type}")
         for container in Container.containers:
             if container.container_type == container_type:
                 return container.price
+        logger.warning(f"Ціна для типу {container_type} не знайдена.")
         return 0
 
     @staticmethod
     def get_all_types():
         """Повертає список усіх типів контейнерів."""
+        logger.debug("Отримання всіх типів контейнерів.")
         types = []
         for container in Container.containers:
             types.append(container.container_type)
@@ -128,6 +143,7 @@ class Container:
     @staticmethod
     def get_all_materials():
         """Повертає список усіх матеріалів контейнерів."""
+        logger.debug("Отримання всіх матеріалів контейнерів.")
         materials = []
         for container in Container.containers:
             materials.append(container.container_material)
@@ -137,10 +153,15 @@ class Container:
     @staticmethod
     def get_photoes_containers():
         """Повертає унікальні фото назв контейнерів."""
+        logger.debug("Отримання унікальних фото назв контейнерів.")
         photoes = []
         for container in Container.containers:
             if container.name_photo not in photoes:
                 photoes.append(container.name_photo)
+        if photoes:
+            logger.debug("Отримано унікальні фото назв контейнерів.")
+        else:
+            logger.warning("НЕ отримано унікалььні фото назв контейнерів")
         return photoes
 
     @staticmethod
@@ -154,10 +175,15 @@ class Container:
         Returns:
             str: Шлях до фото.
         """
+        logger.debug(f"Отримання фото за назвою контейнера: {container_name}")
         photo = ''
         for container in Container.containers:
             if container.container_name == container_name:
                 photo = container.name_photo
+        if photo:
+            logger.info(f"Знайдено фото для контейнера {container_name}.")
+        else:
+            logger.warning(f"Фото для контейнера {container_name} не знайдено.")
         return photo
 
     @staticmethod
@@ -171,11 +197,16 @@ class Container:
         Returns:
             list[str]: Список матеріалів.
         """
+        logger.debug(f"Отримання матеріалів для контейнера: {container_name}")
         materials = []
         for container in Container.containers:
             if container.container_name == container_name:
                 if container.container_material not in materials:
                     materials.append(container.container_material)
+        if materials:
+            logger.debug(f"Отримано матеріали для контейнера: {container_name}")
+        else:
+            logger.warning(f"НЕ отримано матеріали для контейнера: {container_name}")
         return materials
 
     @staticmethod
@@ -191,12 +222,19 @@ class Container:
         Returns:
             float: Ціна.
         """
+        logger.debug(
+            f"Отримання ціни контейнера за параметрами: {container_name}, {container_type}, {container_material}")
         price_of_container = 0
         for container in Container.containers:
             if container.container_name == container_name:
                 if container.container_type == container_type:
                     if container.container_material == container_material:
                         price_of_container = container.price
+        if price_of_container:
+            logger.info(f"Ціна контейнера: {price_of_container} грн.")
+        else:
+            logger.warning(
+                f"Ціна для контейнера за параметрами {container_name}, {container_type}, {container_material} не знайдена.")
         return price_of_container
     @staticmethod
     def get_volume_by_type(container_type):
@@ -225,10 +263,15 @@ class Container:
         Returns:
             str: Шлях до фото.
         """
+        logger.debug(f"Отримання фото типу контейнера: {container_type}")
         photo = ''
         for container in Container.containers:
             if container.container_type == container_type:
                 photo = container.container_type_photo
+        if photo:
+            logger.info(f"Фото за типом {container_type} знайдено: {photo}")
+        else:
+            logger.warning(f"Фото за типом {container_type} не знайдено!")
         return photo
     @staticmethod
     def get_all_type_photos_by_name(container_name):
@@ -241,10 +284,15 @@ class Container:
         Returns:
             list[str]: Список фото типів.
         """
+        logger.debug(f"Отримання всіх фото типів контейнерів для назви: {container_name}")
         photoes = []
         types = Container.get_types_by_name(container_name)
         for type in types:
             photoes.append(Container.get_photo_by_type(type))
+        if photoes:
+            logger.debug(f"Отримано фото типів контейнерів для назви: {container_name}")
+        else:
+            logger.warning(f"НЕ Отримано фото типів контейнерів для назви: {container_name}")
         return photoes
 
     @staticmethod
@@ -276,15 +324,12 @@ Container('Підземний', './resources/name_photo/pidzemniy.jpg', 'Ста�
 Container('Напівпідземний', './resources/name_photo/napivpidzemniy.jpg', 'Сталь нержавіюча перфорована','./resources/material_photo/stal_nerzha_perf.jpg', '1️⃣ 2,5 м³','./resources/type_photo/napivpidzemniy_type_25.jpg', 2.5, 2800)
 Container('Напівпідземний', './resources/name_photo/napivpidzemniy.jpg', 'Сталь нержавіюча перфорована','./resources/material_photo/stal_nerzha_perf.jpg', '2️⃣ 3,8 м³','./resources/type_photo/napivpidzemniy_type_38.jpg', 3.8, 3800)
 Container('Напівпідземний', './resources/name_photo/napivpidzemniy.jpg', 'Сталь нержавіюча перфорована','./resources/material_photo/stal_nerzha_perf.jpg', '3️⃣ 5,0 м³','./resources/type_photo/napivpidzemniy_type_50.jpg', 5.0, 4550)
-Container('Напівпідземний', './resources/name_photo/napivpidzemniy.jpg', 'Сталь нержавіюча перфорована','./resources/material_photo/stal_nerzha_perf.jpg', '4️⃣ 2,5 м³, для сортування','./resources/type_photo/napivpidzemniy_type_sort.jpg', 2.5, 3200)
 Container('Напівпідземний', './resources/name_photo/napivpidzemniy.jpg', 'Профіль настил кольоровий','./resources/material_photo/profnastyl.jpg', '1️⃣ 2,5 м³','./resources/type_photo/napivpidzemniy_type_25.jpg', 2.5, 2800)
 Container('Напівпідземний', './resources/name_photo/napivpidzemniy.jpg', 'Профіль настил кольоровий','./resources/material_photo/profnastyl.jpg', '2️⃣ 3,8 м³','./resources/type_photo/napivpidzemniy_type_38.jpg', 3.8, 3800)
 Container('Напівпідземний', './resources/name_photo/napivpidzemniy.jpg', 'Профіль настил кольоровий','./resources/material_photo/profnastyl.jpg', '3️⃣ 5,0 м³','./resources/type_photo/napivpidzemniy_type_50.jpg', 5.0, 4550)
-Container('Напівпідземний', './resources/name_photo/napivpidzemniy.jpg', 'Профіль настил кольоровий','./resources/material_photo/profnastyl.jpg', '4️⃣ 2,5 м³, для сортування','./resources/type_photo/napivpidzemniy_type_sort.jpg', 2.5, 3200)
 Container('Напівпідземний', './resources/name_photo/napivpidzemniy.jpg', 'Деревина різних порід','./resources/material_photo/derevyna_rizn_porid.jpg', '1️⃣ 2,5 м³','./resources/type_photo/napivpidzemniy_type_25.jpg', 2.5, 2800)
 Container('Напівпідземний', './resources/name_photo/napivpidzemniy.jpg', 'Деревина різних порід','./resources/material_photo/derevyna_rizn_porid.jpg', '2️⃣ 3,8 м³','./resources/type_photo/napivpidzemniy_type_38.jpg', 3.8, 3800)
 Container('Напівпідземний', './resources/name_photo/napivpidzemniy.jpg', 'Деревина різних порід','./resources/material_photo/derevyna_rizn_porid.jpg', '3️⃣ 5,0 м³','./resources/type_photo/napivpidzemniy_type_50.jpg', 5.0, 4550)
-Container('Напівпідземний', './resources/name_photo/napivpidzemniy.jpg', 'Деревина різних порід','./resources/material_photo/derevyna_rizn_porid.jpg', '4️⃣ 2,5 м³, для сортування','./resources/type_photo/napivpidzemniy_type_sort.jpg', 2.5, 3200)
 Container('Сортувальний', './resources/name_photo/sortyvalniy.jpg', 'Матеріал','', '3в1 330 літрів','./resources/type_photo/sortyvalniy_3v1_330.jpg', 0, 860)
 Container('Сортувальний', './resources/name_photo/sortyvalniy.jpg', 'Матеріал','', '3в1 540 літрів','./resources/type_photo/sortyvalniy_3v1_540.jpg', 0, 950)
 Container('Сортувальний', './resources/name_photo/sortyvalniy.jpg', 'Матеріал','', 'Дзвін','./resources/type_photo/sortyvalniy_dzvin.jpg', 0, 690)
