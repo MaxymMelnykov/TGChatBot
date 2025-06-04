@@ -62,7 +62,7 @@ Getting Started
 ====================
 
 1. Клонуйте репозиторій:
-   git clone https://github.com/ваш-юзернейм/TGChatBot.git
+   git clone https://github.com/MaxymMelnykov/TGChatBot.git
 2. Встановіть всі залежності
    pip install -r requirements.txt
 3. Налаштування:

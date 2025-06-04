@@ -26,7 +26,6 @@ def create_main_markup():
     )
     return markup
 
-
 def create_help_markup():
     """
     Створює клавіатуру для допомоги, що містить питання та контактні кнопки.

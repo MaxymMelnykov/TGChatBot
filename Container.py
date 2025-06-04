@@ -11,14 +11,14 @@ class Container:
             containers (list): Список усіх створених об'єктів Container.
 
         Атрибути:
-            container_name (str): Назва контейнера.
-            name_photo (str): Шлях до фото, що відповідає назві.
-            container_material (str): Матеріал контейнера.
-            material_photo (str): Фото матеріалу.
-            container_type (str): Тип контейнера (обʼєм або функціонал).
-            container_type_photo (str): Фото типу контейнера.
-            volume (float): Обʼєм контейнера в м³ або л.
-            price (float): Ціна контейнера в гривнях.
+            - container_name (str): Назва контейнера.
+            - name_photo (str): Шлях до фото, що відповідає назві.
+            - container_material (str): Матеріал контейнера.
+            - material_photo (str): Фото матеріалу.
+            - container_type (str): Тип контейнера (обʼєм або функціонал).
+            - container_type_photo (str): Фото типу контейнера.
+            - volume (float): Обʼєм контейнера в м³ або л.
+            - price (float): Ціна контейнера в гривнях.
         """
 
     containers = []
